@@ -1,0 +1,12 @@
+{
+  "name": "triple-w-tms-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Triple W Rentals — WÜRTH 400 Texas Motor Speedway landing page",
+  "dependencies": {
+    "resend": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
