@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WÜRTH 400 RV Rental · Texas Motor Speedway · Triple W Rentals</title>
-    <meta name="description" content="Premium RV delivered and fully set up at Texas Motor Speedway for the WÜRTH 400 weekend, May 1–3, 2026. Skip the hotel. Skip the traffic. 4.7 stars · 193 reviews.">
+    <title>NASCAR Race Weekend RV Rental · Texas Motor Speedway · May 1–3 · Triple W Rentals</title>
+    <meta name="description" content="Premium RV delivered and fully set up at Texas Motor Speedway for the NASCAR Triple-Header weekend, May 1–3, 2026. Three races. One home base. Skip the hotel, skip the traffic. 4.7 stars · 193 reviews.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,6 +97,82 @@
     .stripe-wrap.go .sr{width:100%;transition:width .28s cubic-bezier(.4,0,.2,1)}
     .stripe-wrap.go .sw{width:100%;transition:width .28s cubic-bezier(.4,0,.2,1) .14s}
     .stripe-wrap.go .sb{width:100%;transition:width .28s cubic-bezier(.4,0,.2,1) .28s}
+
+    /* ============================================================
+       RACE WEEKEND — Animated Tri-Color Section
+    ============================================================ */
+    .race-weekend{
+        position:relative;overflow:hidden;
+        padding:72px 0;background:#080808;
+    }
+    .rw__bg{
+        position:absolute;inset:0;
+        display:flex;flex-direction:column;
+    }
+    .rw__band{
+        flex:1;width:0;
+        transition:width .72s cubic-bezier(.22,1,.36,1);
+    }
+    .rw__band--r{background:var(--r)}
+    .rw__band--w{background:var(--w)}
+    .rw__band--b{background:var(--b)}
+    .race-weekend.go .rw__band--r{width:100%}
+    .race-weekend.go .rw__band--w{width:100%;transition-delay:.15s}
+    .race-weekend.go .rw__band--b{width:100%;transition-delay:.30s}
+    .rw__overlay{
+        position:absolute;inset:0;
+        background:linear-gradient(
+            to right,
+            rgba(8,8,8,.82) 0%,
+            rgba(8,8,8,.72) 50%,
+            rgba(8,8,8,.82) 100%
+        );
+    }
+    .rw__inner{
+        position:relative;z-index:2;
+        text-align:center;
+    }
+    .rw__label{
+        font-size:10px;font-weight:600;
+        letter-spacing:.22em;text-transform:uppercase;
+        color:rgba(244,239,230,.32);margin-bottom:44px;
+        display:block;
+    }
+    .rw__events{
+        display:flex;align-items:center;
+        justify-content:center;
+        flex-wrap:wrap;gap:0;
+    }
+    .rw__event{
+        flex:1;min-width:200px;max-width:300px;
+        padding:0 36px;
+    }
+    .rw__event-day{
+        font-size:10px;font-weight:600;
+        letter-spacing:.18em;text-transform:uppercase;
+        color:var(--gold);margin-bottom:12px;display:block;
+    }
+    .rw__event-name{
+        font-family:'Playfair Display',serif;
+        font-size:clamp(16px,1.8vw,21px);
+        font-weight:700;color:var(--text);
+        margin-bottom:8px;line-height:1.25;
+    }
+    .rw__event-series{
+        font-size:11.5px;color:var(--text3);
+        letter-spacing:.05em;
+    }
+    .rw__sep{
+        width:1px;height:68px;flex-shrink:0;
+        background:rgba(244,239,230,.10);
+        align-self:center;
+    }
+    @media(max-width:700px){
+        .race-weekend{padding:56px 0}
+        .rw__events{flex-direction:column;gap:36px}
+        .rw__sep{width:48px;height:1px;align-self:auto}
+        .rw__event{padding:0 20px;max-width:100%}
+    }
 
     /* ============================================================
        STICKY NAV
@@ -764,7 +840,7 @@
 
     <div class="wrap">
         <div class="hero__content">
-            <div class="event-pill fi">WÜRTH 400 · Texas Motor Speedway · May 1–3, 2026</div>
+            <div class="event-pill fi">NASCAR Triple-Header · Texas Motor Speedway · May 1–3, 2026</div>
             <h1 class="fi d1">
                 Your Home Base<br><em>at the Track.</em>
             </h1>
@@ -787,7 +863,7 @@
                     Call to Reserve Now
                 </a>
                 <a href="#quote-form" class="btn btn-ghost">
-                    Get a Free Quote
+                    Reserve Your RV
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -809,13 +885,41 @@
 
 
 <!-- ══════════════════════════════════════
-     RACING STRIPE DIVIDER — One Strong Use
+     RACE WEEKEND — TRI-COLOR ANIMATED SECTION
 ══════════════════════════════════════ -->
-<div class="stripe-wrap" data-stripe>
-    <div class="s sr"></div>
-    <div class="s sw"></div>
-    <div class="s sb"></div>
-</div>
+<section class="race-weekend" data-rw>
+    <!-- Color bands sweep left → right on scroll -->
+    <div class="rw__bg">
+        <div class="rw__band rw__band--r"></div>
+        <div class="rw__band rw__band--w"></div>
+        <div class="rw__band rw__band--b"></div>
+    </div>
+    <!-- Overlay keeps content legible -->
+    <div class="rw__overlay"></div>
+    <!-- Event info -->
+    <div class="wrap rw__inner">
+        <span class="rw__label fi">3-Race NASCAR Weekend &nbsp;·&nbsp; May 1–3, 2026 &nbsp;·&nbsp; Texas Motor Speedway &nbsp;·&nbsp; Fort Worth, TX</span>
+        <div class="rw__events">
+            <div class="rw__event fi d1">
+                <span class="rw__event-day">Friday · May 1 · 7:00 PM</span>
+                <div class="rw__event-name">SpeedyCash.com 250</div>
+                <div class="rw__event-series">NASCAR Craftsman Truck Series</div>
+            </div>
+            <div class="rw__sep fi d2"></div>
+            <div class="rw__event fi d2">
+                <span class="rw__event-day">Saturday · May 2 · 3:30 PM</span>
+                <div class="rw__event-name">Andy's Frozen Custard 340</div>
+                <div class="rw__event-series">NASCAR Xfinity Series</div>
+            </div>
+            <div class="rw__sep fi d3"></div>
+            <div class="rw__event fi d3">
+                <span class="rw__event-day">Sunday · May 3</span>
+                <div class="rw__event-name">WÜRTH 400</div>
+                <div class="rw__event-series">NASCAR Cup Series &nbsp;·&nbsp; The Main Event</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <!-- ══════════════════════════════════════
@@ -879,7 +983,7 @@
                 <div class="pain fi d2">
                     <div class="pain__tag">The Camping Problem</div>
                     <h3>Basic Camping?</h3>
-                    <p>Nobody bought tickets to the WÜRTH 400 to sleep in a tent and
+                    <p>Nobody bought tickets to a NASCAR race weekend to sleep in a tent and
                     figure out camp stoves at midnight. Basic camping is available.
                     It is not the same as this.</p>
                 </div>
@@ -895,14 +999,13 @@
 <section class="solution sec">
     <div class="wrap">
         <div class="solution__inner">
-            <span class="overline fi">The Better Way</span>
-            <h2 class="fi d1">
+            <h2 class="fi">
                 Live the Race Weekend.<br>We Handle Everything Else.
             </h2>
             <p class="fi d2">
                 Triple W Rentals delivers a fully set-up, hotel-quality RV directly to
-                Texas Motor Speedway for the WÜRTH 400 weekend. You arrive. It's ready.
-                You unpack your cooler.
+                Texas Motor Speedway for the full NASCAR Triple-Header weekend. You arrive.
+                It's ready. You unpack your cooler.
             </p>
             <p class="fi d2">
                 From May 1 through May 3, your RV is your home base — all three races
@@ -935,8 +1038,7 @@
 <section class="sec">
     <div class="wrap">
         <div class="how__hd">
-            <span class="overline fi">The Process</span>
-            <h2 class="fi d1">Three Steps. Zero Hassle.</h2>
+            <h2 class="fi">Three Steps. Zero Hassle.</h2>
         </div>
         <div class="steps">
             <div class="step fi">
@@ -976,8 +1078,7 @@
 <section class="fleet sec">
     <div class="wrap">
         <div class="fleet__hd">
-            <span class="overline fi">The Fleet</span>
-            <h2 class="fi d1">This Is Not Basic Camping.</h2>
+            <h2 class="fi">This Is Not Basic Camping.</h2>
             <p class="fleet__sub fi d2">
                 Hotel-quality RVs delivered and set up at the track.
                 This is premium race weekend hospitality.
@@ -1061,8 +1162,7 @@
 <section class="compare sec">
     <div class="wrap">
         <div class="compare__hd">
-            <span class="overline fi">The Math</span>
-            <h2 class="fi d1">Do the Math for Your Group.</h2>
+            <h2 class="fi">Do the Math for Your Group.</h2>
             <p class="compare__sub fi d2">
                 For a group of 6–8, the RV is often cheaper than hotels — and it's always better.
             </p>
@@ -1134,8 +1234,7 @@
 <section class="reviews sec">
     <div class="wrap">
         <div class="reviews__hd">
-            <span class="overline fi">What They're Saying</span>
-            <h2 class="fi d1">193 Reviews. 4.7 Stars.</h2>
+            <h2 class="fi">193 Reviews. 4.7 Stars.</h2>
             <p class="reviews__sub fi d2">From families, groups, and event-goers across Texas.</p>
         </div>
         <div class="reviews-grid">
@@ -1168,8 +1267,7 @@
 <section class="timeline sec">
     <div class="wrap">
         <div class="timeline__hd">
-            <span class="overline fi">The Experience</span>
-            <h2 class="fi d1">What Your Race Weekend Looks Like</h2>
+            <h2 class="fi">What Your Race Weekend Looks Like</h2>
         </div>
         <div class="tl-grid">
             <div class="tl-day fi">
@@ -1214,7 +1312,7 @@
                 maintained units — and they book out for major Texas events well in advance.
             </p>
             <p class="fi d2">
-                The WÜRTH 400 weekend is one of the highest-demand events of the year.
+                This NASCAR Triple-Header weekend is one of the highest-demand events of the year.
                 If you're considering it, now is the right time — not after you've checked
                 three other options and come back to find it's gone.
             </p>
@@ -1228,10 +1326,10 @@
                              a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7
                              A2 2 0 0122 16.92z"/>
                 </svg>
-                Check Availability Now
+                Reserve Your RV Now
             </a>
             <p style="margin-top:16px;font-size:12.5px;color:var(--text3)">
-                Or scroll down to request a quote ↓
+                Or scroll down to reserve online ↓
             </p>
         </div>
     </div>
@@ -1244,8 +1342,7 @@
 <section class="faq sec">
     <div class="wrap">
         <div class="faq__hd">
-            <span class="overline fi">Questions</span>
-            <h2 class="fi d1">Everything You Need to Know</h2>
+            <h2 class="fi">Everything You Need to Know</h2>
         </div>
         <div class="faq-list">
 
@@ -1312,7 +1409,7 @@
                         <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
                     </svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">Starting from $200/night. For a 3-night weekend like the WÜRTH 400, we can discuss a full package when you call — typically the better deal. Clear quote, no surprises.</div></div>
+                <div class="faq-a"><div class="faq-a__in">Starting from $200/night. For a 3-night weekend like the TMS Triple-Header, we can discuss a full package when you call — typically the better deal. Clear quote, no surprises.</div></div>
             </div>
 
             <div class="faq-item fi">
@@ -1351,8 +1448,7 @@
 
             <!-- LEFT -->
             <div>
-                <span class="overline fi">Reserve Your Spot</span>
-                <h2 class="fi d1">
+                <h2 class="fi">
                     Three Days of NASCAR.<br>One Premium Home Base.
                 </h2>
                 <p class="cta-sec__body fi d2">
@@ -1371,7 +1467,7 @@
             <!-- RIGHT — Lead Form -->
             <div class="fi d2">
                 <form class="lead-form" id="leadForm" novalidate>
-                    <div class="lead-form__title">Request a Free Quote</div>
+                    <div class="lead-form__title">Reserve Your RV</div>
                     <p class="lead-form__sub">
                         We'll confirm availability and pricing — typically within a few hours.
                     </p>
@@ -1434,7 +1530,7 @@
                     </div>
 
                     <button type="submit" class="form-sub" id="formSubmit">
-                        <span class="btn-label">Request My Quote →</span>
+                        <span class="btn-label">Reserve Your RV →</span>
                         <div class="spinner"></div>
                     </button>
 
@@ -1493,13 +1589,21 @@ var fadeObs = new IntersectionObserver(function (entries) {
 }, { threshold: 0.09, rootMargin: '0px 0px -28px 0px' });
 document.querySelectorAll('.fi:not(.hero .fi)').forEach(function (el) { fadeObs.observe(el); });
 
-/* ------ 3. RACING STRIPE ANIMATION ------ */
-var stripeObs = new IntersectionObserver(function (entries) {
+/* ------ 3. RACE WEEKEND STRIPE ANIMATION ------ */
+var rwObs = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('go'); stripeObs.unobserve(e.target); }
+        if (e.isIntersecting) {
+            e.target.classList.add('go');
+            /* Stagger content fade-in after stripes finish */
+            var items = e.target.querySelectorAll('.fi');
+            items.forEach(function(el, i) {
+                setTimeout(function(){ el.classList.add('v'); }, 380 + i * 110);
+            });
+            rwObs.unobserve(e.target);
+        }
     });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-stripe]').forEach(function (el) { stripeObs.observe(el); });
+}, { threshold: 0.18 });
+document.querySelectorAll('[data-rw]').forEach(function (el) { rwObs.observe(el); });
 
 /* ------ 4. FAQ ACCORDION ------ */
 document.querySelectorAll('.faq-q').forEach(function (btn) {
