@@ -15,20 +15,20 @@
        TOKENS
     ============================================================ */
     :root {
-        --bg:        #0A0A0A;
-        --bg2:       #0F0F0F;
-        --bg3:       #141414;
-        --bg4:       #191714;
+        --bg:        #000000;
+        --bg2:       #0D0D0D;
+        --bg3:       #121110;
+        --bg4:       #1C1916;
         --gold:      #C9962C;
         --gold-h:    #D4A843;
         --gold-dim:  rgba(201,150,44,.11);
         --text:      #F4EFE6;
-        --text2:     #9E9080;
-        --text3:     #5E5650;
-        --line:      #242220;
-        --r:         #B22234;
+        --text2:     #A89F94;
+        --text3:     #6A6058;
+        --line:      #272320;
+        --r:         #C8102E;
         --w:         #EAE4D8;
-        --b:         #3C3B6E;
+        --b:         #084891;
         --nav-h:     70px;
     }
 
@@ -119,14 +119,22 @@
     .race-weekend.go .rw__band--r{width:100%}
     .race-weekend.go .rw__band--w{width:100%;transition-delay:.15s}
     .race-weekend.go .rw__band--b{width:100%;transition-delay:.30s}
+    /* Vignette — darkens only edges, lets full R/W/B colours breathe */
     .rw__overlay{
         position:absolute;inset:0;
-        background:linear-gradient(
-            to right,
-            rgba(8,8,8,.82) 0%,
-            rgba(8,8,8,.72) 50%,
-            rgba(8,8,8,.82) 100%
-        );
+        background:
+            linear-gradient(to bottom,
+                rgba(0,0,0,.55) 0%,
+                transparent 20%,
+                transparent 80%,
+                rgba(0,0,0,.55) 100%
+            ),
+            linear-gradient(to right,
+                rgba(0,0,0,.28) 0%,
+                transparent 14%,
+                transparent 86%,
+                rgba(0,0,0,.28) 100%
+            );
     }
     .rw__inner{
         position:relative;z-index:2;
@@ -135,8 +143,9 @@
     .rw__label{
         font-size:10px;font-weight:600;
         letter-spacing:.22em;text-transform:uppercase;
-        color:rgba(244,239,230,.32);margin-bottom:44px;
+        color:rgba(255,255,255,.85);margin-bottom:44px;
         display:block;
+        text-shadow:0 1px 10px rgba(0,0,0,.7);
     }
     .rw__events{
         display:flex;align-items:center;
@@ -148,23 +157,26 @@
         padding:0 36px;
     }
     .rw__event-day{
-        font-size:10px;font-weight:600;
+        font-size:10px;font-weight:700;
         letter-spacing:.18em;text-transform:uppercase;
-        color:var(--gold);margin-bottom:12px;display:block;
+        color:#FFE08A;margin-bottom:12px;display:block;
+        text-shadow:0 1px 8px rgba(0,0,0,.8);
     }
     .rw__event-name{
         font-family:'Playfair Display',serif;
-        font-size:clamp(16px,1.8vw,21px);
-        font-weight:700;color:var(--text);
+        font-size:clamp(17px,1.9vw,23px);
+        font-weight:800;color:#FFFFFF;
         margin-bottom:8px;line-height:1.25;
+        text-shadow:0 2px 12px rgba(0,0,0,.75);
     }
     .rw__event-series{
-        font-size:11.5px;color:var(--text3);
+        font-size:11.5px;color:rgba(255,255,255,.72);
         letter-spacing:.05em;
+        text-shadow:0 1px 6px rgba(0,0,0,.7);
     }
     .rw__sep{
         width:1px;height:68px;flex-shrink:0;
-        background:rgba(244,239,230,.10);
+        background:rgba(255,255,255,.22);
         align-self:center;
     }
     @media(max-width:700px){
@@ -231,15 +243,15 @@
         background:
             linear-gradient(
                 to right,
-                rgba(10,10,10,.94) 0%,
-                rgba(10,10,10,.78) 40%,
-                rgba(10,10,10,.45) 68%,
-                rgba(10,10,10,.22) 100%
+                rgba(0,0,0,.97) 0%,
+                rgba(0,0,0,.92) 38%,
+                rgba(0,0,0,.58) 62%,
+                rgba(0,0,0,.22) 100%
             ),
             linear-gradient(
                 to top,
-                rgba(10,10,10,.60) 0%,
-                transparent 40%
+                rgba(0,0,0,.70) 0%,
+                transparent 38%
             );
     }
 
@@ -281,7 +293,7 @@
     .hero h1 em{font-style:italic;color:var(--gold)}
     .hero__sub{
         font-size:clamp(16px,1.9vw,19px);
-        color:var(--text2);font-weight:300;
+        color:rgba(244,239,230,.82);font-weight:300;
         max-width:520px;margin-bottom:42px;line-height:1.75;
     }
     .hero__btns{
@@ -306,7 +318,7 @@
 
     .hero__trust{
         display:flex;align-items:center;gap:8px;
-        font-size:12.5px;color:var(--text3);flex-wrap:wrap;
+        font-size:12.5px;color:rgba(244,239,230,.55);flex-wrap:wrap;
     }
     .hero__trust .stars{color:var(--gold);letter-spacing:0}
     .hero__trust-dot{
@@ -586,8 +598,8 @@
     .urgency__inner{max-width:640px;margin:0 auto}
     .urgency-badge{
         display:inline-block;margin-bottom:22px;
-        background:rgba(178,34,52,.10);border:1px solid rgba(178,34,52,.28);
-        color:#D85060;font-size:10.5px;font-weight:600;
+        background:rgba(200,16,46,.10);border:1px solid rgba(200,16,46,.28);
+        color:#E04060;font-size:10.5px;font-weight:600;
         letter-spacing:.15em;text-transform:uppercase;
         padding:6px 16px;border-radius:2px;
     }
@@ -714,8 +726,8 @@
     }
     .form-msg.error{
         display:block;
-        background:rgba(178,34,52,.10);
-        border:1px solid rgba(178,34,52,.28);color:#E06070;
+        background:rgba(200,16,46,.10);
+        border:1px solid rgba(200,16,46,.28);color:#E06070;
     }
     .form-micro{
         text-align:center;font-size:11.5px;
@@ -922,34 +934,6 @@
 </section>
 
 
-<!-- ══════════════════════════════════════
-     SOCIAL PROOF BAR
-══════════════════════════════════════ -->
-<section class="proof-bar sec-sm">
-    <div class="wrap">
-        <div class="proof-stats">
-            <div class="pstat fi">
-                <span class="pstat__n">4.7★</span>
-                <span class="pstat__l">Star Rating</span>
-            </div>
-            <div class="pstat fi d1">
-                <span class="pstat__n">193</span>
-                <span class="pstat__l">Verified Reviews</span>
-            </div>
-            <div class="pstat fi d2">
-                <span class="pstat__n">50+</span>
-                <span class="pstat__l">Rentals Delivered</span>
-            </div>
-            <div class="pstat fi d3">
-                <span class="pstat__n">24/7</span>
-                <span class="pstat__l">On-Trip Support</span>
-            </div>
-        </div>
-        <p class="proof-bar__quote fi" style="margin-top:22px;">
-            "We've handled horse shows, corporate events, family reunions — and race weekends just like this one."
-        </p>
-    </div>
-</section>
 
 
 <!-- ══════════════════════════════════════
@@ -1240,9 +1224,9 @@
         <div class="reviews-grid">
             <div class="rcard fi">
                 <div class="rcard__stars">★★★★★</div>
-                <p class="rcard__text">"Showed up and everything was already set up perfectly. The RV was cleaner than most hotels I've stayed in. Hands down the best way to do a race weekend — we're already booked for next year."</p>
-                <div class="rcard__author">Marcus T.</div>
-                <div class="rcard__ctx">Group of 8 · Event Rental</div>
+                <p class="rcard__text">"Pulled up Friday and it was already parked, set up, ready to go. Beds made, kitchen stocked, power and water connected. Three days of racing without a single logistics headache. That's the experience right there."</p>
+                <div class="rcard__author">Chris B.</div>
+                <div class="rcard__ctx">Group of 6 · Full Race Weekend</div>
             </div>
             <div class="rcard fi d1">
                 <div class="rcard__stars">★★★★★</div>
@@ -1259,6 +1243,33 @@
         </div>
     </div>
 </section>
+
+<!-- ══════════════════════════════════════
+     PROOF BAR
+══════════════════════════════════════ -->
+<div class="proof-bar sec">
+    <div class="wrap">
+        <div class="proof-stats">
+            <div class="pstat fi">
+                <span class="pstat__n">4.7★</span>
+                <span class="pstat__l">Average Rating</span>
+            </div>
+            <div class="pstat fi d1">
+                <span class="pstat__n">193</span>
+                <span class="pstat__l">Verified Reviews</span>
+            </div>
+            <div class="pstat fi d2">
+                <span class="pstat__n">50+</span>
+                <span class="pstat__l">Race Weekends</span>
+            </div>
+            <div class="pstat fi d3">
+                <span class="pstat__n">100%</span>
+                <span class="pstat__l">White-Glove Setup</span>
+            </div>
+        </div>
+        <p class="proof-bar__quote fi d4">"The only way to do a race weekend." — Confirmed from Google &amp; Facebook Reviews</p>
+    </div>
+</div>
 
 
 <!-- ══════════════════════════════════════
