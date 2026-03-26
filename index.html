@@ -23,7 +23,7 @@
         --gold-h:    #D4A843;
         --gold-dim:  rgba(201,150,44,.11);
         --text:      #F4EFE6;
-        --text2:     #A89F94;
+        --text2:     #B8AFA4;
         --text3:     #6A6058;
         --line:      #272320;
         --r:         #C8102E;
@@ -53,6 +53,7 @@
     .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
     .sec{padding:104px 0}
     .sec-sm{padding:56px 0}
+    .sec-tight{padding:72px 0}
 
     /* ============================================================
        SCROLL ANIMATIONS
@@ -174,71 +175,75 @@
     .hero__stripe-bottom .b{background:var(--b)}
 
     /* ============================================================
-       EVENT COUNTDOWN CARDS
+       EVENT COUNTDOWN CARDS — Premium Rebuild
     ============================================================ */
     .ev-strip{background:var(--bg2);position:relative;overflow:hidden}
-    .ev-strip__hd{text-align:center;margin-bottom:52px}
+    .ev-strip__hd{text-align:center;margin-bottom:48px}
     .ev-strip__hd h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:8px}
-    .ev-strip__sub{font-size:13px;color:var(--text3);letter-spacing:.06em}
-    .ev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .ev-strip__sub{font-size:14px;color:var(--text2);letter-spacing:.04em}
+    .ev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .ev-card{
-        position:relative;overflow:hidden;border-radius:10px;
-        min-height:340px;display:flex;flex-direction:column;
-        justify-content:flex-end;padding:32px 28px;
-        border:1px solid var(--line);
+        position:relative;overflow:hidden;border-radius:8px;
+        min-height:320px;display:flex;flex-direction:column;
+        justify-content:flex-end;padding:30px 26px;
+        border:1px solid rgba(255,255,255,.06);
     }
     .ev-card__bg{
         position:absolute;inset:0;background-size:cover;
-        background-position:center;transition:transform 6s ease;
+        background-position:center;transition:transform 8s ease;
+        filter:brightness(.7);
     }
-    .ev-card:hover .ev-card__bg{transform:scale(1.04)}
+    .ev-card:hover .ev-card__bg{transform:scale(1.05)}
     .ev-card__overlay{
         position:absolute;inset:0;
-        background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.35) 100%);
+        background:linear-gradient(to top,rgba(0,0,0,.96) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.40) 100%);
     }
     .ev-card__accent{
-        position:absolute;top:0;left:0;right:0;height:3px;
+        position:absolute;top:0;left:0;right:0;height:2px;
     }
     .ev-card:nth-child(1) .ev-card__accent{background:var(--r)}
     .ev-card:nth-child(2) .ev-card__accent{background:var(--w)}
     .ev-card:nth-child(3) .ev-card__accent{background:var(--b)}
     .ev-card__inner{position:relative;z-index:2}
     .ev-card__series{
-        font-size:9.5px;font-weight:600;letter-spacing:.18em;
-        text-transform:uppercase;color:var(--gold);margin-bottom:8px;
+        font-size:9px;font-weight:600;letter-spacing:.20em;
+        text-transform:uppercase;color:var(--gold);margin-bottom:6px;opacity:.9;
     }
     .ev-card__name{
-        font-family:'Playfair Display',serif;font-size:clamp(20px,2.2vw,28px);
-        font-weight:800;color:#fff;margin-bottom:4px;line-height:1.2;
+        font-family:'Playfair Display',serif;font-size:clamp(19px,2vw,25px);
+        font-weight:700;color:#fff;margin-bottom:3px;line-height:1.2;
+    }
+    .ev-card__tagline{
+        font-size:11.5px;color:rgba(255,255,255,.5);font-style:italic;
+        margin-bottom:4px;letter-spacing:.02em;
     }
     .ev-card__date{
-        font-size:12px;color:rgba(255,255,255,.6);margin-bottom:20px;
+        font-size:11.5px;color:rgba(255,255,255,.55);margin-bottom:18px;
         font-weight:500;letter-spacing:.03em;
     }
-    .ev-countdown{display:flex;gap:8px}
+    .ev-countdown{display:flex;gap:6px}
     .ev-cd-box{
-        background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.10);
-        border-radius:6px;padding:10px 0;min-width:56px;text-align:center;
-        backdrop-filter:blur(6px);
+        background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+        border-radius:4px;padding:8px 0;min-width:50px;text-align:center;
     }
     .ev-cd-box__n{
-        font-family:'Inter',sans-serif;font-size:22px;font-weight:800;
+        font-family:'Inter',sans-serif;font-size:20px;font-weight:700;
         color:#fff;line-height:1;display:block;
         font-variant-numeric:tabular-nums;
     }
     .ev-cd-box__l{
-        font-size:8px;font-weight:600;letter-spacing:.14em;
-        text-transform:uppercase;color:rgba(255,255,255,.45);
-        margin-top:4px;display:block;
+        font-size:7.5px;font-weight:600;letter-spacing:.16em;
+        text-transform:uppercase;color:rgba(255,255,255,.35);
+        margin-top:3px;display:block;
     }
 
     /* ============================================================
        DECISION CONTRAST — 4-column
     ============================================================ */
     .contrast{background:var(--bg3)}
-    .contrast__hd{text-align:center;margin-bottom:56px}
-    .contrast__hd h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:8px}
-    .contrast__sub{font-size:15px;color:var(--text2)}
+    .contrast__hd{text-align:center;margin-bottom:52px}
+    .contrast__hd h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:10px}
+    .contrast__sub{font-size:16px;color:var(--text2)}
     .contrast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
     .contrast-col{
         background:var(--bg4);border:1px solid var(--line);border-radius:10px;
@@ -270,7 +275,7 @@
     .contrast-col--winner h3{color:var(--gold)}
     .contrast-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
     .contrast-col li{
-        font-size:13px;color:var(--text2);line-height:1.5;
+        font-size:13.5px;color:var(--text2);line-height:1.5;
         padding-left:18px;position:relative;
     }
     .contrast-col li::before{
@@ -282,13 +287,34 @@
     .contrast-col--winner li{color:var(--text)}
 
     /* ============================================================
-       SOLUTION
+       SOLUTION — Horizontal benefit system
     ============================================================ */
     .solution{background:var(--bg2)}
-    .solution__inner{max-width:760px;margin:0 auto;text-align:center}
-    .solution h2{font-size:clamp(32px,4vw,54px);margin-bottom:30px}
-    .solution p{font-size:17px;color:var(--text2);line-height:1.88;margin-bottom:18px}
-    .solution p:last-of-type{margin-bottom:42px}
+    .solution__grid{
+        display:grid;grid-template-columns:1fr 1fr;
+        gap:60px;align-items:center;
+    }
+    .solution h2{font-size:clamp(30px,3.6vw,50px);margin-bottom:20px}
+    .solution__lead{font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:32px}
+    .solution__lead strong{color:var(--text);font-weight:600}
+    .benefit-list{list-style:none;display:flex;flex-direction:column;gap:0}
+    .benefit-item{
+        display:flex;align-items:flex-start;gap:16px;
+        padding:18px 0;border-bottom:1px solid var(--line);
+    }
+    .benefit-item:first-child{border-top:1px solid var(--line)}
+    .benefit-item__icon{
+        width:38px;height:38px;flex-shrink:0;
+        display:flex;align-items:center;justify-content:center;
+        border-radius:8px;background:rgba(201,150,44,.08);
+        border:1px solid rgba(201,150,44,.18);color:var(--gold);
+    }
+    .benefit-item__text{flex:1}
+    .benefit-item h4{
+        font-family:'Inter',sans-serif;font-size:15px;font-weight:700;
+        color:var(--text);margin-bottom:2px;
+    }
+    .benefit-item p{font-size:13.5px;color:var(--text2);line-height:1.55}
 
     /* ============================================================
        HOW IT WORKS — Upgraded
@@ -302,33 +328,27 @@
         gap:0;position:relative;align-items:stretch;
     }
     .step{
-        background:var(--bg2);padding:50px 34px;
+        background:var(--bg3);padding:44px 30px;
         border:1px solid var(--line);border-radius:10px;
         position:relative;text-align:center;
     }
-    .step__icon{
-        width:52px;height:52px;margin:0 auto 18px;
-        display:flex;align-items:center;justify-content:center;
-        border-radius:50%;background:rgba(201,150,44,.10);
-        border:1px solid rgba(201,150,44,.22);color:var(--gold);
-    }
     .step__n{
-        font-family:'Playfair Display',serif;font-size:54px;font-weight:800;
-        color:var(--gold-dim);line-height:1;margin-bottom:14px;display:block;
+        font-family:'Playfair Display',serif;font-size:72px;font-weight:800;
+        color:rgba(201,150,44,.14);line-height:1;margin-bottom:6px;display:block;
     }
     .step h3{
-        font-family:'Inter',sans-serif;font-size:17px;font-weight:700;
-        color:var(--text);margin-bottom:9px;
+        font-family:'Inter',sans-serif;font-size:18px;font-weight:700;
+        color:var(--text);margin-bottom:8px;
     }
-    .step p{font-size:14px;color:var(--text2);line-height:1.78}
+    .step p{font-size:14.5px;color:var(--text2);line-height:1.7}
     /* Connector arrows between steps */
     .step-connector{
         display:flex;align-items:center;justify-content:center;
         color:var(--gold);opacity:.4;align-self:center;
-        padding:0 10px;
+        padding:0 12px;
     }
     .how__note{
-        text-align:center;margin-top:34px;font-size:13px;color:var(--text3);
+        text-align:center;margin-top:34px;font-size:13.5px;color:var(--text3);
     }
     .how__note strong{color:var(--text2)}
 
@@ -342,6 +362,7 @@
         text-align:center;font-size:17px;color:var(--text2);
         max-width:580px;margin:0 auto 52px;line-height:1.7;
     }
+    .fleet__intro strong{color:var(--text);font-weight:600}
     .fleet-grid{
         display:grid;grid-template-columns:58% 1fr;
         grid-template-rows:260px 220px;gap:8px;
@@ -354,14 +375,14 @@
     .fleet-ph:nth-child(1){grid-row:span 2}
     .fleet-ph::after{
         content:'';position:absolute;inset:0;
-        background:linear-gradient(to top,rgba(10,10,10,.4) 0%,transparent 50%);
+        background:linear-gradient(to top,rgba(10,10,10,.55) 0%,transparent 50%);
         transition:opacity .4s;
     }
     .fleet-ph__label{
         position:absolute;bottom:16px;left:16px;z-index:2;
-        font-size:10px;font-weight:600;letter-spacing:.12em;
-        text-transform:uppercase;color:rgba(244,239,230,.7);
-        background:rgba(10,10,10,.75);padding:5px 12px;border-radius:3px;
+        font-size:11px;font-weight:600;letter-spacing:.08em;
+        color:rgba(244,239,230,.85);
+        background:rgba(10,10,10,.78);padding:6px 14px;border-radius:3px;
         backdrop-filter:blur(4px);
     }
     .amenity-grid{
@@ -374,24 +395,25 @@
         border:1px solid var(--line);border-radius:6px;
     }
     .amenity svg{color:var(--gold);flex-shrink:0;margin-top:1px}
-    .amenity span{font-size:13.5px;color:var(--text2);line-height:1.5}
+    .amenity span{font-size:14px;color:var(--text2);line-height:1.5}
     .fleet__note{text-align:center;font-size:12.5px;color:var(--text3);font-style:italic}
 
     /* ============================================================
        COMPARISON TABLE — Upgraded
     ============================================================ */
     .compare{background:var(--bg)}
-    .compare__hd{text-align:center;margin-bottom:52px}
+    .compare__hd{text-align:center;margin-bottom:14px}
     .compare__hd h2{font-size:clamp(30px,3.4vw,46px);margin-bottom:11px}
-    .compare__sub{font-size:15.5px;color:var(--text2)}
+    .compare__sub{font-size:16px;color:var(--text2)}
     .compare__verdict{
-        text-align:center;font-size:14.5px;color:var(--text2);margin-bottom:32px;
-        font-style:italic;
+        text-align:center;font-size:15px;color:var(--text2);margin-bottom:36px;
+        max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7;
     }
+    .compare__verdict strong{color:var(--gold);font-weight:600}
     .tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line)}
     table{width:100%;border-collapse:collapse;min-width:560px}
     th{
-        padding:17px 20px;text-align:center;font-size:11.5px;font-weight:600;
+        padding:20px 22px;text-align:center;font-size:11.5px;font-weight:600;
         letter-spacing:.09em;text-transform:uppercase;border-bottom:1px solid var(--line);
     }
     th:first-child{text-align:left;color:var(--text3);background:var(--bg)}
@@ -405,21 +427,21 @@
     }
     th.c-w .best-badge{
         display:inline-block;background:var(--gold);color:#0A0A0A;
-        font-size:8px;font-weight:700;letter-spacing:.12em;padding:2px 8px;
+        font-size:8px;font-weight:700;letter-spacing:.12em;padding:3px 10px;
         border-radius:2px;margin-left:8px;vertical-align:middle;
     }
     td{
-        padding:14px 20px;font-size:13.5px;color:var(--text2);text-align:center;
+        padding:16px 22px;font-size:14px;color:var(--text2);text-align:center;
         border-bottom:1px solid var(--line);
     }
     td:first-child{text-align:left;color:var(--text);font-weight:500}
     tr:last-child td{border-bottom:none}
     td.c-w{
-        background:rgba(201,150,44,.05);color:var(--text);font-weight:500;
+        background:rgba(201,150,44,.05);color:var(--text);font-weight:600;
         border-left:1px solid rgba(201,150,44,.16);
         border-right:1px solid rgba(201,150,44,.16);
     }
-    .chk{color:var(--gold)}
+    .chk{color:var(--gold);font-weight:700}
     .crs{color:var(--text3)}
     .par{color:var(--text2);font-style:italic}
     .compare-note{text-align:center;margin-top:16px;font-size:11.5px;color:var(--text3);font-style:italic}
@@ -428,34 +450,40 @@
        REVIEWS — Upgraded
     ============================================================ */
     .reviews{background:var(--bg3)}
-    .reviews__hd{text-align:center;margin-bottom:52px}
+    .reviews__hd{text-align:center;margin-bottom:42px}
     .reviews__hd h2{font-size:clamp(28px,3vw,44px);margin-bottom:5px}
-    .reviews__sub{font-size:13px;color:var(--text3)}
-    /* Featured quote */
+    .reviews__sub{font-size:13.5px;color:var(--text3)}
+    /* Featured quote — larger, more dominant */
     .reviews__featured{
-        text-align:center;margin-bottom:48px;padding:36px 28px;
-        border:1px solid var(--line);border-radius:10px;background:var(--bg4);
-        max-width:700px;margin-left:auto;margin-right:auto;
+        text-align:center;margin-bottom:48px;padding:48px 36px;
+        border:1px solid rgba(201,150,44,.18);border-radius:10px;
+        background:linear-gradient(to bottom,rgba(201,150,44,.04),var(--bg4));
+        max-width:740px;margin-left:auto;margin-right:auto;
     }
-    .reviews__featured-stars{font-size:22px;color:var(--gold);letter-spacing:4px;margin-bottom:14px}
+    .reviews__featured-stars{font-size:26px;color:var(--gold);letter-spacing:5px;margin-bottom:18px}
     .reviews__featured-quote{
-        font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,28px);
-        font-weight:700;color:var(--text);line-height:1.35;font-style:italic;
-        margin-bottom:12px;
+        font-family:'Playfair Display',serif;font-size:clamp(22px,2.8vw,34px);
+        font-weight:700;color:var(--text);line-height:1.3;font-style:italic;
+        margin-bottom:16px;
     }
-    .reviews__featured-src{font-size:11.5px;color:var(--text3);letter-spacing:.08em}
+    .reviews__featured-src{font-size:12px;color:var(--text3);letter-spacing:.08em}
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .rcard{
         background:var(--bg4);border:1px solid var(--line);border-radius:8px;padding:30px 26px;
     }
     .rcard__stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
-    .rcard__text{font-size:14.5px;color:var(--text2);font-style:italic;line-height:1.82;margin-bottom:22px}
-    .rcard__author{font-size:12.5px;font-weight:600;color:var(--text)}
-    .rcard__ctx{font-size:11.5px;color:var(--text3);margin-top:3px}
+    .rcard__text{font-size:15px;color:var(--text2);font-style:italic;line-height:1.8;margin-bottom:20px}
+    .rcard__author{font-size:14px;font-weight:700;color:var(--text)}
+    .rcard__ctx{font-size:12px;color:var(--text2);margin-top:3px}
     .rcard__verified{
         display:inline-flex;align-items:center;gap:4px;
         font-size:10px;color:var(--gold);font-weight:600;
         letter-spacing:.06em;margin-top:8px;
+    }
+    .rcard__source{
+        display:inline-flex;align-items:center;gap:5px;
+        font-size:10px;color:var(--text3);font-weight:500;
+        letter-spacing:.04em;margin-top:5px;
     }
 
     /* ============================================================
@@ -475,32 +503,38 @@
     .pstat__l{font-size:10.5px;color:var(--text3);letter-spacing:.10em;text-transform:uppercase}
 
     /* ============================================================
-       RACE WEEKEND TIMELINE
+       RACE WEEKEND TIMELINE — Cinematic
     ============================================================ */
     .timeline{background:var(--bg)}
-    .timeline__hd{text-align:center;margin-bottom:60px}
-    .timeline__hd h2{font-size:clamp(28px,3.4vw,46px)}
+    .timeline__hd{text-align:center;margin-bottom:56px}
+    .timeline__hd h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:10px}
+    .timeline__sub{font-size:16px;color:var(--text2)}
     .tl-grid{
         display:grid;grid-template-columns:repeat(3,1fr);
         gap:2px;background:var(--line);border-radius:8px;overflow:hidden;
     }
-    .tl-day{background:var(--bg4);padding:46px 30px;position:relative}
+    .tl-day{background:var(--bg4);padding:42px 28px;position:relative}
     .tl-day::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
     .tl-day:nth-child(1)::before{background:var(--r)}
     .tl-day:nth-child(2)::before{background:rgba(234,228,216,.55)}
     .tl-day:nth-child(3)::before{background:var(--b)}
     .tl-day__dt{
         font-size:10.5px;font-weight:600;letter-spacing:.14em;
-        text-transform:uppercase;color:var(--text3);margin-bottom:8px;
+        text-transform:uppercase;color:var(--text3);margin-bottom:6px;
     }
     .tl-day__race{
-        font-family:'Playfair Display',serif;font-size:16.5px;font-weight:700;
-        color:var(--gold);margin-bottom:16px;line-height:1.35;
+        font-family:'Playfair Display',serif;font-size:17px;font-weight:700;
+        color:var(--gold);margin-bottom:4px;line-height:1.3;
     }
-    .tl-day p{font-size:13.5px;color:var(--text2);line-height:1.88}
+    .tl-day__vibe{
+        font-size:12px;font-style:italic;color:var(--text3);margin-bottom:14px;
+        letter-spacing:.02em;
+    }
+    .tl-day p{font-size:14.5px;color:var(--text2);line-height:1.8}
+    .tl-day strong{color:var(--text);font-weight:600}
 
     /* ============================================================
-       URGENCY / SCARCITY
+       URGENCY / SCARCITY — Aggressive
     ============================================================ */
     .urgency{
         background:var(--bg2);text-align:center;
@@ -514,15 +548,27 @@
         letter-spacing:.15em;text-transform:uppercase;
         padding:6px 16px;border-radius:2px;
     }
-    .urgency h2{font-size:clamp(34px,5vw,62px);margin-bottom:22px;line-height:1.08}
-    .urgency p{font-size:16.5px;color:var(--text2);line-height:1.88;margin-bottom:16px}
-    .urgency p:last-of-type{margin-bottom:42px}
+    .urgency h2{font-size:clamp(34px,5vw,62px);margin-bottom:28px;line-height:1.08}
+    .urgency-bullets{
+        list-style:none;display:flex;flex-direction:column;gap:10px;
+        text-align:left;max-width:420px;margin:0 auto 36px;
+    }
+    .urgency-bullets li{
+        font-size:15.5px;color:var(--text2);line-height:1.55;
+        padding-left:24px;position:relative;
+    }
+    .urgency-bullets li::before{
+        content:'';position:absolute;left:0;top:8px;
+        width:6px;height:6px;border-radius:50%;
+        background:var(--r);
+    }
+    .urgency-bullets li strong{color:var(--text);font-weight:600}
 
     /* ============================================================
-       FAQ
+       FAQ — Tighter
     ============================================================ */
     .faq{background:var(--bg3)}
-    .faq__hd{text-align:center;margin-bottom:52px}
+    .faq__hd{text-align:center;margin-bottom:40px}
     .faq__hd h2{font-size:clamp(28px,3.4vw,44px)}
     .faq-list{max-width:720px;margin:0 auto}
     .faq-item{border-bottom:1px solid var(--line)}
@@ -530,27 +576,28 @@
     .faq-q{
         width:100%;display:flex;align-items:center;
         justify-content:space-between;gap:18px;
-        padding:21px 0;background:none;border:none;
+        padding:18px 0;background:none;border:none;
         cursor:pointer;text-align:left;color:var(--text);
     }
-    .faq-q__t{font-size:15px;font-weight:500;line-height:1.45}
+    .faq-q__t{font-size:15.5px;font-weight:600;line-height:1.45}
     .faq-icon{width:18px;height:18px;flex-shrink:0;color:var(--gold);transition:transform .3s}
     .faq-item.open .faq-icon{transform:rotate(45deg)}
     .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
     .faq-item.open .faq-a{max-height:400px}
-    .faq-a__in{padding:0 0 20px;font-size:14.5px;color:var(--text2);line-height:1.85}
+    .faq-a__in{padding:0 0 18px;font-size:14.5px;color:var(--text2);line-height:1.85}
 
     /* ============================================================
-       FINAL CTA + LEAD FORM — Premium
+       FINAL CTA + LEAD FORM — Premium Close
     ============================================================ */
     .cta-sec{background:var(--bg)}
     .cta-sec__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-    .cta-sec h2{font-size:clamp(30px,3.4vw,46px);margin-bottom:22px}
-    .cta-sec__body{font-size:15.5px;color:var(--text2);line-height:1.88;margin-bottom:28px}
+    .cta-sec h2{font-size:clamp(28px,3.2vw,44px);margin-bottom:20px}
+    .cta-sec__body{font-size:16px;color:var(--text2);line-height:1.85;margin-bottom:28px}
+    .cta-sec__body strong{color:var(--text);font-weight:600}
     .cta-sec__bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
     .cta-sec__bullets li{
         display:flex;align-items:flex-start;gap:10px;
-        font-size:13.5px;color:var(--text2);
+        font-size:14px;color:var(--text2);
     }
     .cta-sec__bullets svg{color:var(--gold);flex-shrink:0;margin-top:2px}
     .phone-block a{
@@ -668,7 +715,7 @@
         font-family:'Playfair Display',serif;font-size:18px;font-weight:700;
         color:var(--text);margin-bottom:8px;line-height:1.25;
     }
-    .slide-panel p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:18px}
+    .slide-panel p{font-size:13.5px;color:var(--text2);line-height:1.6;margin-bottom:18px}
     .slide-panel .btn{width:100%;justify-content:center;font-size:13.5px;padding:13px 20px}
 
     /* ============================================================
@@ -692,8 +739,9 @@
     @media(max-width:920px){
         .sec{padding:72px 0}
         .ev-cards{grid-template-columns:1fr}
-        .ev-card{min-height:280px}
+        .ev-card{min-height:260px}
         .contrast-grid{grid-template-columns:1fr 1fr;gap:10px}
+        .solution__grid{grid-template-columns:1fr;gap:40px}
         .steps{grid-template-columns:1fr;gap:12px}
         .step-connector{display:none}
         .fleet-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 160px}
@@ -726,9 +774,9 @@
         .lead-form{padding:26px 18px}
         .footer__row{flex-direction:column;align-items:flex-start}
         .phone-block a{font-size:26px}
-        .ev-countdown{gap:6px}
-        .ev-cd-box{min-width:48px;padding:8px 0}
-        .ev-cd-box__n{font-size:18px}
+        .ev-countdown{gap:5px}
+        .ev-cd-box{min-width:46px;padding:7px 0}
+        .ev-cd-box__n{font-size:17px}
     }
     </style>
 </head>
@@ -822,13 +870,13 @@
 
 
 <!-- ══════════════════════════════════════
-     EVENT COUNTDOWN CARDS
+     EVENT COUNTDOWN CARDS — Premium Rebuild
 ══════════════════════════════════════ -->
 <section class="ev-strip sec" id="races">
     <div class="wrap">
         <div class="ev-strip__hd">
             <h2 class="fi">Three Races. Three Days. All From Your RV.</h2>
-            <p class="ev-strip__sub fi d1">NASCAR Triple-Header Weekend at Texas Motor Speedway</p>
+            <p class="ev-strip__sub fi d1">NASCAR Triple-Header Weekend · Texas Motor Speedway</p>
         </div>
         <div class="ev-cards">
             <!-- Card 1: SpeedyCash.com 250 -->
@@ -839,6 +887,7 @@
                 <div class="ev-card__inner">
                     <div class="ev-card__series">NASCAR Craftsman Truck Series</div>
                     <div class="ev-card__name">SpeedyCash.com 250</div>
+                    <div class="ev-card__tagline">Truck Series · Friday Opener</div>
                     <div class="ev-card__date">Friday · May 1, 2026 · 7:00 PM CT</div>
                     <div class="ev-countdown" data-target="2026-05-02T00:00:00Z">
                         <div class="ev-cd-box"><span class="ev-cd-box__n" data-d>--</span><span class="ev-cd-box__l">Days</span></div>
@@ -856,8 +905,9 @@
                 <div class="ev-card__inner">
                     <div class="ev-card__series">NASCAR Xfinity Series</div>
                     <div class="ev-card__name">Andy's Frozen Custard 340</div>
-                    <div class="ev-card__date">Saturday · May 2, 2026 · 3:30 PM CT</div>
-                    <div class="ev-countdown" data-target="2026-05-02T20:30:00Z">
+                    <div class="ev-card__tagline">Xfinity Series · Saturday Showdown</div>
+                    <div class="ev-card__date">Saturday · May 2, 2026</div>
+                    <div class="ev-countdown" data-target="2026-05-02T05:00:00Z">
                         <div class="ev-cd-box"><span class="ev-cd-box__n" data-d>--</span><span class="ev-cd-box__l">Days</span></div>
                         <div class="ev-cd-box"><span class="ev-cd-box__n" data-h>--</span><span class="ev-cd-box__l">Hrs</span></div>
                         <div class="ev-cd-box"><span class="ev-cd-box__n" data-m>--</span><span class="ev-cd-box__l">Min</span></div>
@@ -871,10 +921,11 @@
                 <div class="ev-card__overlay"></div>
                 <div class="ev-card__accent"></div>
                 <div class="ev-card__inner">
-                    <div class="ev-card__series">NASCAR Cup Series · The Main Event</div>
+                    <div class="ev-card__series">NASCAR Cup Series</div>
                     <div class="ev-card__name">WURTH 400</div>
-                    <div class="ev-card__date">Sunday · May 3, 2026 · 2:00 PM CT</div>
-                    <div class="ev-countdown" data-target="2026-05-03T19:00:00Z">
+                    <div class="ev-card__tagline">Cup Series · The Main Event</div>
+                    <div class="ev-card__date">Sunday · May 3, 2026 · 2:30 PM CT</div>
+                    <div class="ev-countdown" data-target="2026-05-03T19:30:00Z">
                         <div class="ev-cd-box"><span class="ev-cd-box__n" data-d>--</span><span class="ev-cd-box__l">Days</span></div>
                         <div class="ev-cd-box"><span class="ev-cd-box__n" data-h>--</span><span class="ev-cd-box__l">Hrs</span></div>
                         <div class="ev-cd-box"><span class="ev-cd-box__n" data-m>--</span><span class="ev-cd-box__l">Min</span></div>
@@ -895,7 +946,7 @@
     <div class="wrap">
         <div class="contrast__hd">
             <h2 class="fi">Four Ways to Do Race Weekend.<br>One Clear Winner.</h2>
-            <p class="contrast__sub fi d1">Here's what each option actually looks like.</p>
+            <p class="contrast__sub fi d1">Here's what each option actually looks like for a 3-day weekend.</p>
         </div>
         <div class="contrast-grid">
             <div class="contrast-col fi">
@@ -904,8 +955,8 @@
                 </div>
                 <h3>Hotel</h3>
                 <ul>
-                    <li>$350–500/night during race weekend</li>
-                    <li>20-min drive in race-day traffic</li>
+                    <li><strong>$350–500/night</strong> during race weekend</li>
+                    <li>20-min drive in race-day gridlock</li>
                     <li>Two cramped rooms for a group</li>
                     <li>Zero trackside atmosphere</li>
                 </ul>
@@ -916,10 +967,10 @@
                 </div>
                 <h3>Drive In</h3>
                 <ul>
-                    <li>Hours of gridlock each day</li>
+                    <li><strong>Hours of gridlock</strong> each day — both ways</li>
                     <li>Parking stress and surge pricing</li>
-                    <li>Miss the pre/post-race atmosphere</li>
-                    <li>3-day commute, not an experience</li>
+                    <li>Miss pre-race and post-race entirely</li>
+                    <li>A 3-day commute, not an experience</li>
                 </ul>
             </div>
             <div class="contrast-col fi d2">
@@ -928,10 +979,10 @@
                 </div>
                 <h3>Basic Camping</h3>
                 <ul>
-                    <li>You handle all setup yourself</li>
+                    <li>You handle <strong>all setup yourself</strong></li>
                     <li>Tent sleeping after a long race day</li>
-                    <li>No real kitchen or bathroom</li>
-                    <li>Camp stoves at midnight</li>
+                    <li>No real kitchen or private bathroom</li>
+                    <li>Camp stoves and coolers at midnight</li>
                 </ul>
             </div>
             <div class="contrast-col contrast-col--winner fi d3">
@@ -941,10 +992,10 @@
                 </div>
                 <h3>Triple W RV</h3>
                 <ul>
-                    <li>Delivered and set up before you arrive</li>
-                    <li>On-site — walk to your seats</li>
-                    <li>Full kitchen, real beds, AC</li>
-                    <li>Your private base for the weekend</li>
+                    <li><strong>Delivered and set up</strong> before you arrive</li>
+                    <li>On-site — <strong>walk to your seats</strong></li>
+                    <li>Full kitchen, real beds, AC, private bath</li>
+                    <li>Your private base for the entire weekend</li>
                 </ul>
             </div>
         </div>
@@ -953,34 +1004,68 @@
 
 
 <!-- ══════════════════════════════════════
-     SOLUTION
+     SOLUTION — Horizontal benefit system (breaks centered pattern)
 ══════════════════════════════════════ -->
 <section class="solution sec">
     <div class="wrap">
-        <div class="solution__inner">
-            <h2 class="fi">
-                Live the Race Weekend.<br>We Handle Everything Else.
-            </h2>
-            <p class="fi d2">
-                Triple W Rentals delivers a fully set-up, hotel-quality RV directly to
-                Texas Motor Speedway for the full NASCAR Triple-Header weekend. You arrive.
-                It's ready. You unpack your cooler.
-            </p>
-            <p class="fi d2">
-                From May 1 through May 3, your RV is your home base — all three races
-                within walking distance, no check-in times, no Uber surges, no setup.
-            </p>
-            <p class="fi d2">
-                Full delivery and setup. Fresh linens. Cookware. 24/7 support on call.
-                Optional outdoor package available.
-            </p>
-            <a href="#quote-form" class="btn btn-gold fi d3">
-                Reserve Your RV
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+        <div class="solution__grid">
+            <div>
+                <h2 class="fi">
+                    We Handle<br>Everything.<br><em style="font-style:italic;color:var(--gold)">You Show Up.</em>
+                </h2>
+                <p class="solution__lead fi d1">
+                    This isn't a traditional RV rental where you drive, park, and figure it out.
+                    <strong>We deliver a fully set-up, hotel-quality RV directly to Texas Motor Speedway</strong>
+                    and hand you the keys. Your only job is to enjoy three days of NASCAR.
+                </p>
+                <a href="#quote-form" class="btn btn-gold fi d2">
+                    Reserve Your RV
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div>
+                <ul class="benefit-list">
+                    <li class="benefit-item fi">
+                        <div class="benefit-item__icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <div class="benefit-item__text">
+                            <h4>Delivered Before You Arrive</h4>
+                            <p>Your RV is parked and waiting at TMS before you get there.</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item fi d1">
+                        <div class="benefit-item__icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <div class="benefit-item__text">
+                            <h4>Fully Set Up and Connected</h4>
+                            <p>Power, water, hookups — all arranged. Complete walkthrough included.</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item fi d2">
+                        <div class="benefit-item__icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <div class="benefit-item__text">
+                            <h4>Fresh Linens, Full Kitchen, AC</h4>
+                            <p>Cookware, towels, real beds. Hotel comfort at the track.</p>
+                        </div>
+                    </li>
+                    <li class="benefit-item fi d3">
+                        <div class="benefit-item__icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div class="benefit-item__text">
+                            <h4>24/7 Support. Pickup Handled.</h4>
+                            <p>Call us anytime. When the weekend ends, we come get the RV. Done.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -989,7 +1074,7 @@
 <!-- ══════════════════════════════════════
      HOW IT WORKS — Upgraded
 ══════════════════════════════════════ -->
-<section class="how sec">
+<section class="how sec-tight">
     <div class="wrap">
         <div class="how__hd">
             <h2 class="fi">Three Steps. Zero Hassle.</h2>
@@ -997,40 +1082,25 @@
         </div>
         <div class="steps">
             <div class="step fi">
-                <div class="step__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                </div>
                 <span class="step__n">01</span>
-                <h3>Choose Your Dates</h3>
-                <p>Call or fill out the form. We confirm your unit, your dates
-                (May 1–3), and walk you through camping logistics at TMS.
-                No guesswork on your end.</p>
+                <h3>Book Your Unit</h3>
+                <p>Call or submit the form. We confirm your RV, your dates, and handle all TMS camping logistics.</p>
             </div>
             <div class="step-connector" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
             <div class="step fi d1">
-                <div class="step__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                </div>
                 <span class="step__n">02</span>
                 <h3>We Deliver &amp; Set Up</h3>
-                <p>We deliver your RV to Texas Motor Speedway, hook up power and
-                water, and give you a complete walkthrough before we leave.
-                You do nothing but show up.</p>
+                <p>Your RV arrives at TMS with power and water connected. Full walkthrough before we leave. You do nothing.</p>
             </div>
             <div class="step-connector" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
             <div class="step fi d2">
-                <div class="step__icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                </div>
                 <span class="step__n">03</span>
-                <h3>You Enjoy Race Weekend</h3>
-                <p>Three days of NASCAR from your own private space. Call us if
-                anything comes up — 24/7 support included. We handle pickup
-                when the weekend ends.</p>
+                <h3>Enjoy Race Weekend</h3>
+                <p>Three days of NASCAR from your own space. 24/7 support included. We handle pickup when it's over.</p>
             </div>
         </div>
         <p class="how__note fi">
@@ -1052,29 +1122,29 @@
             <h2 class="fi">Inside Your Race Weekend Setup</h2>
         </div>
         <p class="fleet__intro fi d1">
-            Not just a place to sleep. Your base for the entire weekend — with everything
-            you'd expect from a premium stay, delivered and set up before you arrive.
+            <strong>Not just a place to sleep.</strong> Your base for the entire weekend — with everything
+            you'd expect from a premium stay, delivered and ready before you arrive.
         </p>
 
         <div class="fleet-grid fi">
             <div class="fleet-ph"
                  style="background-image:url('https://static.wixstatic.com/media/62f926_6081972934c541bf9b8aaa703b74f585~mv2.webp')">
-                <div class="fleet-ph__label">Living Area</div>
+                <div class="fleet-ph__label">Sleeps Your Whole Group</div>
             </div>
             <div class="fleet-ph"
                  style="background-image:url('https://static.wixstatic.com/media/62f926_e82ba4137dbb44ecb018eda98ab166b9~mv2.webp')">
-                <div class="fleet-ph__label">Full Kitchen</div>
+                <div class="fleet-ph__label">Cook on Your Own Schedule</div>
             </div>
             <div class="fleet-ph"
                  style="background-image:url('https://static.wixstatic.com/media/62f926_72984415dae543f5a93113defc3976a4~mv2.webp')">
-                <div class="fleet-ph__label">Bedroom</div>
+                <div class="fleet-ph__label">Real Beds. Real Privacy.</div>
             </div>
         </div>
 
         <div class="amenity-grid">
             <div class="amenity fi">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Delivered and fully set up on arrival</span>
+                <span><strong style="color:var(--text)">Delivered and fully set up</strong> on arrival</span>
             </div>
             <div class="amenity fi d1">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1116,7 +1186,7 @@
                 For a group of 6–8, the RV is often cheaper than hotels — and it's always better.
             </p>
         </div>
-        <p class="compare__verdict fi d2">For groups, this is the smarter and more enjoyable race-weekend option.</p>
+        <p class="compare__verdict fi d2">For groups, this is usually the <strong>smarter move financially</strong> and the better move experientially.</p>
         <div class="tbl-wrap fi">
             <table>
                 <thead>
@@ -1179,51 +1249,54 @@
 
 
 <!-- ══════════════════════════════════════
-     REVIEWS — Upgraded with featured quote
+     REVIEWS — Upgraded with bigger featured quote + context
 ══════════════════════════════════════ -->
 <section class="reviews sec">
     <div class="wrap">
         <div class="reviews__hd">
             <h2 class="fi">193 Reviews. 4.7 Stars.</h2>
-            <p class="reviews__sub fi d2">From families, groups, and event-goers across Texas.</p>
+            <p class="reviews__sub fi d2">From families, groups, and race-goers across Texas.</p>
         </div>
 
         <div class="reviews__featured fi">
             <div class="reviews__featured-stars">★★★★★</div>
-            <div class="reviews__featured-quote">"The only way to do race weekend."</div>
+            <div class="reviews__featured-quote">"This is the only way to do race weekend. We're never going back to a hotel."</div>
             <div class="reviews__featured-src">Confirmed from Google &amp; Facebook Reviews</div>
         </div>
 
         <div class="reviews-grid">
             <div class="rcard fi">
                 <div class="rcard__stars">★★★★★</div>
-                <p class="rcard__text">"Pulled up Friday and it was already parked, set up, ready to go. Beds made, kitchen stocked, power and water connected. Three days of racing without a single logistics headache. That's the experience right there."</p>
+                <p class="rcard__text">"Pulled up Friday and it was already parked, set up, ready to go. Beds made, kitchen stocked, power connected. Three days of racing without a single logistics headache."</p>
                 <div class="rcard__author">Chris B.</div>
                 <div class="rcard__ctx">Group of 6 · Full Race Weekend</div>
                 <div class="rcard__verified">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     Verified Review
                 </div>
+                <div class="rcard__source">via Google Reviews</div>
             </div>
             <div class="rcard fi d1">
                 <div class="rcard__stars">★★★★★</div>
-                <p class="rcard__text">"Family of 5 and this was the perfect solution. No hotel, no commuting, the kids loved having their own space. The 24/7 line actually answered at 11pm when we had a question. Genuinely impressed."</p>
+                <p class="rcard__text">"Family of 5 and this was the perfect solution. No hotel, no commuting. The kids loved having their own space. The 24/7 line actually answered at 11pm."</p>
                 <div class="rcard__author">Jennifer R.</div>
                 <div class="rcard__ctx">Family of 5 · Weekend Rental</div>
                 <div class="rcard__verified">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     Verified Review
                 </div>
+                <div class="rcard__source">via Facebook</div>
             </div>
             <div class="rcard fi d2">
                 <div class="rcard__stars">★★★★★</div>
-                <p class="rcard__text">"Split it 6 ways and it came out cheaper than a hotel room each. Setup was immaculate, outdoor package was a great add-on. This is the only way I'm doing events from now on."</p>
+                <p class="rcard__text">"Split it 6 ways and it came out cheaper than a hotel room each. Setup was immaculate, outdoor package was a great add-on. This is how I'm doing events from now on."</p>
                 <div class="rcard__author">Derek M.</div>
                 <div class="rcard__ctx">Group of 6 · Event Weekend</div>
                 <div class="rcard__verified">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     Verified Review
                 </div>
+                <div class="rcard__source">via Google Reviews</div>
             </div>
         </div>
     </div>
@@ -1258,37 +1331,38 @@
 
 
 <!-- ══════════════════════════════════════
-     RACE WEEKEND TIMELINE
+     RACE WEEKEND TIMELINE — Cinematic
 ══════════════════════════════════════ -->
 <section class="timeline sec">
     <div class="wrap">
         <div class="timeline__hd">
             <h2 class="fi">What Your Race Weekend Looks Like</h2>
+            <p class="timeline__sub fi d1">Three days. Three races. Zero commuting.</p>
         </div>
         <div class="tl-grid">
             <div class="tl-day fi">
                 <div class="tl-day__dt">Friday · May 1</div>
                 <div class="tl-day__race">SpeedyCash.com 250</div>
-                <p>Your RV is already set up when you arrive. Unpack, settle in,
-                grab dinner without leaving the grounds. Catch the Truck Series
-                race with your crew — no commute, no parking stress. This is what
-                the weekend starts on.</p>
+                <div class="tl-day__vibe">Truck Series · 7:00 PM CT</div>
+                <p>Your RV is <strong>already set up when you arrive</strong>. Unpack, settle in,
+                grab dinner without leaving the grounds. Walk to the Truck Series race with your crew.
+                No commute. No parking stress. The weekend starts here.</p>
             </div>
             <div class="tl-day fi d1">
                 <div class="tl-day__dt">Saturday · May 2</div>
                 <div class="tl-day__race">Andy's Frozen Custard 340</div>
-                <p>Wake up at the track. Coffee on your schedule. Xfinity Series
-                in the afternoon. Come back to your own space between sessions.
-                No checkout time. No lobby. No driving. The track is right there —
-                and so is home.</p>
+                <div class="tl-day__vibe">Xfinity Series · Saturday Showdown</div>
+                <p><strong>Wake up at the track.</strong> Coffee on your schedule. Xfinity Series in the afternoon.
+                Come back to your own space between sessions. No checkout time. No lobby.
+                No driving. The track is right there — and so is home.</p>
             </div>
             <div class="tl-day fi d2">
                 <div class="tl-day__dt">Sunday · May 3</div>
-                <div class="tl-day__race">WURTH 400 Presented by LIQUI MOLY</div>
-                <p>Cup Series race day. The main event. You're already there — no
-                5am alarm, no surge pricing on the ride back. Walk to your seats.
-                Feel the crowd. Come back to your RV. Leave when you're ready.
-                We handle pickup.</p>
+                <div class="tl-day__race">WURTH 400</div>
+                <div class="tl-day__vibe">Cup Series · The Main Event · 2:30 PM CT</div>
+                <p>Cup Series race day. <strong>The main event.</strong> You're already there — no 5am alarm,
+                no surge pricing on the ride back. Walk to your seats. Feel the crowd.
+                Come back to your RV. Leave when you're ready. We handle pickup.</p>
             </div>
         </div>
     </div>
@@ -1297,22 +1371,19 @@
 <div class="check-div"></div>
 
 <!-- ══════════════════════════════════════
-     URGENCY / SCARCITY
+     URGENCY / SCARCITY — Aggressive
 ══════════════════════════════════════ -->
 <section class="urgency sec">
     <div class="wrap">
         <div class="urgency__inner">
-            <div class="urgency-badge fi">⚠ Limited Availability</div>
+            <div class="urgency-badge fi">Limited Availability</div>
             <h2 class="fi d1">14 Units.<br>3 Race Days.<br>One Shot at This.</h2>
-            <p class="fi d2">
-                Triple W runs a premium fleet of 14 RVs. Not 140. Fourteen carefully
-                maintained units — and they book out for major Texas events well in advance.
-            </p>
-            <p class="fi d2">
-                This NASCAR Triple-Header weekend is one of the highest-demand events of the year.
-                If you're considering it, now is the right time — not after you've checked
-                three other options and come back to find it's gone.
-            </p>
+            <ul class="urgency-bullets fi d2">
+                <li><strong>14 units total</strong> — not 140. Fourteen.</li>
+                <li>NASCAR Triple-Header is the <strong>highest-demand weekend</strong> of the year at TMS</li>
+                <li>Best setups and best spots <strong>go first</strong></li>
+                <li>Every year, people wait too long and <strong>miss out</strong></li>
+            </ul>
             <a href="#quote-form" class="btn btn-gold fi d3">
                 Reserve Your RV
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -1320,36 +1391,33 @@
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
-            <p style="margin-top:16px;font-size:12.5px;color:var(--text3)" class="fi d4">
-                Or scroll down to reserve online ↓
-            </p>
         </div>
     </div>
 </section>
 
 
 <!-- ══════════════════════════════════════
-     FAQ
+     FAQ — Tighter (6 questions)
 ══════════════════════════════════════ -->
-<section class="faq sec">
+<section class="faq sec-tight">
     <div class="wrap">
         <div class="faq__hd">
-            <h2 class="fi">Everything You Need to Know</h2>
+            <h2 class="fi">Common Questions</h2>
         </div>
         <div class="faq-list">
-            <div class="faq-item fi">
-                <button class="faq-q" aria-expanded="false">
-                    <span class="faq-q__t">Where exactly is the RV parked at Texas Motor Speedway?</span>
-                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="faq-a"><div class="faq-a__in">TMS has several official camping areas: the Infield Campground, VIP Campground (paved spots, full hookups, 24-hour security), and WinStar World Casino Reserved Camping outside Turn 3. When you book with us, we coordinate the spot logistics — you don't need to navigate that yourself.</div></div>
-            </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
                     <span class="faq-q__t">Do I need to drive the RV myself?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
                 <div class="faq-a"><div class="faq-a__in">No. We deliver it, set it up, give you a full walkthrough, and come back to pick it up when the weekend is over. You never touch the keys. This is a fully managed rental — not a traditional RV rental.</div></div>
+            </div>
+            <div class="faq-item fi">
+                <button class="faq-q" aria-expanded="false">
+                    <span class="faq-q__t">Where exactly is the RV parked at TMS?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <div class="faq-a"><div class="faq-a__in">TMS has several official camping areas including VIP Campground with paved spots, full hookups, and 24-hour security. When you book with us, we coordinate all the spot logistics — you don't need to navigate that yourself.</div></div>
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
@@ -1360,10 +1428,10 @@
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
-                    <span class="faq-q__t">How many people can one RV accommodate?</span>
+                    <span class="faq-q__t">How many people can one RV fit?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">Depends on the unit — generally 6 to 10 guests comfortably. When you call or submit the form, tell us your group size and we'll match you to the right unit.</div></div>
+                <div class="faq-a"><div class="faq-a__in">Generally 6 to 10 guests comfortably, depending on the unit. Tell us your group size when you call or submit the form, and we'll match you to the right RV.</div></div>
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
@@ -1374,24 +1442,10 @@
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
-                    <span class="faq-q__t">What's the pricing — per night or full weekend?</span>
+                    <span class="faq-q__t">What's the pricing?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">Starting from $200/night. For a 3-night weekend like the TMS Triple-Header, we can discuss a full package when you call — typically the better deal. Clear quote, no surprises.</div></div>
-            </div>
-            <div class="faq-item fi">
-                <button class="faq-q" aria-expanded="false">
-                    <span class="faq-q__t">How far in advance do I need to book?</span>
-                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="faq-a"><div class="faq-a__in">As early as possible. We have 14 units and race weekends book out well in advance. Call or submit the form now to check what's still available for May 1–3.</div></div>
-            </div>
-            <div class="faq-item fi">
-                <button class="faq-q" aria-expanded="false">
-                    <span class="faq-q__t">Do you serve Fort Worth and Dallas?</span>
-                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="faq-a"><div class="faq-a__in">Yes. We offer statewide Texas delivery and TMS in Fort Worth is well within our primary service area. Fort Worth, Dallas, Denton — we cover it.</div></div>
+                <div class="faq-a"><div class="faq-a__in">Starting from $200/night. For a 3-night weekend like the TMS Triple-Header, we offer full-weekend packages — typically the better deal. Clear quote, no surprises.</div></div>
             </div>
         </div>
     </div>
@@ -1399,18 +1453,19 @@
 
 
 <!-- ══════════════════════════════════════
-     FINAL CTA + LEAD FORM — Premium
+     FINAL CTA + LEAD FORM — Premium Close
 ══════════════════════════════════════ -->
 <section class="cta-sec sec" id="quote-form">
     <div class="wrap">
         <div class="cta-sec__grid">
             <div>
                 <h2 class="fi">
-                    Three Days of NASCAR.<br>One Premium Home Base.
+                    Reserve Your Trackside<br>Home Base Before<br><em style="font-style:italic;color:var(--gold)">Inventory Closes.</em>
                 </h2>
                 <p class="cta-sec__body fi d2">
-                    A fully set-up RV delivered to Texas Motor Speedway for the
-                    NASCAR Triple-Header weekend. No hotels. No commute. No setup.
+                    <strong>14 units. Three race days. One of the highest-demand weekends in Texas.</strong>
+                    A fully set-up RV at Texas Motor Speedway — no hotels, no commute, no setup.
+                    The best spots go first.
                 </p>
                 <ul class="cta-sec__bullets fi d2">
                     <li>
@@ -1554,8 +1609,8 @@
     </button>
     <div class="slide-panel__check"></div>
     <div class="slide-panel__accent"></div>
-    <h4>Race Weekend Inventory Is Limited</h4>
-    <p>Reserve your RV before the best units are gone. 14 units for 3 race days — once they're booked, they're booked.</p>
+    <h4>Units Are Filling Up for Race Weekend</h4>
+    <p>14 RVs. 3 race days. The best setups go first — don't wait until they're booked out.</p>
     <a href="#quote-form" class="btn btn-gold">Reserve Your RV</a>
 </div>
 
