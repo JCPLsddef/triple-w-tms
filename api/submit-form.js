@@ -218,8 +218,9 @@ module.exports = async function handler(req, res) {
         });
 
         if (notifyResult.error) {
-            console.error('[submit-form] notify error:', JSON.stringify(notifyResult.error));
-            return res.status(500).json({ error: 'Email delivery failed. Please call (972) 965-6901.' });
+            const errDetail = JSON.stringify(notifyResult.error, null, 2);
+            console.error('[submit-form] notify error (full):', errDetail);
+            return res.status(500).json({ error: 'Email delivery failed. Please call (972) 965-6901.', _debug: notifyResult.error });
         }
 
         // 2 — Lead confirmation (non-fatal — failure doesn't block 200)
