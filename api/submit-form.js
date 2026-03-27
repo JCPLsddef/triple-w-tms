@@ -107,7 +107,7 @@ module.exports = async function handler(req, res) {
 <div class="wrap">
   <div class="card">
     <div class="top">
-      <div class="top-label">&#127937; New WÜRTH 400 Lead</div>
+      <div class="top-label">&#127937; New TMS Race Weekend Lead</div>
       <div class="top-name">${esc(name)}</div>
     </div>
     <div class="body">
@@ -134,7 +134,7 @@ module.exports = async function handler(req, res) {
       <a href="tel:${esc(phone)}" class="cta">&#128222; Call ${esc(firstName(name))}</a>
 
       <p class="foot">
-        Received ${ts} CT &nbsp;&#183;&nbsp; ${esc(source || 'WÜRTH 400 Landing Page')}
+        Received ${ts} CT &nbsp;&#183;&nbsp; ${esc(source || 'NASCAR Triple-Header — Texas Motor Speedway')}
       </p>
     </div>
   </div>
@@ -175,13 +175,17 @@ module.exports = async function handler(req, res) {
 <div class="wrap">
   <div class="card">
     <div class="brand">Triple W Rentals</div>
-    <h2>Got your request, ${esc(firstName(name))}.</h2>
+    <h2>We got your request, ${esc(firstName(name))}.</h2>
     <p>
-      We'll reach out within a few hours to confirm availability for the
-      <span class="hi">WÜRTH 400 weekend (May 1–3, 2026)</span>
-      and walk you through your options.
+      Someone from our team will reach out within a few hours to confirm availability
+      and walk you through your options for the
+      <span class="hi">NASCAR Triple-Header Weekend at Texas Motor Speedway (May 1–3, 2026)</span>.
     </p>
-    <p>Want to talk now?</p>
+    <p>
+      Three races. One RV. Fully set up at the track — no hotel, no parking, no hassle.
+      We'll make sure you get the right setup for your group.
+    </p>
+    <p>Rather talk now? We're available:</p>
     <a href="tel:+19729656901" class="cta">&#128222; (972) 965-6901</a>
 
     <hr>
@@ -196,7 +200,7 @@ module.exports = async function handler(req, res) {
       </div>
     </div>
 
-    <p>Looking forward to making your race weekend unforgettable.</p>
+    <p>Looking forward to making your race weekend one to remember.</p>
 
     <p style="font-size:13px; color:#5e5650; margin-top:20px;">
       — The Triple W Rentals Team<br>
@@ -205,7 +209,7 @@ module.exports = async function handler(req, res) {
 
     <p class="foot">
       You're receiving this because you submitted a quote request on our landing page.
-      One-time confirmation — you are not being added to any marketing list.
+      This is a one-time confirmation — you won't hear from us unless you reach out.
     </p>
   </div>
 </div>
@@ -221,7 +225,7 @@ module.exports = async function handler(req, res) {
             from:    FROM_EMAIL,
             to:      TO_EMAILS,
             replyTo: email,
-            subject: `New TMS Inquiry — ${name} · ${groupSize || 'Group TBD'} · ${dates || 'Dates TBD'}`,
+            subject: `New TMS Lead — ${name} · ${groupSize || 'Group TBD'} · ${dates || 'Dates TBD'}`,
             html:    notifyHtml,
         });
 
@@ -237,7 +241,7 @@ module.exports = async function handler(req, res) {
                 from:    FROM_EMAIL,
                 to:      [email],
                 replyTo: REPLY_TO,
-                subject: 'Your WÜRTH 400 RV Quote — Triple W Rentals',
+                subject: 'Your TMS Race Weekend RV Quote — Triple W Rentals',
                 html:    confirmHtml,
             });
         } catch (confirmErr) {
