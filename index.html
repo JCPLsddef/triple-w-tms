@@ -1061,6 +1061,8 @@
 
             <div class="fi d2">
                 <form class="lead-form" id="leadForm" novalidate>
+                    <!-- Honeypot: hidden from real users, filled by bots -->
+                    <input type="text" name="_hp" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
                     <div class="lead-form__title">Reserve Your RV for Race Weekend</div>
                     <p class="lead-form__sub">We'll confirm availability and pricing — typically within a few hours.</p>
                     <div class="fgrp-row">
@@ -1288,38 +1290,75 @@ if (formSection && mobileCta) {
 }
 
 /* 9. LEAD FORM */
-var form = document.getElementById('leadForm');
+var form      = document.getElementById('leadForm');
 var submitBtn = document.getElementById('formSubmit');
-var msgEl = document.getElementById('formMsg');
+var msgEl     = document.getElementById('formMsg');
+var submitted = false; // prevent duplicate submissions
 
-function setLoading(on) { submitBtn.disabled = on; submitBtn.classList.toggle('loading', on); }
-function showMsg(type, text) { msgEl.className = 'form-msg ' + type; msgEl.textContent = text; }
+function setLoading(on) {
+    submitBtn.disabled = on;
+    submitBtn.classList.toggle('loading', on);
+}
+function showMsg(type, html) {
+    msgEl.className = 'form-msg ' + type;
+    msgEl.innerHTML = html;
+    msgEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
 
 if (form) {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
+        if (submitted) return; // block duplicate taps
+
         msgEl.className = 'form-msg';
-        var name = document.getElementById('f-name').value.trim();
+
+        var name  = document.getElementById('f-name').value.trim();
         var phone = document.getElementById('f-phone').value.trim();
         var email = document.getElementById('f-email').value.trim();
-        if (!name || !phone || !email) { showMsg('error', 'Please fill in your name, phone, and email.'); return; }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showMsg('error', 'Please enter a valid email address.'); return; }
+        var hp    = document.getElementById('f-hp').value; // honeypot
+
+        if (!name || !phone || !email) {
+            showMsg('error', 'Please fill in your name, phone, and email.');
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showMsg('error', 'Please enter a valid email address.');
+            return;
+        }
+
         var payload = {
-            name: name, phone: phone, email: email,
-            groupSize: document.getElementById('f-group').value,
-            dates: document.getElementById('f-dates').value,
+            _hp:          hp,   // honeypot value (empty for real users)
+            name:         name,
+            phone:        phone,
+            email:        email,
+            groupSize:    document.getElementById('f-group').value,
+            dates:        document.getElementById('f-dates').value,
             rvPreference: document.getElementById('f-rv').value,
-            message: document.getElementById('f-msg').value.trim(),
-            source: 'NASCAR Triple-Header Landing Page — Texas Motor Speedway'
+            message:      document.getElementById('f-msg').value.trim(),
+            source:       'NASCAR Triple-Header Landing Page — Texas Motor Speedway'
         };
+
         setLoading(true);
         try {
-            var res = await fetch('/api/submit-form', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-            var data = await res.json();
-            if (res.ok && data.success) { showMsg('success', 'Request received! We\'ll confirm availability shortly.'); form.reset(); }
-            else { showMsg('error', data.error || 'Something went wrong. Please call (972) 965-6901.'); }
-        } catch (err) { showMsg('error', 'Network error. Please call us at (972) 965-6901.'); }
-        setLoading(false);
+            var r    = await fetch('/api/submit-form', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            var data = await r.json();
+            if (r.ok && data.success) {
+                submitted = true; // lock form
+                form.reset();
+                showMsg('success',
+                    '<strong style="font-size:16px;display:block;margin-bottom:6px">Request received.</strong>' +
+                    'We\'ll confirm availability within a few hours. In the meantime, call us at ' +
+                    '<a href="tel:+19729656901" style="color:#c9962c;text-decoration:underline">(972) 965-6901</a>.'
+                );
+                submitBtn.style.display = 'none';
+            } else {
+                showMsg('error', data.error || 'Something went wrong. Please call <a href="tel:+19729656901" style="color:inherit;text-decoration:underline">(972) 965-6901</a>.');
+                setLoading(false);
+            }
+        } catch (err) {
+            showMsg('error', 'Network error. Please call us at <a href="tel:+19729656901" style="color:inherit;text-decoration:underline">(972) 965-6901</a>.');
+            setLoading(false);
+        }
     });
 }
 

@@ -1,240 +1,260 @@
+'use strict';
+
 // ============================================================
 //  Triple W Rentals — Lead Form Handler
-//  Deployed as a Vercel Serverless Function
+//  Vercel Serverless Function
 //
-//  REQUIRED ENV VAR:
-//    RESEND_API_KEY = re_KCWqH1xQ_... (set in Vercel dashboard)
+//  REQUIRED ENV VAR (set in Vercel dashboard → Settings → Environment Variables):
+//    RESEND_API_KEY  =  re_...your_key_here...
 //
-//  REQUIRED SENDER SETUP:
-//    1. Go to https://resend.com/domains
-//    2. Add and verify triplewrentals.com
-//    3. Once verified, the FROM_EMAIL below will work
-//    Until then: test mode sends from onboarding@resend.dev
-//       (limited to account owner's email — fine for initial testing)
+//  OPTIONAL ENV VAR (once triplewrentals.com is verified in Resend):
+//    FROM_EMAIL  =  Triple W Rentals <noreply@triplewrentals.com>
+//
+//  Without FROM_EMAIL, emails send from onboarding@resend.dev (works immediately,
+//  no domain verification required — fine for launch).
 // ============================================================
 
 const { Resend } = require('resend');
 
-// ---- Configuration (edit here if needed) ---- //
-const TO_EMAILS   = ['jcpl-07@hotmail.com', 'triplewrentals@gmail.com'];
-const FROM_EMAIL  = process.env.FROM_EMAIL  || 'Triple W Rentals <leads@triplewrentals.com>';
-const REPLY_TO    = 'triplewrentals@gmail.com';
-// ------------------------------------------------ //
+const TO_EMAILS  = ['jcpl-07@hotmail.com', 'triplewrentals@gmail.com'];
+const FROM_EMAIL = process.env.FROM_EMAIL || 'Triple W Rentals <onboarding@resend.dev>';
+const REPLY_TO   = 'triplewrentals@gmail.com';
 
 module.exports = async function handler(req, res) {
 
-    // CORS — allow from any origin (landing page may be on custom domain)
+    // ---- CORS ---- //
     res.setHeader('Access-Control-Allow-Origin',  '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
     if (req.method === 'OPTIONS') return res.status(200).end();
     if (req.method !== 'POST')    return res.status(405).json({ error: 'Method not allowed' });
 
-    // ---- Validate required fields ---- //
-    const { name, email, phone, groupSize, dates, rvPreference, message, source } = req.body || {};
+    // ---- Honeypot: bots fill _hp, humans don't ---- //
+    const body = req.body || {};
+    if (body._hp) {
+        // Silently accept to not tip off bots
+        return res.status(200).json({ success: true });
+    }
 
+    // ---- Sanitize & extract fields ---- //
+    const cap = (v, n) => (typeof v === 'string' ? v.trim().slice(0, n) : '');
+    const name        = cap(body.name,        120);
+    const email       = cap(body.email,       254);
+    const phone       = cap(body.phone,        30);
+    const groupSize   = cap(body.groupSize,    80);
+    const dates       = cap(body.dates,       120);
+    const rvPref      = cap(body.rvPreference, 120);
+    const message     = cap(body.message,     2000);
+    const source      = cap(body.source,       200);
+
+    // ---- Validate required fields ---- //
     if (!name || !email || !phone) {
         return res.status(400).json({ error: 'Missing required fields: name, email, phone' });
     }
-
-    // Basic email format check
-    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRx.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return res.status(400).json({ error: 'Invalid email address' });
     }
 
-    // ---- Init Resend ---- //
+    // ---- Require API key ---- //
     if (!process.env.RESEND_API_KEY) {
-        console.error('RESEND_API_KEY is not set');
-        return res.status(500).json({ error: 'Server configuration error' });
+        console.error('[submit-form] RESEND_API_KEY is not set');
+        return res.status(500).json({ error: 'Server configuration error. Please call (972) 965-6901.' });
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
+    const ts     = new Date().toLocaleString('en-US', {
+        timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short'
+    });
 
-    // ---- Build notification email (to Triple W team) ---- //
-    const notifyHtml = `
-<!DOCTYPE html>
-<html>
+    // ================================================================
+    //  EMAIL 1: Team notification
+    // ================================================================
+    const notifyHtml = `<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-           background: #f8f6f2; margin: 0; padding: 40px 20px; }
-    .card { background: #1a1714; border-radius: 10px; padding: 36px 40px;
-            max-width: 580px; margin: 0 auto; color: #f4efe6; }
-    .badge { display: inline-block; background: #c9962c;
-             color: #0a0a0a; font-size: 11px; font-weight: 700;
-             letter-spacing: .1em; text-transform: uppercase;
-             padding: 5px 14px; border-radius: 3px; margin-bottom: 20px; }
-    h2 { font-size: 24px; margin: 0 0 6px; color: #f4efe6; }
-    .sub { color: #9e9080; font-size: 13px; margin-bottom: 28px; }
-    .field { margin-bottom: 16px; }
-    .label { font-size: 10px; font-weight: 600; letter-spacing: .12em;
-             text-transform: uppercase; color: #9e9080; margin-bottom: 4px; }
-    .value { font-size: 15px; color: #f4efe6; line-height: 1.5; }
-    .divider { border: none; border-top: 1px solid #2a2520; margin: 24px 0; }
-    .call-btn { display: inline-block; background: #c9962c; color: #0a0a0a;
-                font-weight: 700; font-size: 14px; padding: 13px 28px;
-                border-radius: 4px; text-decoration: none; margin-top: 8px; }
-    .footer-note { font-size: 11px; color: #5e5650; margin-top: 24px; }
+           background: #f0ede8; margin: 0; padding: 40px 16px; }
+    .wrap { max-width: 580px; margin: 0 auto; }
+    .card { background: #16130f; border-radius: 8px; overflow: hidden; }
+    .top  { background: #c9962c; padding: 18px 32px; }
+    .top-label { font-size: 11px; font-weight: 700; letter-spacing: .12em;
+                 text-transform: uppercase; color: #0a0a0a; opacity: .75; }
+    .top-name  { font-size: 26px; font-weight: 700; color: #0a0a0a; margin-top: 4px; }
+    .body  { padding: 28px 32px 32px; }
+    .row   { margin-bottom: 18px; }
+    .lbl   { font-size: 10px; font-weight: 600; letter-spacing: .13em;
+             text-transform: uppercase; color: #7a6e62; margin-bottom: 3px; }
+    .val   { font-size: 15px; color: #e8e0d4; line-height: 1.5; }
+    .val a { color: #c9962c; text-decoration: none; }
+    hr     { border: none; border-top: 1px solid #2a2520; margin: 20px 0; }
+    .cta   { display: inline-block; background: #c9962c; color: #0a0a0a;
+             font-size: 14px; font-weight: 700; padding: 13px 28px;
+             border-radius: 4px; text-decoration: none; margin-top: 6px; }
+    .foot  { font-size: 11px; color: #4a4038; margin-top: 22px; line-height: 1.6; }
   </style>
 </head>
 <body>
+<div class="wrap">
   <div class="card">
-    <div class="badge">🏁 New WÜRTH 400 Lead</div>
-    <h2>${escapeHtml(name)}</h2>
-    <p class="sub">Submitted via the Texas Motor Speedway landing page</p>
-
-    <div class="field">
-      <div class="label">Phone</div>
-      <div class="value"><a href="tel:${escapeHtml(phone)}" style="color:#c9962c">${escapeHtml(phone)}</a></div>
+    <div class="top">
+      <div class="top-label">&#127937; New WÜRTH 400 Lead</div>
+      <div class="top-name">${esc(name)}</div>
     </div>
-    <div class="field">
-      <div class="label">Email</div>
-      <div class="value"><a href="mailto:${escapeHtml(email)}" style="color:#c9962c">${escapeHtml(email)}</a></div>
+    <div class="body">
+
+      <div class="row">
+        <div class="lbl">Phone</div>
+        <div class="val"><a href="tel:${esc(phone)}">${esc(phone)}</a></div>
+      </div>
+      <div class="row">
+        <div class="lbl">Email</div>
+        <div class="val"><a href="mailto:${esc(email)}">${esc(email)}</a></div>
+      </div>
+
+      <hr>
+
+      ${groupSize ? `<div class="row"><div class="lbl">Group Size</div><div class="val">${esc(groupSize)}</div></div>` : ''}
+      ${dates     ? `<div class="row"><div class="lbl">Requested Dates</div><div class="val">${esc(dates)}</div></div>` : ''}
+      ${rvPref    ? `<div class="row"><div class="lbl">RV Preference</div><div class="val">${esc(rvPref)}</div></div>` : ''}
+
+      ${message ? `<hr><div class="row"><div class="lbl">Notes</div><div class="val">${esc(message).replace(/\n/g, '<br>')}</div></div>` : ''}
+
+      <hr>
+
+      <a href="tel:${esc(phone)}" class="cta">&#128222; Call ${esc(firstName(name))}</a>
+
+      <p class="foot">
+        Received ${ts} CT &nbsp;&#183;&nbsp; ${esc(source || 'WÜRTH 400 Landing Page')}
+      </p>
     </div>
-
-    <hr class="divider">
-
-    <div class="field">
-      <div class="label">Group Size</div>
-      <div class="value">${groupSize ? escapeHtml(groupSize) : 'Not specified'}</div>
-    </div>
-    <div class="field">
-      <div class="label">Event Dates</div>
-      <div class="value">${dates ? escapeHtml(dates) : 'Not specified'}</div>
-    </div>
-    <div class="field">
-      <div class="label">RV Preference</div>
-      <div class="value">${rvPreference ? escapeHtml(rvPreference) : 'Not specified'}</div>
-    </div>
-
-    ${message ? `
-    <hr class="divider">
-    <div class="field">
-      <div class="label">Notes / Message</div>
-      <div class="value">${escapeHtml(message)}</div>
-    </div>` : ''}
-
-    <hr class="divider">
-
-    <a href="tel:${escapeHtml(phone)}" class="call-btn">📞 Call ${escapeHtml(name.split(' ')[0])}</a>
-
-    <p class="footer-note">
-      Source: ${escapeHtml(source || 'WÜRTH 400 Landing Page')} &nbsp;·&nbsp;
-      ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short' })} CT
-    </p>
   </div>
+</div>
 </body>
-</html>`.trim();
+</html>`;
 
-    // ---- Build confirmation email (to the lead) ---- //
-    const confirmHtml = `
-<!DOCTYPE html>
-<html>
+    // ================================================================
+    //  EMAIL 2: Lead confirmation
+    // ================================================================
+    const confirmHtml = `<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-           background: #f8f6f2; margin: 0; padding: 40px 20px; }
-    .card { background: #1a1714; border-radius: 10px; padding: 36px 40px;
-            max-width: 560px; margin: 0 auto; color: #f4efe6; }
-    .logo { font-size: 18px; font-weight: 700; color: #c9962c; margin-bottom: 24px; }
-    h2 { font-size: 22px; margin: 0 0 12px; }
-    p { font-size: 15px; color: #9e9080; line-height: 1.75; margin-bottom: 16px; }
-    .highlight { color: #f4efe6; }
+           background: #f0ede8; margin: 0; padding: 40px 16px; }
+    .wrap { max-width: 560px; margin: 0 auto; }
+    .card { background: #16130f; border-radius: 8px; padding: 36px 32px; color: #e8e0d4; }
+    .brand { font-size: 13px; font-weight: 700; letter-spacing: .14em;
+             text-transform: uppercase; color: #c9962c; margin-bottom: 24px; }
+    h2 { font-size: 22px; margin: 0 0 14px; color: #f4efe6; }
+    p  { font-size: 15px; color: #9e9080; line-height: 1.8; margin: 0 0 16px; }
+    .hi { color: #e8e0d4; }
+    hr  { border: none; border-top: 1px solid #2a2520; margin: 24px 0; }
     .cta { display: inline-block; background: #c9962c; color: #0a0a0a;
-           font-weight: 700; font-size: 14px; padding: 13px 28px;
+           font-size: 14px; font-weight: 700; padding: 13px 28px;
            border-radius: 4px; text-decoration: none; margin: 8px 0 20px; }
-    .divider { border: none; border-top: 1px solid #2a2520; margin: 24px 0; }
-    .summary { background: #111; border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
-    .s-row { display: flex; justify-content: space-between; margin-bottom: 10px;
-             font-size: 13px; }
-    .s-label { color: #5e5650; }
-    .s-value { color: #f4efe6; text-align: right; }
-    .footer-note { font-size: 11px; color: #5e5650; margin-top: 16px; }
+    .summary { background: #0f0d0a; border-radius: 6px; padding: 20px 22px; margin: 0 0 20px; }
+    .s-row { display: flex; justify-content: space-between;
+             font-size: 13px; margin-bottom: 10px; }
+    .s-lbl { color: #5e5650; }
+    .s-val { color: #e8e0d4; }
+    .foot  { font-size: 11px; color: #4a4038; margin-top: 20px; line-height: 1.7; }
   </style>
 </head>
 <body>
+<div class="wrap">
   <div class="card">
-    <div class="logo">Triple W Rentals</div>
-    <h2>Got your quote request, ${escapeHtml(name.split(' ')[0])}.</h2>
+    <div class="brand">Triple W Rentals</div>
+    <h2>Got your request, ${esc(firstName(name))}.</h2>
     <p>
-      We'll reach back to you within a few hours to confirm availability
-      for the <span class="highlight">WÜRTH 400 weekend (May 1–3, 2026)</span>
+      We'll reach out within a few hours to confirm availability for the
+      <span class="hi">WÜRTH 400 weekend (May 1–3, 2026)</span>
       and walk you through your options.
     </p>
-    <p>
-      In the meantime, if you want to talk to someone right now:
-    </p>
-    <a href="tel:+19729656901" class="cta">📞 Call (972) 965-6901</a>
+    <p>Want to talk now?</p>
+    <a href="tel:+19729656901" class="cta">&#128222; (972) 965-6901</a>
 
-    <hr class="divider">
+    <hr>
 
     <div class="summary">
-      ${groupSize ? `<div class="s-row"><span class="s-label">Group Size</span><span class="s-value">${escapeHtml(groupSize)}</span></div>` : ''}
-      ${dates     ? `<div class="s-row"><span class="s-label">Dates</span><span class="s-value">${escapeHtml(dates)}</span></div>` : ''}
-      ${rvPreference ? `<div class="s-row"><span class="s-label">RV Preference</span><span class="s-value">${escapeHtml(rvPreference)}</span></div>` : ''}
-      <div class="s-row"><span class="s-label">Starting from</span><span class="s-value" style="color:#c9962c">$200/night</span></div>
+      ${groupSize ? `<div class="s-row"><span class="s-lbl">Group Size</span><span class="s-val">${esc(groupSize)}</span></div>` : ''}
+      ${dates     ? `<div class="s-row"><span class="s-lbl">Dates</span><span class="s-val">${esc(dates)}</span></div>` : ''}
+      ${rvPref    ? `<div class="s-row"><span class="s-lbl">RV Preference</span><span class="s-val">${esc(rvPref)}</span></div>` : ''}
+      <div class="s-row">
+        <span class="s-lbl">Starting from</span>
+        <span class="s-val" style="color:#c9962c">$200/night</span>
+      </div>
     </div>
 
-    <p>Looking forward to making your race weekend something to remember.</p>
+    <p>Looking forward to making your race weekend unforgettable.</p>
 
-    <p style="font-size:13px;margin-top:20px;">
+    <p style="font-size:13px; color:#5e5650; margin-top:20px;">
       — The Triple W Rentals Team<br>
       <a href="https://www.triplewrentals.com" style="color:#c9962c">triplewrentals.com</a>
     </p>
 
-    <p class="footer-note">
+    <p class="foot">
       You're receiving this because you submitted a quote request on our landing page.
-      This is a one-time confirmation — no marketing lists.
+      One-time confirmation — you are not being added to any marketing list.
     </p>
   </div>
+</div>
 </body>
-</html>`.trim();
+</html>`;
 
-    // ---- Send emails ---- //
+    // ================================================================
+    //  Send emails
+    // ================================================================
     try {
-        // 1. Notify the Triple W team
+        // 1 — Team notification (must succeed)
         const notifyResult = await resend.emails.send({
-            from:     FROM_EMAIL,
-            to:       TO_EMAILS,
-            replyTo:  email,
-            subject:  `🏁 New WÜRTH 400 Lead — ${name} (${groupSize || 'Group TBD'})`,
-            html:     notifyHtml,
+            from:    FROM_EMAIL,
+            to:      TO_EMAILS,
+            replyTo: email,
+            subject: `New TMS Inquiry — ${name} · ${groupSize || 'Group TBD'} · ${dates || 'Dates TBD'}`,
+            html:    notifyHtml,
         });
 
         if (notifyResult.error) {
-            console.error('Resend notify error:', notifyResult.error);
-            return res.status(500).json({ error: 'Failed to send notification email' });
+            console.error('[submit-form] notify error:', JSON.stringify(notifyResult.error));
+            return res.status(500).json({ error: 'Email delivery failed. Please call (972) 965-6901.' });
         }
 
-        // 2. Confirmation to the lead
-        await resend.emails.send({
-            from:    FROM_EMAIL,
-            to:      [email],
-            replyTo: REPLY_TO,
-            subject: `Your WÜRTH 400 RV Quote — Triple W Rentals`,
-            html:    confirmHtml,
-        });
+        // 2 — Lead confirmation (non-fatal — failure doesn't block 200)
+        try {
+            await resend.emails.send({
+                from:    FROM_EMAIL,
+                to:      [email],
+                replyTo: REPLY_TO,
+                subject: 'Your WÜRTH 400 RV Quote — Triple W Rentals',
+                html:    confirmHtml,
+            });
+        } catch (confirmErr) {
+            // Log but don't fail the request
+            console.warn('[submit-form] confirmation email failed (non-fatal):', confirmErr.message);
+        }
 
-        // Success — confirmation email failure is non-fatal
         return res.status(200).json({ success: true });
 
     } catch (err) {
-        console.error('Resend exception:', err);
+        console.error('[submit-form] Resend exception:', err);
         return res.status(500).json({ error: 'Email service error. Please call (972) 965-6901.' });
     }
 };
 
-// ---- Utility: escape HTML to prevent injection in email ---- //
-function escapeHtml(str) {
+// ---- Helpers ---- //
+function esc(str) {
     if (typeof str !== 'string') return '';
     return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+        .replace(/&/g,  '&amp;')
+        .replace(/</g,  '&lt;')
+        .replace(/>/g,  '&gt;')
+        .replace(/"/g,  '&quot;')
+        .replace(/'/g,  '&#39;');
+}
+
+function firstName(fullName) {
+    return (fullName || '').split(/\s+/)[0] || fullName;
 }
