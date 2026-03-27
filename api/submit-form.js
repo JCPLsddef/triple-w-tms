@@ -7,16 +7,24 @@
 //  REQUIRED ENV VAR (set in Vercel dashboard → Settings → Environment Variables):
 //    RESEND_API_KEY  =  re_...your_key_here...
 //
-//  OPTIONAL ENV VAR (once triplewrentals.com is verified in Resend):
-//    FROM_EMAIL  =  Triple W Rentals <noreply@triplewrentals.com>
+//  TO ADD triplewrentals@gmail.com as a recipient:
+//    1. Go to https://resend.com/domains
+//    2. Add and verify triplewrentals.com (add DNS records, takes ~5 min)
+//    3. Then set FROM_EMAIL env var in Vercel:
+//         FROM_EMAIL = Triple W Rentals <noreply@triplewrentals.com>
+//    4. Uncomment triplewrentals@gmail.com in TO_EMAILS below and redeploy
 //
-//  Without FROM_EMAIL, emails send from onboarding@resend.dev (works immediately,
-//  no domain verification required — fine for launch).
+//  Until domain is verified, onboarding@resend.dev can ONLY send to
+//  the Resend account owner's email (jcpl-07@hotmail.com).
 // ============================================================
 
 const { Resend } = require('resend');
 
-const TO_EMAILS  = ['jcpl-07@hotmail.com', 'triplewrentals@gmail.com'];
+// NOTE: onboarding@resend.dev testing restriction — can only send to account owner's email.
+// Add triplewrentals@gmail.com once domain is verified (see instructions above).
+const TO_EMAILS  = process.env.TO_EMAILS
+    ? process.env.TO_EMAILS.split(',').map(e => e.trim())
+    : ['jcpl-07@hotmail.com'];          // ← add 'triplewrentals@gmail.com' after domain verify
 const FROM_EMAIL = process.env.FROM_EMAIL || 'Triple W Rentals <onboarding@resend.dev>';
 const REPLY_TO   = 'triplewrentals@gmail.com';
 
