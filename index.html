@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NASCAR Race Weekend RV Rental · Texas Motor Speedway · May 1–3 · Triple W Rentals</title>
     <meta name="description" content="Premium RV delivered and fully set up at Texas Motor Speedway for the NASCAR Triple-Header weekend, May 1–3, 2026. Three races. One home base. Skip the hotel, skip the traffic. 4.7 stars · 193 reviews.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10835426783"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-10835426783');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1344,6 +1352,7 @@ if (form) {
             var data = await r.json();
             if (r.ok && data.success) {
                 submitted = true; // lock form
+                gtag('event', 'conversion', { send_to: 'AW-10835426783' });
                 form.reset();
                 showMsg('success',
                     '<strong style="font-size:16px;display:block;margin-bottom:6px">Request received.</strong>' +
@@ -1361,6 +1370,13 @@ if (form) {
         }
     });
 }
+
+// Track phone call clicks as conversions
+document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+        gtag('event', 'conversion', { send_to: 'AW-10835426783' });
+    });
+});
 
 })();
 </script>
