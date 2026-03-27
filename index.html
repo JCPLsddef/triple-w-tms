@@ -5,180 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NASCAR Race Weekend RV Rental · Texas Motor Speedway · May 1–3 · Triple W Rentals</title>
     <meta name="description" content="Premium RV delivered and fully set up at Texas Motor Speedway for the NASCAR Triple-Header weekend, May 1–3, 2026. Three races. One home base. Skip the hotel, skip the traffic. 4.7 stars · 193 reviews.">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
     <style>
-    /* ============================================================
-       TOKENS
-    ============================================================ */
-    :root {
-        --bg:        #000000;
-        --bg2:       #0D0D0D;
-        --bg3:       #121110;
-        --bg4:       #1C1916;
-        --gold:      #C9962C;
-        --gold-h:    #D4A843;
-        --gold-dim:  rgba(201,150,44,.11);
-        --text:      #F4EFE6;
-        --text2:     #B8AFA4;
-        --text3:     #6A6058;
-        --line:      #272320;
-        --r:         #C8102E;
-        --w:         #EAE4D8;
-        --b:         #084891;
-        --nav-h:     70px;
+    :root{
+        --bg:#000000;--bg2:#0D0D0D;--bg3:#121110;--bg4:#1C1916;
+        --gold:#C9962C;--gold-h:#D4A843;--gold-dim:rgba(201,150,44,.11);
+        --text:#F4EFE6;--text2:#B8AFA4;--text3:#6A6058;
+        --line:#272320;--r:#C8102E;--w:#EAE4D8;--b:#084891;--nav-h:70px;
     }
-
-    /* ============================================================
-       RESET
-    ============================================================ */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-        background:var(--bg);color:var(--text);
-        font-family:'Inter',sans-serif;font-size:16px;
-        line-height:1.6;overflow-x:hidden;
-        -webkit-font-smoothing:antialiased;
-    }
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
     img{max-width:100%;height:auto;display:block}
     a{color:inherit;text-decoration:none}
     h1,h2{font-family:'Playfair Display',serif;font-weight:800;line-height:1.1}
-
-    /* ============================================================
-       LAYOUT
-    ============================================================ */
     .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
     .sec{padding:104px 0}
     .sec-sm{padding:56px 0}
     .sec-tight{padding:72px 0}
 
-    /* ============================================================
-       SCROLL ANIMATIONS
-    ============================================================ */
+    /* SCROLL ANIMATIONS */
     .fi{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
     .fi.v{opacity:1;transform:translateY(0)}
-    .fi.d1{transition-delay:.10s}
-    .fi.d2{transition-delay:.20s}
-    .fi.d3{transition-delay:.30s}
-    .fi.d4{transition-delay:.40s}
+    .fi.d1{transition-delay:.10s}.fi.d2{transition-delay:.20s}
+    .fi.d3{transition-delay:.30s}.fi.d4{transition-delay:.40s}
 
-    /* ============================================================
-       CHECKERED DIVIDER
-    ============================================================ */
-    .check-div{
-        height:4px;
-        background:repeating-conic-gradient(var(--line) 0% 25%, transparent 0% 50%) 0 0 / 8px 4px;
-        opacity:.5;
-    }
+    /* CHECKERED DIVIDER */
+    .check-div{height:4px;background:repeating-conic-gradient(var(--line) 0% 25%,transparent 0% 50%) 0 0/8px 4px;opacity:.5;}
 
-    /* ============================================================
-       STICKY NAV
-    ============================================================ */
-    .nav{
-        position:fixed;top:0;left:0;right:0;z-index:1000;
-        height:var(--nav-h);
-        display:flex;align-items:center;
-        background:rgba(10,10,10,.88);
-        backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-        border-bottom:1px solid var(--line);
-        transition:background .3s;
-    }
-    .nav__inner{
-        display:flex;align-items:center;justify-content:space-between;
-        width:100%;max-width:1120px;margin:0 auto;padding:0 28px;
-    }
-    .nav__logo{
-        font-family:'Playfair Display',serif;
-        font-weight:700;font-size:17px;letter-spacing:.025em;
-    }
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;background:rgba(10,10,10,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:background .3s;}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1120px;margin:0 auto;padding:0 28px;}
+    .nav__logo{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;letter-spacing:.025em;}
     .nav__logo b{color:var(--gold)}
-    .nav__cta{
-        display:inline-flex;align-items:center;gap:8px;
-        background:var(--gold);color:#0A0A0A;
-        font-weight:700;font-size:13.5px;
-        padding:10px 22px;border-radius:4px;
-        letter-spacing:.03em;white-space:nowrap;
-        transition:background .2s,transform .1s;
-    }
+    .nav__cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#0A0A0A;font-weight:700;font-size:13.5px;padding:10px 22px;border-radius:4px;letter-spacing:.03em;white-space:nowrap;transition:background .2s,transform .1s;}
     .nav__cta:hover{background:var(--gold-h);transform:translateY(-1px)}
     .nav__cta svg{flex-shrink:0}
 
-    /* ============================================================
-       HERO
-    ============================================================ */
-    .hero{
-        position:relative;min-height:100vh;
-        display:flex;align-items:center;overflow:hidden;
-        padding-top:var(--nav-h);
-    }
+    /* HERO */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:var(--nav-h);}
     .hero__video-wrap{position:absolute;inset:0;overflow:hidden}
-    .hero__video{
-        position:absolute;inset:0;
-        width:100%;height:100%;
-        object-fit:cover;object-position:center 40%;
-    }
-    .hero__overlay{
-        position:absolute;inset:0;
-        background:
-            linear-gradient(to right,
-                rgba(0,0,0,.97) 0%,rgba(0,0,0,.92) 38%,
-                rgba(0,0,0,.58) 62%,rgba(0,0,0,.22) 100%),
-            linear-gradient(to top,rgba(0,0,0,.70) 0%,transparent 38%);
-    }
-    .hero__lines{
-        position:absolute;right:0;top:0;bottom:0;width:42%;opacity:.03;
-        background:repeating-linear-gradient(-13deg,var(--text) 0,var(--text) 1px,transparent 1px,transparent 26px);
-    }
-    .hero__content{position:relative;z-index:10;max-width:680px;padding:90px 0}
-    .event-pill{
-        display:inline-flex;align-items:center;gap:8px;
-        border:1px solid rgba(201,150,44,.35);background:rgba(201,150,44,.07);
-        color:var(--gold);font-size:10.5px;font-weight:600;letter-spacing:.16em;
-        text-transform:uppercase;padding:7px 14px;border-radius:2px;margin-bottom:28px;
-    }
-    .event-pill::before{
-        content:'';display:block;width:6px;height:6px;border-radius:50%;
-        background:var(--gold);animation:pulse 2s ease-in-out infinite;
-    }
+    .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+    .hero__overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.97) 0%,rgba(0,0,0,.93) 40%,rgba(0,0,0,.62) 65%,rgba(0,0,0,.28) 100%),linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 40%);}
+    .hero__lines{position:absolute;right:0;top:0;bottom:0;width:42%;opacity:.03;background:repeating-linear-gradient(-13deg,var(--text) 0,var(--text) 1px,transparent 1px,transparent 26px);}
+    .hero__content{position:relative;z-index:10;max-width:700px;padding:90px 0}
+    .event-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,150,44,.35);background:rgba(201,150,44,.07);color:var(--gold);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:2px;margin-bottom:28px;}
+    .event-pill::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;}
     @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-    .hero h1{font-size:clamp(44px,6.8vw,78px);margin-bottom:8px;color:var(--text)}
+    .hero h1{font-size:clamp(42px,6.4vw,76px);margin-bottom:10px;color:var(--text)}
     .hero h1 em{font-style:italic;color:var(--gold)}
-    .hero__sub{
-        font-size:clamp(16px,1.9vw,19px);color:rgba(244,239,230,.82);
-        font-weight:300;max-width:520px;margin-bottom:26px;line-height:1.75;
-    }
-    /* Hero benefit bullets — answers "what do I get?" instantly */
-    .hero__benefits{
-        list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;
-        margin-bottom:34px;
-    }
-    .hero__benefits li{
-        font-size:13.5px;color:rgba(244,239,230,.72);font-weight:500;
-        display:flex;align-items:center;gap:7px;
-    }
-    .hero__benefits li::before{
-        content:'';display:block;width:5px;height:5px;border-radius:50%;
-        background:var(--gold);flex-shrink:0;
-    }
+    .hero__sub{font-size:clamp(16px,1.9vw,18.5px);color:rgba(244,239,230,.8);font-weight:300;max-width:530px;margin-bottom:26px;line-height:1.8;}
+    .hero__benefits{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin-bottom:34px;}
+    .hero__benefits li{font-size:13.5px;color:rgba(244,239,230,.72);font-weight:500;display:flex;align-items:center;gap:7px;}
+    .hero__benefits li::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
     .hero__btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-    .btn{
-        display:inline-flex;align-items:center;gap:9px;
-        font-weight:700;font-size:14.5px;padding:15px 32px;border-radius:4px;
-        letter-spacing:.03em;border:none;cursor:pointer;white-space:nowrap;
-        transition:background .2s,transform .1s,border-color .2s;
-    }
-    .btn:active{transform:translateY(0) !important}
+    .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14.5px;padding:15px 32px;border-radius:4px;letter-spacing:.03em;border:none;cursor:pointer;white-space:nowrap;transition:background .2s,transform .1s,border-color .2s;}
+    .btn:active{transform:translateY(0)!important}
     .btn-gold{background:var(--gold);color:#0A0A0A}
     .btn-gold:hover{background:var(--gold-h);transform:translateY(-1px)}
     .btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(244,239,230,.18)}
     .btn-ghost:hover{border-color:rgba(244,239,230,.4);transform:translateY(-1px)}
-    .hero__trust{
-        display:flex;align-items:center;gap:8px;
-        font-size:12.5px;color:rgba(244,239,230,.55);flex-wrap:wrap;
-    }
+    .hero__trust{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(244,239,230,.55);flex-wrap:wrap;}
     .hero__trust .stars{color:var(--gold);letter-spacing:0}
     .hero__trust-dot{width:3px;height:3px;border-radius:50%;background:var(--text3);flex-shrink:0}
     .hero__stripe-bottom{position:absolute;bottom:0;left:0;right:0;display:flex;height:5px}
@@ -187,582 +76,276 @@
     .hero__stripe-bottom .w{background:var(--w)}
     .hero__stripe-bottom .b{background:var(--b)}
 
-    /* ============================================================
-       RV PROOF STRIP — Immediately after hero
-    ============================================================ */
+    /* RV PROOF STRIP */
     .rv-proof{background:var(--bg2);border-bottom:1px solid var(--line)}
-    .rv-proof__grid{
-        display:grid;grid-template-columns:1.1fr 1fr 1fr;
-        gap:6px;border-radius:8px;overflow:hidden;margin-bottom:32px;
-    }
-    .rv-proof__img{
-        position:relative;overflow:hidden;height:240px;
-        background-size:cover;background-position:center;
-    }
-    .rv-proof__img::after{
-        content:'';position:absolute;inset:0;
-        background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 50%);
-    }
-    .rv-proof__label{
-        position:absolute;bottom:14px;left:14px;z-index:2;
-        font-size:12px;font-weight:600;letter-spacing:.05em;
-        color:rgba(244,239,230,.9);
-        background:rgba(10,10,10,.78);padding:6px 14px;border-radius:3px;
-        backdrop-filter:blur(4px);
-    }
-    .rv-proof__benefits{
-        display:grid;grid-template-columns:repeat(4,1fr);gap:0;
-        border:1px solid var(--line);border-radius:8px;overflow:hidden;
-    }
-    .rv-pb{
-        text-align:center;padding:20px 14px;
-        border-right:1px solid var(--line);
-    }
+    .rv-proof__hd{text-align:center;margin-bottom:32px}
+    .rv-proof__hd h2{font-size:clamp(26px,3vw,40px);margin-bottom:8px}
+    .rv-proof__hd p{font-size:15px;color:var(--text2)}
+    .rv-proof__grid{display:grid;grid-template-columns:1.8fr 1fr;grid-template-rows:260px 200px;gap:6px;border-radius:10px;overflow:hidden;margin-bottom:32px;}
+    .rv-proof__img{position:relative;overflow:hidden;background-size:cover;background-position:center;}
+    .rv-proof__img--main{grid-row:span 2}
+    .rv-proof__img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.58) 0%,transparent 55%);}
+    .rv-proof__label{position:absolute;bottom:14px;left:14px;z-index:2;font-size:12px;font-weight:600;letter-spacing:.05em;color:rgba(244,239,230,.9);background:rgba(10,10,10,.78);padding:6px 14px;border-radius:3px;backdrop-filter:blur(4px);}
+    .rv-proof__benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+    .rv-pb{text-align:center;padding:22px 14px;border-right:1px solid var(--line);}
     .rv-pb:last-child{border-right:none}
-    .rv-pb__icon{
-        color:var(--gold);margin-bottom:8px;
-        display:flex;align-items:center;justify-content:center;
-    }
+    .rv-pb__icon{color:var(--gold);margin-bottom:8px;display:flex;align-items:center;justify-content:center;}
     .rv-pb__text{font-size:13px;color:var(--text2);line-height:1.45}
     .rv-pb__text strong{color:var(--text);font-weight:600;display:block;margin-bottom:2px;font-size:14px}
-    .rv-proof__note{
-        text-align:center;margin-top:18px;font-size:12.5px;color:var(--text3);
-    }
+    .rv-proof__note{text-align:center;margin-top:18px;font-size:13px;color:var(--text3);}
     .rv-proof__note strong{color:var(--text2)}
+    .rv-proof__price-anchor{
+        text-align:center;margin-top:12px;font-size:14px;color:var(--text2);
+        background:rgba(201,150,44,.07);border:1px solid rgba(201,150,44,.18);
+        border-radius:6px;padding:14px 20px;max-width:620px;margin-left:auto;margin-right:auto;
+    }
+    .rv-proof__price-anchor strong{color:var(--gold)}
 
-    /* ============================================================
-       DECISION CONTRAST — 4-column
-    ============================================================ */
+    /* DECISION CONTRAST */
     .contrast{background:var(--bg3)}
     .contrast__hd{text-align:center;margin-bottom:52px}
     .contrast__hd h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:10px}
     .contrast__sub{font-size:16px;color:var(--text2)}
     .contrast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .contrast-col{
-        background:var(--bg4);border:1px solid var(--line);border-radius:10px;
-        padding:30px 22px;position:relative;overflow:hidden;
-    }
-    .contrast-col--winner{
-        border-color:rgba(201,150,44,.35);
-        background:linear-gradient(to bottom,rgba(201,150,44,.06),var(--bg4));
-    }
-    .contrast-col__badge{
-        position:absolute;top:14px;right:14px;
-        background:var(--gold);color:#0A0A0A;font-size:9px;font-weight:700;
-        letter-spacing:.12em;text-transform:uppercase;
-        padding:4px 10px;border-radius:2px;
-    }
-    .contrast-col__icon{
-        width:36px;height:36px;margin-bottom:16px;
-        display:flex;align-items:center;justify-content:center;
-        border-radius:8px;background:rgba(255,255,255,.05);
-        color:var(--text3);
-    }
-    .contrast-col--winner .contrast-col__icon{
-        background:rgba(201,150,44,.12);color:var(--gold);
-    }
-    .contrast-col h3{
-        font-family:'Inter',sans-serif;font-size:16px;font-weight:700;
-        color:var(--text);margin-bottom:16px;
-    }
+    .contrast-col{background:var(--bg4);border:1px solid var(--line);border-radius:10px;padding:30px 22px;position:relative;overflow:hidden;}
+    .contrast-col--winner{border-color:rgba(201,150,44,.35);background:linear-gradient(to bottom,rgba(201,150,44,.06),var(--bg4));}
+    .contrast-col__badge{position:absolute;top:14px;right:14px;background:var(--gold);color:#0A0A0A;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
+    .contrast-col__icon{width:36px;height:36px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:rgba(255,255,255,.05);color:var(--text3);}
+    .contrast-col--winner .contrast-col__icon{background:rgba(201,150,44,.12);color:var(--gold);}
+    .contrast-col h3{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:16px;}
     .contrast-col--winner h3{color:var(--gold)}
     .contrast-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-    .contrast-col li{
-        font-size:13.5px;color:var(--text2);line-height:1.5;
-        padding-left:18px;position:relative;
-    }
-    .contrast-col li::before{
-        content:'';position:absolute;left:0;top:7px;
-        width:5px;height:5px;border-radius:50%;
-        background:var(--text3);
-    }
+    .contrast-col li{font-size:13.5px;color:var(--text2);line-height:1.5;padding-left:18px;position:relative;}
+    .contrast-col li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--text3);}
     .contrast-col--winner li::before{background:var(--gold)}
     .contrast-col--winner li{color:var(--text)}
 
-    /* ============================================================
-       EVENT COUNTDOWN CARDS
-    ============================================================ */
+    /* EVENT COUNTDOWN */
     .ev-strip{background:var(--bg2);position:relative;overflow:hidden}
     .ev-strip__hd{text-align:center;margin-bottom:48px}
     .ev-strip__hd h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:8px}
     .ev-strip__sub{font-size:14px;color:var(--text2);letter-spacing:.04em}
     .ev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .ev-card{
-        position:relative;overflow:hidden;border-radius:8px;
-        min-height:300px;display:flex;flex-direction:column;
-        justify-content:flex-end;padding:28px 24px;
-        border:1px solid rgba(255,255,255,.06);
-    }
-    .ev-card__bg{
-        position:absolute;inset:0;background-size:cover;
-        background-position:center;transition:transform 8s ease;
-        filter:brightness(.7);
-    }
+    .ev-card{position:relative;overflow:hidden;border-radius:8px;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px;border:1px solid rgba(255,255,255,.06);}
+    .ev-card__bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 8s ease;filter:brightness(.7);}
     .ev-card:hover .ev-card__bg{transform:scale(1.05)}
-    .ev-card__overlay{
-        position:absolute;inset:0;
-        background:linear-gradient(to top,rgba(0,0,0,.96) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.40) 100%);
-    }
-    .ev-card__accent{
-        position:absolute;top:0;left:0;right:0;height:2px;
-    }
+    .ev-card__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.96) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.40) 100%);}
+    .ev-card__accent{position:absolute;top:0;left:0;right:0;height:2px;}
     .ev-card:nth-child(1) .ev-card__accent{background:var(--r)}
     .ev-card:nth-child(2) .ev-card__accent{background:var(--w)}
     .ev-card:nth-child(3) .ev-card__accent{background:var(--b)}
     .ev-card__inner{position:relative;z-index:2}
-    .ev-card__series{
-        font-size:9px;font-weight:600;letter-spacing:.20em;
-        text-transform:uppercase;color:var(--gold);margin-bottom:6px;opacity:.9;
-    }
-    .ev-card__name{
-        font-family:'Playfair Display',serif;font-size:clamp(19px,2vw,25px);
-        font-weight:700;color:#fff;margin-bottom:3px;line-height:1.2;
-    }
-    .ev-card__tagline{
-        font-size:11.5px;color:rgba(255,255,255,.5);font-style:italic;
-        margin-bottom:4px;letter-spacing:.02em;
-    }
-    .ev-card__date{
-        font-size:11.5px;color:rgba(255,255,255,.55);margin-bottom:16px;
-        font-weight:500;letter-spacing:.03em;
-    }
+    .ev-card__series{font-size:9px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;opacity:.9;}
+    .ev-card__name{font-family:'Playfair Display',serif;font-size:clamp(19px,2vw,25px);font-weight:700;color:#fff;margin-bottom:3px;line-height:1.2;}
+    .ev-card__tagline{font-size:11.5px;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:4px;letter-spacing:.02em;}
+    .ev-card__date{font-size:11.5px;color:rgba(255,255,255,.55);margin-bottom:16px;font-weight:500;letter-spacing:.03em;}
     .ev-countdown{display:flex;gap:6px}
-    .ev-cd-box{
-        background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
-        border-radius:4px;padding:8px 0;min-width:50px;text-align:center;
-    }
-    .ev-cd-box__n{
-        font-family:'Inter',sans-serif;font-size:20px;font-weight:700;
-        color:#fff;line-height:1;display:block;
-        font-variant-numeric:tabular-nums;
-    }
-    .ev-cd-box__l{
-        font-size:7.5px;font-weight:600;letter-spacing:.16em;
-        text-transform:uppercase;color:rgba(255,255,255,.35);
-        margin-top:3px;display:block;
-    }
+    .ev-cd-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:8px 0;min-width:50px;text-align:center;}
+    .ev-cd-box__n{font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:#fff;line-height:1;display:block;font-variant-numeric:tabular-nums;}
+    .ev-cd-box__l{font-size:7.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:3px;display:block;}
 
-    /* ============================================================
-       SOLUTION — Horizontal benefit system
-    ============================================================ */
-    .solution{background:var(--bg3)}
-    .solution__grid{
-        display:grid;grid-template-columns:1fr 1fr;
-        gap:60px;align-items:center;
-    }
-    .solution h2{font-size:clamp(30px,3.6vw,50px);margin-bottom:20px}
-    .solution__lead{font-size:17px;color:var(--text2);line-height:1.8;margin-bottom:32px}
-    .solution__lead strong{color:var(--text);font-weight:600}
-    .benefit-list{list-style:none;display:flex;flex-direction:column;gap:0}
-    .benefit-item{
-        display:flex;align-items:flex-start;gap:16px;
-        padding:18px 0;border-bottom:1px solid var(--line);
-    }
-    .benefit-item:first-child{border-top:1px solid var(--line)}
-    .benefit-item__icon{
-        width:38px;height:38px;flex-shrink:0;
-        display:flex;align-items:center;justify-content:center;
-        border-radius:8px;background:rgba(201,150,44,.08);
-        border:1px solid rgba(201,150,44,.18);color:var(--gold);
-    }
-    .benefit-item__text{flex:1}
-    .benefit-item h4{
-        font-family:'Inter',sans-serif;font-size:15px;font-weight:700;
-        color:var(--text);margin-bottom:2px;
-    }
-    .benefit-item p{font-size:13.5px;color:var(--text2);line-height:1.55}
+    /* WHAT'S INCLUDED */
+    .included{background:var(--bg)}
+    .included__hd{text-align:center;margin-bottom:60px}
+    .included__overline{font-size:10.5px;font-weight:700;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px;}
+    .included__hd h2{font-size:clamp(30px,3.6vw,52px);margin-bottom:18px}
+    .included__hd h2 em{font-style:italic;color:var(--gold)}
+    .included__sub{font-size:16px;color:var(--text2);max-width:580px;margin:0 auto;line-height:1.8;}
+    .inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:52px;}
+    .inc-card{background:var(--bg2);padding:36px 30px;transition:background .25s;}
+    .inc-card:hover{background:var(--bg3)}
+    .inc-card__num{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--text3);margin-bottom:18px;display:block;}
+    .inc-card__icon{width:44px;height:44px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;background:rgba(201,150,44,.09);border:1px solid rgba(201,150,44,.20);border-radius:8px;color:var(--gold);}
+    .inc-card h4{font-family:'Inter',sans-serif;font-size:15.5px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3;}
+    .inc-card p{font-size:13.5px;color:var(--text2);line-height:1.7;}
+    .included__cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;}
+    .included__note{font-size:12.5px;color:var(--text3)}
 
-    /* ============================================================
-       HOW IT WORKS
-    ============================================================ */
-    .how{background:var(--bg)}
-    .how__hd{text-align:center;margin-bottom:60px}
-    .how__hd h2{font-size:clamp(30px,3.4vw,46px)}
-    .how__hd p{font-size:15px;color:var(--text2);margin-top:8px}
-    .steps{
-        display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
-        gap:0;position:relative;align-items:stretch;
-    }
-    .step{
-        background:var(--bg3);padding:44px 30px;
-        border:1px solid var(--line);border-radius:10px;
-        position:relative;text-align:center;
-    }
-    .step__n{
-        font-family:'Playfair Display',serif;font-size:72px;font-weight:800;
-        color:rgba(201,150,44,.14);line-height:1;margin-bottom:6px;display:block;
-    }
-    .step h3{
-        font-family:'Inter',sans-serif;font-size:18px;font-weight:700;
-        color:var(--text);margin-bottom:8px;
-    }
-    .step p{font-size:14.5px;color:var(--text2);line-height:1.7}
-    .step-connector{
-        display:flex;align-items:center;justify-content:center;
-        color:var(--gold);opacity:.4;align-self:center;
-        padding:0 12px;
-    }
-    .how__note{
-        text-align:center;margin-top:34px;font-size:13.5px;color:var(--text3);
-    }
-    .how__note strong{color:var(--text2)}
-
-    /* ============================================================
-       FLEET — "Inside Your Race Weekend Setup"
-    ============================================================ */
+    /* FLEET */
     .fleet{background:var(--bg2);overflow:hidden}
     .fleet__hd{text-align:center;margin-bottom:14px}
     .fleet__hd h2{font-size:clamp(30px,3.4vw,46px);margin-bottom:12px}
-    .fleet__intro{
-        text-align:center;font-size:17px;color:var(--text2);
-        max-width:580px;margin:0 auto 52px;line-height:1.7;
-    }
+    .fleet__intro{text-align:center;font-size:17px;color:var(--text2);max-width:560px;margin:0 auto 52px;line-height:1.7;}
     .fleet__intro strong{color:var(--text);font-weight:600}
-    .fleet-grid{
-        display:grid;grid-template-columns:58% 1fr;
-        grid-template-rows:260px 220px;gap:8px;
-        margin-bottom:52px;border-radius:10px;overflow:hidden;
-    }
-    .fleet-ph{
-        position:relative;overflow:hidden;background:var(--bg4);
-        background-size:cover;background-position:center;background-repeat:no-repeat;
-    }
+    .fleet-grid{display:grid;grid-template-columns:58% 1fr;grid-template-rows:280px 220px;gap:8px;margin-bottom:52px;border-radius:10px;overflow:hidden;}
+    .fleet-ph{position:relative;overflow:hidden;background:var(--bg4);background-size:cover;background-position:center;background-repeat:no-repeat;}
     .fleet-ph:nth-child(1){grid-row:span 2}
-    .fleet-ph::after{
-        content:'';position:absolute;inset:0;
-        background:linear-gradient(to top,rgba(10,10,10,.55) 0%,transparent 50%);
-        transition:opacity .4s;
-    }
-    .fleet-ph__label{
-        position:absolute;bottom:16px;left:16px;z-index:2;
-        font-size:11px;font-weight:600;letter-spacing:.08em;
-        color:rgba(244,239,230,.85);
-        background:rgba(10,10,10,.78);padding:6px 14px;border-radius:3px;
-        backdrop-filter:blur(4px);
-    }
-    .amenity-grid{
-        display:grid;grid-template-columns:repeat(auto-fit,minmax(226px,1fr));
-        gap:10px;
-    }
-    .amenity{
-        display:flex;align-items:flex-start;gap:12px;
-        padding:16px 18px;background:var(--bg4);
-        border:1px solid var(--line);border-radius:6px;
-    }
+    .fleet-ph::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.55) 0%,transparent 50%);transition:opacity .4s;}
+    .fleet-ph__label{position:absolute;bottom:16px;left:16px;z-index:2;font-size:11px;font-weight:600;letter-spacing:.08em;color:rgba(244,239,230,.85);background:rgba(10,10,10,.78);padding:6px 14px;border-radius:3px;backdrop-filter:blur(4px);}
+    .amenity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(226px,1fr));gap:10px;}
+    .amenity{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;background:var(--bg4);border:1px solid var(--line);border-radius:6px;}
     .amenity svg{color:var(--gold);flex-shrink:0;margin-top:1px}
     .amenity span{font-size:14px;color:var(--text2);line-height:1.5}
 
-    /* ============================================================
-       COMPARISON TABLE
-    ============================================================ */
-    .compare{background:var(--bg3)}
+    /* HOW IT WORKS */
+    .how{background:var(--bg3)}
+    .how__hd{text-align:center;margin-bottom:60px}
+    .how__hd h2{font-size:clamp(30px,3.4vw,46px)}
+    .how__hd p{font-size:15px;color:var(--text2);margin-top:10px}
+    .steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch;}
+    .step{background:var(--bg4);padding:44px 32px;border:1px solid var(--line);border-radius:10px;position:relative;text-align:center;}
+    .step__n{font-family:'Playfair Display',serif;font-size:88px;font-weight:800;color:rgba(201,150,44,.13);line-height:1;margin-bottom:4px;display:block;letter-spacing:-.02em;}
+    .step h3{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;}
+    .step p{font-size:14px;color:var(--text2);line-height:1.75}
+    .step-connector{display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:.35;align-self:center;padding:0 12px;}
+    .how__note{text-align:center;margin-top:34px;font-size:13.5px;color:var(--text3);}
+    .how__note strong{color:var(--text2)}
+
+    /* COMPARISON TABLE */
+    .compare{background:var(--bg)}
     .compare__hd{text-align:center;margin-bottom:14px}
     .compare__hd h2{font-size:clamp(30px,3.4vw,46px);margin-bottom:11px}
     .compare__sub{font-size:16px;color:var(--text2)}
-    .compare__verdict{
-        text-align:center;font-size:15px;color:var(--text2);margin-bottom:36px;
-        max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7;
-    }
+    .compare__verdict{text-align:center;font-size:15px;color:var(--text2);margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7;}
     .compare__verdict strong{color:var(--gold);font-weight:600}
     .tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line)}
     table{width:100%;border-collapse:collapse;min-width:560px}
-    th{
-        padding:20px 22px;text-align:center;font-size:11.5px;font-weight:600;
-        letter-spacing:.09em;text-transform:uppercase;border-bottom:1px solid var(--line);
-    }
+    th{padding:20px 22px;text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;border-bottom:1px solid var(--line);}
     th:first-child{text-align:left;color:var(--text3);background:var(--bg3)}
     th.c-h{background:rgba(12,12,12,.5);color:var(--text3)}
     th.c-c{background:rgba(12,12,12,.5);color:var(--text3)}
-    th.c-w{
-        background:rgba(201,150,44,.09);color:var(--gold);
-        border-left:1px solid rgba(201,150,44,.25);
-        border-right:1px solid rgba(201,150,44,.25);
-        position:relative;
-    }
-    th.c-w .best-badge{
-        display:inline-block;background:var(--gold);color:#0A0A0A;
-        font-size:8px;font-weight:700;letter-spacing:.12em;padding:3px 10px;
-        border-radius:2px;margin-left:8px;vertical-align:middle;
-    }
-    td{
-        padding:16px 22px;font-size:14px;color:var(--text2);text-align:center;
-        border-bottom:1px solid var(--line);
-    }
+    th.c-w{background:rgba(201,150,44,.09);color:var(--gold);border-left:1px solid rgba(201,150,44,.25);border-right:1px solid rgba(201,150,44,.25);position:relative;}
+    th.c-w .best-badge{display:inline-block;background:var(--gold);color:#0A0A0A;font-size:8px;font-weight:700;letter-spacing:.12em;padding:3px 10px;border-radius:2px;margin-left:8px;vertical-align:middle;}
+    td{padding:17px 22px;font-size:14px;color:var(--text2);text-align:center;border-bottom:1px solid var(--line);}
     td:first-child{text-align:left;color:var(--text);font-weight:500}
     tr:last-child td{border-bottom:none}
-    td.c-w{
-        background:rgba(201,150,44,.05);color:var(--text);font-weight:600;
-        border-left:1px solid rgba(201,150,44,.16);
-        border-right:1px solid rgba(201,150,44,.16);
-    }
+    td.c-w{background:rgba(201,150,44,.05);color:var(--text);font-weight:600;border-left:1px solid rgba(201,150,44,.16);border-right:1px solid rgba(201,150,44,.16);}
     .chk{color:var(--gold);font-weight:700}
     .crs{color:var(--text3)}
     .par{color:var(--text2);font-style:italic}
     .compare-note{text-align:center;margin-top:16px;font-size:11.5px;color:var(--text3);font-style:italic}
 
-    /* ============================================================
-       REVIEWS
-    ============================================================ */
-    .reviews{background:var(--bg)}
+    /* REVIEWS */
+    .reviews{background:var(--bg2)}
     .reviews__hd{text-align:center;margin-bottom:42px}
     .reviews__hd h2{font-size:clamp(28px,3vw,44px);margin-bottom:5px}
     .reviews__sub{font-size:13.5px;color:var(--text3)}
-    .reviews__featured{
-        text-align:center;margin-bottom:48px;padding:48px 36px;
-        border:1px solid rgba(201,150,44,.18);border-radius:10px;
-        background:linear-gradient(to bottom,rgba(201,150,44,.04),var(--bg4));
-        max-width:740px;margin-left:auto;margin-right:auto;
-    }
-    .reviews__featured-stars{font-size:26px;color:var(--gold);letter-spacing:5px;margin-bottom:18px}
-    .reviews__featured-quote{
-        font-family:'Playfair Display',serif;font-size:clamp(22px,2.8vw,34px);
-        font-weight:700;color:var(--text);line-height:1.3;font-style:italic;
-        margin-bottom:16px;
-    }
-    .reviews__featured-src{font-size:12px;color:var(--text3);letter-spacing:.08em}
+    .reviews__featured{text-align:center;margin-bottom:48px;padding:52px 40px;border:1px solid rgba(201,150,44,.20);border-radius:10px;background:linear-gradient(to bottom,rgba(201,150,44,.05),var(--bg4));max-width:760px;margin-left:auto;margin-right:auto;}
+    .reviews__featured-stars{font-size:28px;color:var(--gold);letter-spacing:6px;margin-bottom:20px}
+    .reviews__featured-quote{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);font-weight:700;color:var(--text);line-height:1.25;font-style:italic;margin-bottom:20px;}
+    .reviews__featured-attr{font-size:13px;color:var(--text2);font-weight:500;margin-bottom:4px;}
+    .reviews__featured-src{font-size:11.5px;color:var(--text3);letter-spacing:.08em}
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .rcard{
-        background:var(--bg4);border:1px solid var(--line);border-radius:8px;padding:30px 26px;
-    }
+    .rcard{background:var(--bg4);border:1px solid var(--line);border-radius:8px;padding:30px 26px;}
     .rcard__stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
     .rcard__text{font-size:15px;color:var(--text2);font-style:italic;line-height:1.8;margin-bottom:20px}
     .rcard__author{font-size:14px;font-weight:700;color:var(--text)}
     .rcard__ctx{font-size:12px;color:var(--text2);margin-top:3px}
-    .rcard__verified{
-        display:inline-flex;align-items:center;gap:4px;
-        font-size:10px;color:var(--gold);font-weight:600;
-        letter-spacing:.06em;margin-top:8px;
-    }
-    .rcard__source{
-        display:inline-flex;align-items:center;gap:5px;
-        font-size:10px;color:var(--text3);font-weight:500;
-        letter-spacing:.04em;margin-top:5px;
-    }
+    .rcard__verified{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--gold);font-weight:600;letter-spacing:.06em;margin-top:8px;}
+    .rcard__source{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--text3);font-weight:500;letter-spacing:.04em;margin-top:5px;}
 
-    /* ============================================================
-       PROOF BAR
-    ============================================================ */
-    .proof-bar{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    /* PROOF BAR */
+    .proof-bar{background:var(--bg3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .proof-stats{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap}
-    .pstat{flex:1;min-width:130px;max-width:200px;text-align:center;padding:18px 16px;position:relative}
-    .pstat+.pstat::before{
-        content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
-        height:32px;width:1px;background:var(--line);
-    }
-    .pstat__n{
-        font-family:'Playfair Display',serif;font-size:28px;font-weight:700;
-        color:var(--gold);line-height:1;display:block;margin-bottom:5px;
-    }
+    .pstat{flex:1;min-width:130px;max-width:200px;text-align:center;padding:20px 16px;position:relative}
+    .pstat+.pstat::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:32px;width:1px;background:var(--line);}
+    .pstat__n{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--gold);line-height:1;display:block;margin-bottom:5px;}
     .pstat__l{font-size:10.5px;color:var(--text3);letter-spacing:.10em;text-transform:uppercase}
 
-    /* ============================================================
-       URGENCY / SCARCITY
-    ============================================================ */
-    .urgency{
-        background:var(--bg3);text-align:center;
-        border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    }
+    /* SCARCITY */
+    .urgency{background:var(--bg2);text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
     .urgency__inner{max-width:640px;margin:0 auto}
-    .urgency-badge{
-        display:inline-block;margin-bottom:22px;
-        background:rgba(200,16,46,.10);border:1px solid rgba(200,16,46,.28);
-        color:#E04060;font-size:10.5px;font-weight:600;
-        letter-spacing:.15em;text-transform:uppercase;
-        padding:6px 16px;border-radius:2px;
-    }
-    .urgency h2{font-size:clamp(34px,5vw,62px);margin-bottom:28px;line-height:1.08}
-    .urgency-bullets{
-        list-style:none;display:flex;flex-direction:column;gap:10px;
-        text-align:left;max-width:420px;margin:0 auto 36px;
-    }
-    .urgency-bullets li{
-        font-size:15.5px;color:var(--text2);line-height:1.55;
-        padding-left:24px;position:relative;
-    }
-    .urgency-bullets li::before{
-        content:'';position:absolute;left:0;top:8px;
-        width:6px;height:6px;border-radius:50%;
-        background:var(--r);
-    }
+    .urgency-badge{display:inline-block;margin-bottom:22px;background:rgba(200,16,46,.10);border:1px solid rgba(200,16,46,.28);color:#E04060;font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:2px;}
+    .urgency h2{font-size:clamp(34px,5vw,62px);margin-bottom:16px;line-height:1.08}
+    .urgency__sub{font-size:15.5px;color:var(--text2);margin-bottom:30px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto;}
+    .urgency-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;text-align:left;max-width:440px;margin:0 auto 36px;}
+    .urgency-bullets li{font-size:15px;color:var(--text2);line-height:1.55;padding-left:24px;position:relative;}
+    .urgency-bullets li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--r);}
     .urgency-bullets li strong{color:var(--text);font-weight:600}
 
-    /* ============================================================
-       FAQ
-    ============================================================ */
-    .faq{background:var(--bg2)}
+    /* FAQ */
+    .faq{background:var(--bg3)}
     .faq__hd{text-align:center;margin-bottom:40px}
     .faq__hd h2{font-size:clamp(28px,3.4vw,44px)}
     .faq-list{max-width:720px;margin:0 auto}
     .faq-item{border-bottom:1px solid var(--line)}
     .faq-item:first-child{border-top:1px solid var(--line)}
-    .faq-q{
-        width:100%;display:flex;align-items:center;
-        justify-content:space-between;gap:18px;
-        padding:18px 0;background:none;border:none;
-        cursor:pointer;text-align:left;color:var(--text);
-    }
+    .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 0;background:none;border:none;cursor:pointer;text-align:left;color:var(--text);}
     .faq-q__t{font-size:15.5px;font-weight:600;line-height:1.45}
     .faq-icon{width:18px;height:18px;flex-shrink:0;color:var(--gold);transition:transform .3s}
     .faq-item.open .faq-icon{transform:rotate(45deg)}
     .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
     .faq-item.open .faq-a{max-height:400px}
-    .faq-a__in{padding:0 0 18px;font-size:14.5px;color:var(--text2);line-height:1.85}
+    .faq-a__in{padding:0 0 20px;font-size:14.5px;color:var(--text2);line-height:1.9}
 
-    /* ============================================================
-       FINAL CTA + LEAD FORM
-    ============================================================ */
+    /* FINAL CTA + FORM */
     .cta-sec{background:var(--bg)}
     .cta-sec__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-    .cta-sec h2{font-size:clamp(28px,3.2vw,44px);margin-bottom:20px}
+    .cta-sec h2{font-size:clamp(28px,3.2vw,46px);margin-bottom:20px;line-height:1.08}
+    .cta-sec h2 em{font-style:italic;color:var(--gold)}
     .cta-sec__body{font-size:16px;color:var(--text2);line-height:1.85;margin-bottom:28px}
     .cta-sec__body strong{color:var(--text);font-weight:600}
-    .cta-sec__bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
-    .cta-sec__bullets li{
-        display:flex;align-items:flex-start;gap:10px;
-        font-size:14px;color:var(--text2);
-    }
+    .cta-sec__bullets{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+    .cta-sec__bullets li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--text2);}
     .cta-sec__bullets svg{color:var(--gold);flex-shrink:0;margin-top:2px}
-    .phone-block a{
-        display:block;font-family:'Playfair Display',serif;
-        font-size:32px;font-weight:700;color:var(--gold);
-        letter-spacing:.02em;margin-bottom:4px;
-    }
+    .cta-sec__bullets strong{color:var(--text);font-weight:600}
+    .phone-block a{display:block;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold);letter-spacing:.02em;margin-bottom:4px;}
     .phone-block__lbl{font-size:11.5px;color:var(--text3)}
-    .lead-form{
-        background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:38px 32px;
-    }
-    .lead-form__title{
-        font-family:'Playfair Display',serif;font-size:22px;font-weight:700;
-        color:var(--text);margin-bottom:5px;
-    }
+    .lead-form{background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:38px 32px;}
+    .lead-form__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:5px;}
     .lead-form__sub{font-size:12.5px;color:var(--text3);margin-bottom:26px}
     .fgrp{margin-bottom:13px}
-    .fgrp label{
-        display:block;font-size:10.5px;font-weight:600;letter-spacing:.09em;
-        text-transform:uppercase;color:var(--text3);margin-bottom:7px;
-    }
-    .fgrp input,.fgrp select,.fgrp textarea{
-        width:100%;background:var(--bg);border:1px solid var(--line);border-radius:4px;
-        padding:12px 14px;font-size:14.5px;color:var(--text);font-family:'Inter',sans-serif;
-        outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;
-    }
-    .fgrp select{
-        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235E5650' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-        background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;
-    }
+    .fgrp label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);margin-bottom:7px;}
+    .fgrp input,.fgrp select,.fgrp textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px 14px;font-size:14.5px;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;}
+    .fgrp select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235E5650' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
     .fgrp select option{background:var(--bg3);color:var(--text)}
     .fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{border-color:var(--gold)}
     .fgrp input::placeholder,.fgrp textarea::placeholder{color:var(--text3)}
     .fgrp textarea{resize:vertical;min-height:80px}
     .fgrp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .form-sub{
-        width:100%;background:var(--gold);color:#0A0A0A;
-        font-weight:700;font-size:15px;letter-spacing:.04em;
-        padding:16px;border:none;border-radius:4px;cursor:pointer;margin-top:8px;
-        transition:background .2s,opacity .2s;
-        display:flex;align-items:center;justify-content:center;gap:10px;position:relative;
-    }
+    .form-sub{width:100%;background:var(--gold);color:#0A0A0A;font-weight:700;font-size:15px;letter-spacing:.04em;padding:16px;border:none;border-radius:4px;cursor:pointer;margin-top:8px;transition:background .2s,opacity .2s;display:flex;align-items:center;justify-content:center;gap:10px;position:relative;}
     .form-sub:hover{background:var(--gold-h)}
     .form-sub:disabled{opacity:.6;cursor:not-allowed}
-    .form-sub .spinner{
-        width:18px;height:18px;border:2px solid rgba(10,10,10,.3);
-        border-top-color:#0A0A0A;border-radius:50%;
-        animation:spin .7s linear infinite;display:none;
-    }
+    .form-sub .spinner{width:18px;height:18px;border:2px solid rgba(10,10,10,.3);border-top-color:#0A0A0A;border-radius:50%;animation:spin .7s linear infinite;display:none;}
     .form-sub.loading .spinner{display:block}
     .form-sub.loading .btn-label{display:none}
     @keyframes spin{to{transform:rotate(360deg)}}
-    .form-msg{
-        display:none;padding:14px 16px;border-radius:6px;
-        font-size:13.5px;line-height:1.5;margin-top:12px;text-align:center;
-    }
+    .form-msg{display:none;padding:14px 16px;border-radius:6px;font-size:13.5px;line-height:1.5;margin-top:12px;text-align:center;}
     .form-msg.success{display:block;background:rgba(40,160,80,.12);border:1px solid rgba(40,160,80,.3);color:#5DD490}
     .form-msg.error{display:block;background:rgba(200,16,46,.10);border:1px solid rgba(200,16,46,.28);color:#E06070}
     .form-micro{text-align:center;font-size:11.5px;color:var(--text3);margin-top:11px}
-    .form-whathappens{
-        display:flex;flex-direction:column;gap:6px;
-        margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
-    }
-    .form-whathappens span{
-        font-size:11px;color:var(--text3);display:flex;align-items:center;gap:6px;
-    }
+    .form-whathappens{display:flex;flex-direction:column;gap:6px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);}
+    .form-whathappens span{font-size:11px;color:var(--text3);display:flex;align-items:center;gap:6px;}
     .form-whathappens svg{color:var(--gold);flex-shrink:0}
 
-    /* ============================================================
-       FOOTER
-    ============================================================ */
+    /* FOOTER */
     .footer{background:var(--bg3);border-top:1px solid var(--line);padding:44px 0}
-    .footer__row{
-        display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;
-    }
+    .footer__row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;}
     .footer__logo{font-family:'Playfair Display',serif;font-size:15.5px;font-weight:700}
     .footer__logo b{color:var(--gold)}
     .footer__links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer__links a{font-size:12.5px;color:var(--text3);transition:color .2s}
     .footer__links a:hover{color:var(--text2)}
-    .footer__trust{
-        width:100%;text-align:center;font-size:11.5px;color:var(--text3);
-        margin-top:20px;padding-top:20px;border-top:1px solid var(--line);
-    }
+    .footer__trust{width:100%;text-align:center;font-size:11.5px;color:var(--text3);margin-top:20px;padding-top:20px;border-top:1px solid var(--line);}
     .footer__trust b{color:var(--gold)}
 
-    /* ============================================================
-       SLIDE-IN URGENCY PANEL
-    ============================================================ */
-    .slide-panel{
-        position:fixed;bottom:24px;right:24px;z-index:990;
-        width:320px;background:var(--bg2);
-        border:1px solid var(--line);border-radius:10px;
-        padding:22px 20px;box-shadow:0 20px 60px rgba(0,0,0,.6);
-        transform:translateY(120%);opacity:0;
-        transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .5s ease;
-    }
+    /* SLIDE-IN PANEL */
+    .slide-panel{position:fixed;bottom:24px;right:24px;z-index:990;width:320px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:22px 20px;box-shadow:0 20px 60px rgba(0,0,0,.6);transform:translateY(120%);opacity:0;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .5s ease;}
     .slide-panel.show{transform:translateY(0);opacity:1}
-    .slide-panel__close{
-        position:absolute;top:10px;right:10px;
-        background:none;border:none;cursor:pointer;color:var(--text3);
-        width:26px;height:26px;display:flex;align-items:center;justify-content:center;
-        border-radius:4px;transition:color .2s,background .2s;
-    }
+    .slide-panel__close{position:absolute;top:10px;right:10px;background:none;border:none;cursor:pointer;color:var(--text3);width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:4px;transition:color .2s,background .2s;}
     .slide-panel__close:hover{color:var(--text);background:rgba(255,255,255,.06)}
-    .slide-panel__accent{
-        height:2px;width:28px;background:var(--gold);border-radius:1px;margin-bottom:12px;
-    }
-    .slide-panel h4{
-        font-family:'Playfair Display',serif;font-size:16px;font-weight:700;
-        color:var(--text);margin-bottom:6px;line-height:1.25;
-    }
+    .slide-panel__accent{height:2px;width:28px;background:var(--gold);border-radius:1px;margin-bottom:12px;}
+    .slide-panel h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.25;}
     .slide-panel p{font-size:12.5px;color:var(--text2);line-height:1.55;margin-bottom:14px}
     .slide-panel .btn{width:100%;justify-content:center;font-size:13px;padding:12px 18px}
 
-    /* ============================================================
-       MOBILE STICKY CTA
-    ============================================================ */
-    .mobile-cta{
-        display:none;position:fixed;bottom:0;left:0;right:0;z-index:980;
-        background:var(--gold);padding:14px 20px;
-        box-shadow:0 -4px 24px rgba(0,0,0,.5);
-        transition:transform .3s ease;
-    }
+    /* MOBILE STICKY CTA */
+    .mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:980;background:var(--gold);padding:14px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.5);transition:transform .3s ease;}
     .mobile-cta.hide{transform:translateY(100%)}
-    .mobile-cta a{
-        display:flex;align-items:center;justify-content:center;gap:8px;
-        color:#0A0A0A;font-weight:700;font-size:15px;letter-spacing:.03em;
-    }
+    .mobile-cta a{display:flex;align-items:center;justify-content:center;gap:8px;color:#0A0A0A;font-weight:700;font-size:15px;letter-spacing:.03em;}
 
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
-    @media(max-width:920px){
+    /* RESPONSIVE */
+    @media(max-width:960px){
         .sec{padding:72px 0}
-        .rv-proof__grid{grid-template-columns:1fr}
-        .rv-proof__img{height:200px}
+        .contrast-grid{grid-template-columns:1fr 1fr;gap:10px}
+        .inc-grid{grid-template-columns:1fr 1fr}
+        .ev-cards{grid-template-columns:1fr}
+        .ev-card{min-height:240px}
+        .rv-proof__grid{grid-template-columns:1fr;grid-template-rows:280px 180px 180px}
+        .rv-proof__img--main{grid-row:span 1}
         .rv-proof__benefits{grid-template-columns:1fr 1fr}
         .rv-pb{border-bottom:1px solid var(--line)}
         .rv-pb:nth-child(2){border-right:none}
-        .ev-cards{grid-template-columns:1fr}
-        .ev-card{min-height:240px}
-        .contrast-grid{grid-template-columns:1fr 1fr;gap:10px}
         .solution__grid{grid-template-columns:1fr;gap:40px}
         .steps{grid-template-columns:1fr;gap:12px}
         .step-connector{display:none}
@@ -791,9 +374,10 @@
         .contrast-grid{grid-template-columns:1fr}
         .rv-proof__benefits{grid-template-columns:1fr}
         .rv-pb{border-right:none}
+        .inc-grid{grid-template-columns:1fr}
         .fleet-grid{grid-template-columns:1fr;grid-template-rows:auto}
-        .fleet-ph{height:220px !important}
-        .fleet-ph:nth-child(1){grid-column:span 1;height:260px !important}
+        .fleet-ph{height:220px!important}
+        .fleet-ph:nth-child(1){grid-column:span 1;height:280px!important}
         .fgrp-row{grid-template-columns:1fr}
         .lead-form{padding:26px 18px}
         .footer__row{flex-direction:column;align-items:flex-start}
@@ -801,27 +385,19 @@
         .ev-countdown{gap:5px}
         .ev-cd-box{min-width:46px;padding:7px 0}
         .ev-cd-box__n{font-size:17px}
+        .reviews__featured{padding:36px 22px}
+        .reviews__featured-quote{font-size:clamp(20px,5.5vw,28px)}
     }
     </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     STICKY NAV
-══════════════════════════════════════ -->
+<!-- NAV -->
 <nav class="nav" id="mainNav">
     <div class="nav__inner">
         <div class="nav__logo">Triple <b>W</b> Rentals</div>
         <a href="#quote-form" class="nav__cta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07
-                         A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2
-                         A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81
-                         a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92
-                         a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7
-                         A2 2 0 0122 16.92z"/>
-            </svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             Reserve Your RV
         </a>
     </div>
@@ -829,16 +405,14 @@
 
 
 <!-- ══════════════════════════════════════
-     1. HERO — Product-first with benefit bullets
+     1. HERO — RV-first positioning
 ══════════════════════════════════════ -->
 <section class="hero">
     <div class="hero__video-wrap">
-        <video class="hero__video"
-               autoplay muted loop playsinline
+        <video class="hero__video" autoplay muted loop playsinline
                poster="https://static.wixstatic.com/media/62f926_6081972934c541bf9b8aaa703b74f585~mv2.webp"
                preload="auto">
-            <source src="https://video.wixstatic.com/video/62f926_8ff76b0555c04f32acb69a68ef4633af/480p/mp4/file.mp4"
-                    type="video/mp4">
+            <source src="https://video.wixstatic.com/video/62f926_8ff76b0555c04f32acb69a68ef4633af/480p/mp4/file.mp4" type="video/mp4">
         </video>
     </div>
     <div class="hero__overlay"></div>
@@ -846,41 +420,29 @@
     <div class="hero__stripe-bottom">
         <span class="r"></span><span class="w"></span><span class="b"></span>
     </div>
-
     <div class="wrap">
         <div class="hero__content">
             <div class="event-pill fi">NASCAR Triple-Header · Texas Motor Speedway · May 1–3, 2026</div>
             <h1 class="fi d1">
-                Three Races.<br>One Home Base.<br><em>Zero Logistics.</em>
+                Your RV Is Ready.<br>Delivered. Set Up.<br><em>Waiting at the Track.</em>
             </h1>
             <p class="hero__sub fi d2">
-                A premium RV delivered and fully set up trackside at TMS.
-                Skip the hotel. Skip the traffic. Your group shows up — everything's ready.
+                A premium RV delivered and fully set up at Texas Motor Speedway before you arrive.
+                Skip the hotel, skip the commute, skip every logistics headache. Your group shows up — it's all waiting.
             </p>
             <ul class="hero__benefits fi d2">
-                <li>Delivered and set up before you arrive</li>
-                <li>Full kitchen, real beds, AC</li>
+                <li>Delivered and fully set up before you arrive</li>
+                <li>Full kitchen, real beds, private bath, AC</li>
                 <li>On-site at Texas Motor Speedway</li>
-                <li>Ideal for groups of 6–10</li>
+                <li>Sleeps 6–10 — split the cost</li>
             </ul>
             <div class="hero__btns fi d3">
                 <a href="#quote-form" class="btn btn-gold">
                     Reserve Your RV
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
                 <a href="tel:+19729656901" class="btn btn-ghost">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07
-                                 A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2
-                                 A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81
-                                 a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92
-                                 a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7
-                                 A2 2 0 0122 16.92z"/>
-                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                     Call (972) 965-6901
                 </a>
             </div>
@@ -899,12 +461,16 @@
 
 
 <!-- ══════════════════════════════════════
-     2. RV PROOF STRIP — Immediate product payoff
+     2. RV PROOF — Immediate product payoff
 ══════════════════════════════════════ -->
 <section class="rv-proof sec-tight">
     <div class="wrap">
+        <div class="rv-proof__hd">
+            <h2 class="fi">This Is What You're Arriving To</h2>
+            <p class="fi d1">Parked, connected, and ready before you get there.</p>
+        </div>
         <div class="rv-proof__grid fi">
-            <div class="rv-proof__img"
+            <div class="rv-proof__img rv-proof__img--main"
                  style="background-image:url('https://static.wixstatic.com/media/62f926_6081972934c541bf9b8aaa703b74f585~mv2.webp')">
                 <div class="rv-proof__label">Your Race Weekend Home Base</div>
             </div>
@@ -934,27 +500,27 @@
                 <div class="rv-pb__icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                 </div>
-                <div class="rv-pb__text"><strong>Sleeps 6–10</strong>Your group stays together — split the cost</div>
+                <div class="rv-pb__text"><strong>Sleeps 6–10</strong>Your whole group together — split the cost</div>
             </div>
             <div class="rv-pb">
                 <div class="rv-pb__icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                 </div>
-                <div class="rv-pb__text"><strong>24/7 Support</strong>We pick up. We handle it. Always.</div>
+                <div class="rv-pb__text"><strong>24/7 Support</strong>We pick up when the weekend ends. Done.</div>
             </div>
         </div>
-        <p class="rv-proof__note fi d2">
-            <strong>Starting from $200/night</strong> &nbsp;·&nbsp;
-            Full weekend packages available &nbsp;·&nbsp;
-            <strong>14 units — limited for race weekend</strong>
-        </p>
+        <div class="rv-proof__price-anchor fi d2">
+            <strong>Starting from $200/night.</strong> Split across 6 people — that's about $33/person/night.
+            Less than a hotel room. More space, more comfort, and zero commute to the track.
+        </div>
     </div>
 </section>
 
 <div class="check-div"></div>
 
+
 <!-- ══════════════════════════════════════
-     3. DECISION CONTRAST — Why this beats alternatives
+     3. DECISION CONTRAST — Why this wins
 ══════════════════════════════════════ -->
 <section class="contrast sec">
     <div class="wrap">
@@ -1018,7 +584,7 @@
 
 
 <!-- ══════════════════════════════════════
-     4. EVENT COUNTDOWN — Urgency pressure (not the main act)
+     4. EVENT COUNTDOWN — Race weekend urgency
 ══════════════════════════════════════ -->
 <section class="ev-strip sec" id="races">
     <div class="wrap">
@@ -1084,68 +650,124 @@
 
 <div class="check-div"></div>
 
+
 <!-- ══════════════════════════════════════
-     5. SOLUTION — "We Handle Everything" (horizontal)
+     5. WHAT'S INCLUDED — Premium services grid
 ══════════════════════════════════════ -->
-<section class="solution sec">
+<section class="included sec">
     <div class="wrap">
-        <div class="solution__grid">
-            <div>
-                <h2 class="fi">
-                    We Handle<br>Everything.<br><em style="font-style:italic;color:var(--gold)">You Show Up.</em>
-                </h2>
-                <p class="solution__lead fi d1">
-                    This isn't a traditional RV rental.
-                    <strong>We deliver a fully set-up, hotel-quality RV directly to Texas Motor Speedway</strong>
-                    and hand you the keys. Your only job is to enjoy three days of NASCAR.
-                </p>
-                <a href="#quote-form" class="btn btn-gold fi d2">
-                    Reserve Your RV
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+        <div class="included__hd">
+            <span class="included__overline fi">What You Get</span>
+            <h2 class="fi d1">Everything Handled.<br><em>Nothing Left to You.</em></h2>
+            <p class="included__sub fi d2">This isn't a traditional RV rental. Every detail — delivery, setup, supplies, support, and pickup — is handled before, during, and after the weekend.</p>
+        </div>
+        <div class="inc-grid">
+            <div class="inc-card fi">
+                <span class="inc-card__num">01</span>
+                <div class="inc-card__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <h4>Pre-Arrival Delivery</h4>
+                <p>We park and position your RV at TMS before Thursday. It's already waiting when you pull up Friday — no towing, no driving, no setup stress.</p>
             </div>
-            <div>
-                <ul class="benefit-list">
-                    <li class="benefit-item fi">
-                        <div class="benefit-item__icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                        </div>
-                        <div class="benefit-item__text">
-                            <h4>Delivered Before You Arrive</h4>
-                            <p>Parked and waiting at TMS before you get there.</p>
-                        </div>
-                    </li>
-                    <li class="benefit-item fi d1">
-                        <div class="benefit-item__icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                        </div>
-                        <div class="benefit-item__text">
-                            <h4>Fully Set Up and Connected</h4>
-                            <p>Power, water, hookups — all arranged. Walkthrough included.</p>
-                        </div>
-                    </li>
-                    <li class="benefit-item fi d2">
-                        <div class="benefit-item__icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                        </div>
-                        <div class="benefit-item__text">
-                            <h4>Fresh Linens, Full Kitchen, AC</h4>
-                            <p>Cookware, towels, real beds. Hotel comfort at the track.</p>
-                        </div>
-                    </li>
-                    <li class="benefit-item fi d3">
-                        <div class="benefit-item__icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                        </div>
-                        <div class="benefit-item__text">
-                            <h4>24/7 Support. Pickup Handled.</h4>
-                            <p>Call us anytime. We come get the RV when it's over. Done.</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="inc-card fi d1">
+                <span class="inc-card__num">02</span>
+                <div class="inc-card__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h4>Complete Hookup & Setup</h4>
+                <p>Power connected. Water hooked up. Leveled and stable. We don't leave until everything works and has been verified.</p>
+            </div>
+            <div class="inc-card fi d2">
+                <span class="inc-card__num">03</span>
+                <div class="inc-card__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h4>Hotel-Quality Supplies</h4>
+                <p>Fresh linens, pillows, towels, and full cookware — all provided. The comfort you'd expect from a premium hotel, on-site at the track.</p>
+            </div>
+            <div class="inc-card fi">
+                <span class="inc-card__num">04</span>
+                <div class="inc-card__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h4>Arrival Walk-Through</h4>
+                <p>A crew member shows you everything before leaving — AC, kitchen, systems, water. Nothing to figure out on your own when you arrive tired from the road.</p>
+            </div>
+            <div class="inc-card fi d1">
+                <span class="inc-card__num">05</span>
+                <div class="inc-card__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <h4>24/7 Weekend Support</h4>
+                <p>One call gets a real person — not a ticket, not a chatbot. If anything needs attention during the weekend, we come to you on-site.</p>
+            </div>
+            <div class="inc-card fi d2">
+                <span class="inc-card__num">06</span>
+                <div class="inc-card__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                </div>
+                <h4>Post-Weekend Pickup</h4>
+                <p>Sunday night or Monday morning — we return, collect the RV, and handle everything. You drive straight home. Nothing to return, nothing to haul.</p>
+            </div>
+        </div>
+        <div class="included__cta">
+            <a href="#quote-form" class="btn btn-gold fi">
+                Reserve Your RV
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="included__note fi d1">14 units available · Limited spots for race weekend</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     6. FLEET — Inside Your Setup
+══════════════════════════════════════ -->
+<section class="fleet sec">
+    <div class="wrap">
+        <div class="fleet__hd">
+            <h2 class="fi">Inside Your Race Weekend Setup</h2>
+        </div>
+        <p class="fleet__intro fi d1">
+            <strong>Not just a place to sleep.</strong> A fully equipped private base at the track — with everything you'd expect from a premium stay, delivered and ready before you arrive.
+        </p>
+        <div class="fleet-grid fi">
+            <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_6081972934c541bf9b8aaa703b74f585~mv2.webp')">
+                <div class="fleet-ph__label">Space for Your Group to Relax</div>
+            </div>
+            <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_e82ba4137dbb44ecb018eda98ab166b9~mv2.webp')">
+                <div class="fleet-ph__label">Full Kitchen On-Site</div>
+            </div>
+            <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_72984415dae543f5a93113defc3976a4~mv2.webp')">
+                <div class="fleet-ph__label">Real Bed. Real Recovery.</div>
+            </div>
+        </div>
+        <div class="amenity-grid">
+            <div class="amenity fi">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong style="color:var(--text)">Delivered and fully set up</strong> on arrival</span>
+            </div>
+            <div class="amenity fi d1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Fresh linens, pillows, and towels</span>
+            </div>
+            <div class="amenity fi d2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Full kitchen with cookware and utensils</span>
+            </div>
+            <div class="amenity fi d1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Power &amp; water hookups at TMS</span>
+            </div>
+            <div class="amenity fi d2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Private bathroom — no shared facilities</span>
+            </div>
+            <div class="amenity fi d3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Optional outdoor table, chairs &amp; awning package</span>
             </div>
         </div>
     </div>
@@ -1153,19 +775,19 @@
 
 
 <!-- ══════════════════════════════════════
-     6. HOW IT WORKS — 3 steps, tight
+     7. HOW IT WORKS — Process (after Fleet)
 ══════════════════════════════════════ -->
 <section class="how sec-tight">
     <div class="wrap">
         <div class="how__hd">
             <h2 class="fi">Three Steps. Zero Hassle.</h2>
-            <p class="fi d1">From first call to race day — we handle the hard part.</p>
+            <p class="fi d1">From first call to race day — we handle every detail in between.</p>
         </div>
         <div class="steps">
             <div class="step fi">
                 <span class="step__n">01</span>
                 <h3>Book Your Unit</h3>
-                <p>Call or submit the form. We confirm your RV, your dates, and handle all TMS camping logistics.</p>
+                <p>Call or submit the form. We confirm your RV, your dates, and handle all TMS camping logistics on your behalf.</p>
             </div>
             <div class="step-connector" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1173,7 +795,7 @@
             <div class="step fi d1">
                 <span class="step__n">02</span>
                 <h3>We Deliver &amp; Set Up</h3>
-                <p>Your RV arrives at TMS with power and water connected. Full walkthrough before we leave.</p>
+                <p>Your RV arrives at TMS with power and water connected. Full walk-through before we leave — everything works, everything's ready.</p>
             </div>
             <div class="step-connector" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1181,7 +803,7 @@
             <div class="step fi d2">
                 <span class="step__n">03</span>
                 <h3>Enjoy Race Weekend</h3>
-                <p>Three days of NASCAR from your own space. 24/7 support included. We handle pickup when it's over.</p>
+                <p>Three days of NASCAR from your own private base. 24/7 support included. We handle pickup when it's over.</p>
             </div>
         </div>
         <p class="how__note fi">
@@ -1192,63 +814,7 @@
     </div>
 </section>
 
-
-<!-- ══════════════════════════════════════
-     7. FLEET — Inside Your Setup (reinforcement)
-══════════════════════════════════════ -->
-<section class="fleet sec">
-    <div class="wrap">
-        <div class="fleet__hd">
-            <h2 class="fi">Inside Your Race Weekend Setup</h2>
-        </div>
-        <p class="fleet__intro fi d1">
-            <strong>Not just a place to sleep.</strong> Your base for the entire weekend — with everything
-            you'd expect from a premium stay, delivered and ready before you arrive.
-        </p>
-
-        <div class="fleet-grid fi">
-            <div class="fleet-ph"
-                 style="background-image:url('https://static.wixstatic.com/media/62f926_6081972934c541bf9b8aaa703b74f585~mv2.webp')">
-                <div class="fleet-ph__label">Space for Your Group to Relax</div>
-            </div>
-            <div class="fleet-ph"
-                 style="background-image:url('https://static.wixstatic.com/media/62f926_e82ba4137dbb44ecb018eda98ab166b9~mv2.webp')">
-                <div class="fleet-ph__label">Full Kitchen On-Site</div>
-            </div>
-            <div class="fleet-ph"
-                 style="background-image:url('https://static.wixstatic.com/media/62f926_72984415dae543f5a93113defc3976a4~mv2.webp')">
-                <div class="fleet-ph__label">Real Bed, Real Recovery</div>
-            </div>
-        </div>
-
-        <div class="amenity-grid">
-            <div class="amenity fi">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong style="color:var(--text)">Delivered and fully set up</strong> on arrival</span>
-            </div>
-            <div class="amenity fi d1">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Fresh linens and towels included</span>
-            </div>
-            <div class="amenity fi d2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Full kitchen with cookware</span>
-            </div>
-            <div class="amenity fi d1">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Power &amp; water hookups at TMS</span>
-            </div>
-            <div class="amenity fi d2">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Complete walkthrough on arrival</span>
-            </div>
-            <div class="amenity fi d3">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Optional outdoor package available</span>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="check-div"></div>
 
 
 <!-- ══════════════════════════════════════
@@ -1258,11 +824,9 @@
     <div class="wrap">
         <div class="compare__hd">
             <h2 class="fi">Do the Math for Your Group.</h2>
-            <p class="compare__sub fi d2">
-                For a group of 6–8, the RV is often cheaper than hotels — and it's always better.
-            </p>
+            <p class="compare__sub fi d1">For a group of 6–8, the RV is usually cheaper than hotels — and always better.</p>
         </div>
-        <p class="compare__verdict fi d2">Split across a group, this is usually the <strong>smarter move financially</strong> and the better move experientially.</p>
+        <p class="compare__verdict fi d2">Split across a group, this is the <strong>smarter financial choice</strong> and the far better experience.</p>
         <div class="tbl-wrap fi">
             <table>
                 <thead>
@@ -1275,11 +839,13 @@
                 </thead>
                 <tbody>
                     <tr><td>Est. Cost (3 nights)</td><td class="c-h">$900 – $2,400</td><td class="c-c">$150 – $300</td><td class="c-w">From $600</td></tr>
+                    <tr><td>Per Person (group of 6)</td><td class="c-h">$150–$400 each</td><td class="c-c">$25–$50 each</td><td class="c-w">~$100 each</td></tr>
                     <tr><td>Distance to Track</td><td class="c-h">15–30 min drive</td><td class="c-c">On-site</td><td class="c-w">On-site</td></tr>
                     <tr><td>Setup Required</td><td class="c-h"><span class="crs">—</span></td><td class="c-c">You handle it all</td><td class="c-w"><span class="chk">✓</span> We handle it all</td></tr>
-                    <tr><td>Sleeps 6–10 People</td><td class="c-h"><span class="crs">✗</span></td><td class="c-c"><span class="par">Tight</span></td><td class="c-w"><span class="chk">✓</span></td></tr>
+                    <tr><td>Sleeps 6–10 Together</td><td class="c-h"><span class="crs">✗</span></td><td class="c-c"><span class="par">Tight</span></td><td class="c-w"><span class="chk">✓</span></td></tr>
                     <tr><td>Full Kitchen</td><td class="c-h"><span class="crs">✗</span></td><td class="c-c"><span class="crs">✗</span></td><td class="c-w"><span class="chk">✓</span></td></tr>
-                    <tr><td>24/7 Support</td><td class="c-h"><span class="par">Front desk</span></td><td class="c-c"><span class="crs">✗</span></td><td class="c-w"><span class="chk">✓</span></td></tr>
+                    <tr><td>Private Bathroom</td><td class="c-h"><span class="par">Shared hotel</span></td><td class="c-c"><span class="crs">✗</span></td><td class="c-w"><span class="chk">✓</span></td></tr>
+                    <tr><td>24/7 On-Site Support</td><td class="c-h"><span class="par">Front desk</span></td><td class="c-c"><span class="crs">✗</span></td><td class="c-w"><span class="chk">✓</span></td></tr>
                     <tr><td>Race Weekend Atmosphere</td><td class="c-h"><span class="crs">✗</span></td><td class="c-c"><span class="par">Partial</span></td><td class="c-w"><span class="chk">✓ Full</span></td></tr>
                 </tbody>
             </table>
@@ -1296,13 +862,14 @@
     <div class="wrap">
         <div class="reviews__hd">
             <h2 class="fi">193 Reviews. 4.7 Stars.</h2>
-            <p class="reviews__sub fi d2">From families, groups, and race-goers across Texas.</p>
+            <p class="reviews__sub fi d1">From families, groups, and race-goers across Texas.</p>
         </div>
 
         <div class="reviews__featured fi">
             <div class="reviews__featured-stars">★★★★★</div>
             <div class="reviews__featured-quote">"This is the only way to do race weekend. We're never going back to a hotel."</div>
-            <div class="reviews__featured-src">Confirmed from Google &amp; Facebook Reviews</div>
+            <div class="reviews__featured-attr">— Marcus T., Group of 8, TMS Race Weekend 2024</div>
+            <div class="reviews__featured-src">Confirmed via Google Reviews</div>
         </div>
 
         <div class="reviews-grid">
@@ -1356,26 +923,25 @@
 
 <div class="check-div"></div>
 
+
 <!-- ══════════════════════════════════════
-     10. SCARCITY — Aggressive
+     10. SCARCITY — Premium urgency
 ══════════════════════════════════════ -->
 <section class="urgency sec">
     <div class="wrap">
         <div class="urgency__inner">
             <div class="urgency-badge fi">Limited Availability</div>
-            <h2 class="fi d1">14 Units.<br>3 Race Days.<br>One Shot at This.</h2>
+            <h2 class="fi d1">14 Units.<br>3 Race Days.<br>One Shot.</h2>
+            <p class="urgency__sub fi d2">This is the highest-demand weekend at TMS. We sell out every year — and the best setups go well before race week.</p>
             <ul class="urgency-bullets fi d2">
                 <li><strong>14 units total</strong> — not 140. Fourteen.</li>
-                <li>NASCAR Triple-Header is the <strong>highest-demand weekend</strong> of the year at TMS</li>
-                <li>Best setups and best spots <strong>go first</strong></li>
-                <li>Every year, people wait too long and <strong>miss out</strong></li>
+                <li>Premium spots and the best locations <strong>book first — and don't come back</strong></li>
+                <li>Last year, we were <strong>sold out 3 weeks before race weekend</strong></li>
+                <li>Every year, groups wait too long and <strong>miss it entirely</strong></li>
             </ul>
             <a href="#quote-form" class="btn btn-gold fi d3">
-                Reserve Your RV
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
+                Check Availability Now
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
     </div>
@@ -1383,7 +949,7 @@
 
 
 <!-- ══════════════════════════════════════
-     11. FAQ — Tight
+     11. FAQ
 ══════════════════════════════════════ -->
 <section class="faq sec-tight">
     <div class="wrap">
@@ -1396,42 +962,42 @@
                     <span class="faq-q__t">Do I need to drive the RV myself?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">No. We deliver it, set it up, give you a full walkthrough, and come back to pick it up when the weekend is over. You never touch the keys.</div></div>
+                <div class="faq-a"><div class="faq-a__in">No. We deliver it, set it up, give you a full walkthrough, and return to pick it up when the weekend is over. You never touch the keys or deal with the vehicle itself.</div></div>
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
                     <span class="faq-q__t">Where exactly is the RV parked at TMS?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">TMS has several official camping areas including VIP Campground with paved spots, full hookups, and 24-hour security. We coordinate all spot logistics — you don't need to navigate that yourself.</div></div>
+                <div class="faq-a"><div class="faq-a__in">TMS has several official camping areas including the VIP Campground with paved spots, full hookups, and 24-hour security. We coordinate all spot logistics — you don't need to navigate any of that yourself.</div></div>
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
                     <span class="faq-q__t">What's included in the setup?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">Fresh linens, towels, and cookware are standard. We hook up power and water and do a complete walkthrough. Optional outdoor package — table, chairs, awning — available as an add-on.</div></div>
+                <div class="faq-a"><div class="faq-a__in">Fresh linens, towels, pillows, and cookware are standard. We hook up power and water and do a complete walkthrough. An optional outdoor package — table, chairs, awning — is available as an add-on.</div></div>
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
                     <span class="faq-q__t">How many people can one RV fit?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">Generally 6 to 10 guests comfortably. Tell us your group size and we'll match you to the right unit.</div></div>
+                <div class="faq-a"><div class="faq-a__in">Generally 6 to 10 guests comfortably, depending on the unit. Tell us your group size when you inquire and we'll match you to the right option.</div></div>
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
-                    <span class="faq-q__t">What if something goes wrong?</span>
+                    <span class="faq-q__t">What if something goes wrong during the weekend?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">You call us. 24/7 support — not a chatbot, not a ticket. If something needs on-site attention, we come out.</div></div>
+                <div class="faq-a"><div class="faq-a__in">You call us. 24/7 support — not a chatbot, not a ticketing system. A real person answers. If something needs on-site attention, we come to you.</div></div>
             </div>
             <div class="faq-item fi">
                 <button class="faq-q" aria-expanded="false">
                     <span class="faq-q__t">What's the pricing?</span>
                     <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </button>
-                <div class="faq-a"><div class="faq-a__in">Starting from $200/night. For a 3-night race weekend, we offer full packages — typically the better deal. Clear quote, no surprises.</div></div>
+                <div class="faq-a"><div class="faq-a__in">Starting from $200/night. For the 3-night race weekend, we offer full packages — typically the better deal. We'll send a clear quote with no surprises when you inquire.</div></div>
             </div>
         </div>
     </div>
@@ -1439,37 +1005,41 @@
 
 
 <!-- ══════════════════════════════════════
-     12. FINAL CTA + FORM — Premium Close
+     12. FINAL CTA + FORM
 ══════════════════════════════════════ -->
 <section class="cta-sec sec" id="quote-form">
     <div class="wrap">
         <div class="cta-sec__grid">
             <div>
                 <h2 class="fi">
-                    Reserve Your Trackside<br>Home Base Before<br><em style="font-style:italic;color:var(--gold)">Inventory Closes.</em>
+                    Reserve Before the<br>Best Setups Are Gone.<br><em>Inventory Is Closing.</em>
                 </h2>
-                <p class="cta-sec__body fi d2">
+                <p class="cta-sec__body fi d1">
                     <strong>14 units. Three race days. One of the highest-demand weekends in Texas.</strong>
-                    A fully set-up RV at Texas Motor Speedway — no hotels, no commute, no setup.
-                    The best spots go first.
+                    A fully set-up, private RV at Texas Motor Speedway — no hotel, no commute, no setup.
+                    The best locations go first, and they do not come back.
                 </p>
                 <ul class="cta-sec__bullets fi d2">
                     <li>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        No payment required to inquire
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span><strong>No payment required</strong> to check availability</span>
                     </li>
                     <li>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Availability confirmed manually
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>We confirm your spot manually — <strong>real response, not automated</strong></span>
                     </li>
                     <li>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Quick response with options and pricing
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Quick reply with <strong>options, pricing, and availability</strong></span>
+                    </li>
+                    <li>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>50+ race weekends delivered — <strong>4.7 stars, 193 reviews</strong></span>
                     </li>
                 </ul>
                 <div class="phone-block fi d2">
                     <a href="tel:+19729656901">(972) 965-6901</a>
-                    <div class="phone-block__lbl">Available now · We answer</div>
+                    <div class="phone-block__lbl">Available now — we answer</div>
                 </div>
             </div>
 
@@ -1529,14 +1099,14 @@
                         <textarea id="f-msg" name="message" placeholder="Questions, special requests, anything useful..."></textarea>
                     </div>
                     <button type="submit" class="form-sub" id="formSubmit">
-                        <span class="btn-label">Reserve Your RV →</span>
+                        <span class="btn-label">Check Availability →</span>
                         <div class="spinner"></div>
                     </button>
                     <div class="form-msg" id="formMsg"></div>
                     <p class="form-micro">No spam. Just availability, pricing, and next steps.</p>
                     <div class="form-whathappens">
                         <span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>We review your request manually</span>
-                        <span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>You get a call or email with options</span>
+                        <span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>You get a call or email with options and pricing</span>
                         <span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>No obligation — just information</span>
                     </div>
                 </form>
@@ -1546,9 +1116,7 @@
 </section>
 
 
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="footer">
     <div class="wrap">
         <div class="footer__row">
@@ -1566,15 +1134,15 @@
 </footer>
 
 
-<!-- SLIDE-IN URGENCY PANEL -->
+<!-- SLIDE-IN PANEL -->
 <div class="slide-panel" id="slidePanel">
     <button class="slide-panel__close" id="slidePanelClose" aria-label="Close">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="slide-panel__accent"></div>
-    <h4>Units Filling Up for Race Weekend</h4>
-    <p>14 RVs. 3 race days. Best setups go first.</p>
-    <a href="#quote-form" class="btn btn-gold">Reserve Your RV</a>
+    <h4>Units Are Filling Up for Race Weekend</h4>
+    <p>14 RVs. 3 race days. Best setups and locations go first — every year.</p>
+    <a href="#quote-form" class="btn btn-gold">Check Availability</a>
 </div>
 
 <!-- MOBILE STICKY CTA -->
@@ -1586,9 +1154,7 @@
 </div>
 
 
-<!-- ══════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════ -->
+<!-- JAVASCRIPT -->
 <script>
 (function () {
 'use strict';
