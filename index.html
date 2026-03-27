@@ -48,8 +48,8 @@
     .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:var(--nav-h);}
     .hero__video-wrap{position:absolute;inset:0;overflow:hidden}
     .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
-    .hero__overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.97) 0%,rgba(0,0,0,.94) 38%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.18) 100%),linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 40%);}
-    .hero__lines{position:absolute;right:0;top:0;bottom:0;width:42%;opacity:.03;background:repeating-linear-gradient(-13deg,var(--text) 0,var(--text) 1px,transparent 1px,transparent 26px);}
+    .hero__overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.94) 0%,rgba(0,0,0,.88) 30%,rgba(0,0,0,.36) 56%,rgba(0,0,0,.07) 100%),linear-gradient(to top,rgba(0,0,0,.68) 0%,transparent 40%);}
+    .hero__lines{position:absolute;right:0;top:0;bottom:0;width:45%;opacity:.05;background:repeating-linear-gradient(-13deg,var(--text) 0,var(--text) 1px,transparent 1px,transparent 26px);}
     .hero__content{position:relative;z-index:10;max-width:700px;padding:90px 0}
     .event-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,150,44,.35);background:rgba(201,150,44,.07);color:var(--gold);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:2px;margin-bottom:28px;}
     .event-pill::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite;}
@@ -126,20 +126,21 @@
     .ev-strip__hd h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:8px}
     .ev-strip__sub{font-size:14px;color:var(--text2);letter-spacing:.04em}
     .ev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .ev-card{position:relative;overflow:hidden;border-radius:8px;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px;border:1px solid rgba(255,255,255,.06);}
-    .ev-card__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.18) saturate(.5);}
-    .ev-card__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.88) 55%,rgba(0,0,0,.96));}
-    .ev-card__accent{position:absolute;top:0;left:0;right:0;height:2px;background:rgba(201,150,44,.35);}
-    .ev-divider{width:24px;height:1px;background:rgba(201,150,44,.3);margin:12px 0;}
+    .ev-card{position:relative;overflow:hidden;border-radius:8px;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px;border:1px solid rgba(255,255,255,.10);}
+    .ev-card__bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.55) saturate(.85);transition:filter .5s ease;}
+    .ev-card:hover .ev-card__bg{filter:brightness(.65) saturate(.9);}
+    .ev-card__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.12) 0%,rgba(0,0,0,.60) 42%,rgba(0,0,0,.90) 72%,rgba(0,0,0,.96) 100%);}
+    .ev-card__accent{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),rgba(201,150,44,.4));}
+    .ev-divider{width:24px;height:1px;background:rgba(201,150,44,.35);margin:12px 0;}
     .ev-card__inner{position:relative;z-index:2}
-    .ev-card__series{font-size:9px;font-weight:600;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;opacity:.9;}
-    .ev-card__name{font-family:'Playfair Display',serif;font-size:clamp(19px,2vw,25px);font-weight:700;color:#fff;margin-bottom:3px;line-height:1.2;}
-    .ev-card__tagline{font-size:11.5px;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:4px;letter-spacing:.02em;}
-    .ev-card__date{font-size:11.5px;color:rgba(255,255,255,.55);margin-bottom:16px;font-weight:500;letter-spacing:.03em;}
+    .ev-card__series{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;opacity:1;}
+    .ev-card__name{font-family:'Playfair Display',serif;font-size:clamp(20px,2vw,26px);font-weight:700;color:#fff;margin-bottom:4px;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.6);}
+    .ev-card__tagline{font-size:11.5px;color:rgba(255,255,255,.55);font-style:italic;margin-bottom:4px;letter-spacing:.02em;}
+    .ev-card__date{font-size:11.5px;color:rgba(255,255,255,.62);margin-bottom:16px;font-weight:500;letter-spacing:.03em;}
     .ev-countdown{display:flex;gap:6px}
-    .ev-cd-box{background:rgba(201,150,44,.07);border:1px solid rgba(201,150,44,.18);border-radius:4px;padding:8px 0;min-width:50px;text-align:center;}
-    .ev-cd-box__n{font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:var(--gold);line-height:1;display:block;font-variant-numeric:tabular-nums;}
-    .ev-cd-box__l{font-size:7.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:3px;display:block;}
+    .ev-cd-box{background:rgba(10,10,10,.55);border:1px solid rgba(201,150,44,.22);border-radius:4px;padding:9px 0;min-width:52px;text-align:center;backdrop-filter:blur(4px);}
+    .ev-cd-box__n{font-family:'Inter',sans-serif;font-size:21px;font-weight:700;color:var(--gold);line-height:1;display:block;font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
+    .ev-cd-box__l{font-size:7.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px;display:block;}
 
     /* WHAT'S INCLUDED */
     .included{background:var(--bg)}
@@ -180,12 +181,12 @@
     .how__hd h2{font-size:clamp(30px,3.4vw,46px)}
     .how__hd p{font-size:15px;color:var(--text2);margin-top:10px}
     .steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch;}
-    .step{background:transparent;border:none;border-left:1px solid var(--line);padding:6px 0 6px 28px;text-align:left;}
-    .step__n{font-family:'Playfair Display',serif;font-size:100px;font-weight:800;color:rgba(201,150,44,.10);line-height:1;margin-bottom:0;display:block;letter-spacing:-.02em;}
-    .step__bar{width:28px;height:2px;background:var(--gold);margin:10px 0 20px;}
-    .step h3{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;}
-    .step p{font-size:14px;color:var(--text2);line-height:1.75}
-    .step-connector{display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:.25;align-self:center;padding:0 16px;}
+    .step{background:transparent;border:none;border-left:2px solid rgba(201,150,44,.22);padding:8px 0 8px 30px;text-align:left;}
+    .step__n{font-family:'Playfair Display',serif;font-size:104px;font-weight:800;color:rgba(201,150,44,.13);line-height:1;margin-bottom:0;display:block;letter-spacing:-.02em;}
+    .step__bar{width:32px;height:2px;background:var(--gold);margin:10px 0 20px;}
+    .step h3{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.01em;}
+    .step p{font-size:14px;color:var(--text2);line-height:1.72}
+    .step-connector{display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:.40;align-self:center;padding:0 16px;}
     .how__note{text-align:center;margin-top:34px;font-size:13.5px;color:var(--text3);}
     .how__note strong{color:var(--text2)}
 
@@ -212,17 +213,19 @@
     .crs{color:var(--text3)}
     .par{color:var(--text2);font-style:italic}
     .compare-note{text-align:center;margin-top:16px;font-size:11.5px;color:var(--text3);font-style:italic}
+    .compare-close{text-align:center;margin-top:22px;font-size:15px;color:var(--text2);max-width:540px;margin-left:auto;margin-right:auto;line-height:1.65;font-style:italic;}
+    .compare-close strong{color:var(--gold);font-style:normal}
 
     /* REVIEWS */
     .reviews{background:var(--bg2)}
     .reviews__hd{text-align:center;margin-bottom:42px}
     .reviews__hd h2{font-size:clamp(28px,3vw,44px);margin-bottom:5px}
     .reviews__sub{font-size:13.5px;color:var(--text3)}
-    .reviews__featured{text-align:center;margin-bottom:48px;padding:52px 40px;border:1px solid rgba(201,150,44,.20);border-radius:10px;background:linear-gradient(to bottom,rgba(201,150,44,.05),var(--bg4));max-width:760px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
-    .reviews__featured::before{content:'\201C';font-family:'Playfair Display',serif;font-size:180px;color:rgba(201,150,44,.09);position:absolute;top:10px;left:28px;line-height:.7;pointer-events:none;font-weight:800;}
-    .reviews__featured-stars{font-size:28px;color:var(--gold);letter-spacing:6px;margin-bottom:20px;position:relative;z-index:1;}
-    .reviews__featured-quote{font-family:'Playfair Display',serif;font-size:clamp(26px,3.2vw,42px);font-weight:700;color:var(--text);line-height:1.25;font-style:italic;margin-bottom:20px;position:relative;z-index:1;}
-    .reviews__featured-attr{font-size:13px;color:var(--text2);font-weight:500;margin-bottom:4px;position:relative;z-index:1;}
+    .reviews__featured{text-align:center;margin-bottom:52px;padding:64px 56px;border:1px solid rgba(201,150,44,.22);border-radius:10px;background:linear-gradient(150deg,rgba(201,150,44,.07),var(--bg4) 60%);max-width:780px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
+    .reviews__featured::before{content:'\201C';font-family:'Playfair Display',serif;font-size:200px;color:rgba(201,150,44,.08);position:absolute;top:4px;left:28px;line-height:.7;pointer-events:none;font-weight:800;}
+    .reviews__featured-stars{font-size:30px;color:var(--gold);letter-spacing:7px;margin-bottom:22px;position:relative;z-index:1;}
+    .reviews__featured-quote{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,40px);font-weight:700;color:var(--text);line-height:1.28;font-style:italic;margin-bottom:22px;position:relative;z-index:1;max-width:660px;margin-left:auto;margin-right:auto;}
+    .reviews__featured-attr{font-size:13.5px;color:var(--text2);font-weight:500;margin-bottom:4px;position:relative;z-index:1;}
     .reviews__featured-src{font-size:11.5px;color:var(--text3);letter-spacing:.08em;position:relative;z-index:1;}
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .rcard{background:var(--bg4);border:1px solid var(--line);border-radius:8px;padding:30px 26px;}
@@ -238,14 +241,14 @@
     .proof-stats{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap}
     .pstat{flex:1;min-width:130px;max-width:200px;text-align:center;padding:20px 16px;position:relative}
     .pstat+.pstat::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:32px;width:1px;background:var(--line);}
-    .pstat__n{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--gold);line-height:1;display:block;margin-bottom:5px;}
-    .pstat__l{font-size:10.5px;color:var(--text3);letter-spacing:.10em;text-transform:uppercase}
+    .pstat__n{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--gold);line-height:1;display:block;margin-bottom:6px;}
+    .pstat__l{font-size:10.5px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase}
 
     /* SCARCITY */
     .urgency{background:var(--bg2);text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
     .urgency__inner{max-width:640px;margin:0 auto}
     .urgency-badge{display:inline-block;margin-bottom:18px;background:rgba(200,16,46,.10);border:1px solid rgba(200,16,46,.28);color:#E04060;font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:6px 16px;border-radius:2px;}
-    .urgency h2{font-size:clamp(34px,5vw,62px);margin-bottom:14px;line-height:1.05;letter-spacing:-.01em;}
+    .urgency h2{font-size:clamp(34px,5vw,62px);margin-bottom:16px;line-height:1.05;letter-spacing:-.01em;}
     .urgency__sub{font-size:15px;color:var(--text2);margin-bottom:28px;line-height:1.6;max-width:460px;margin-left:auto;margin-right:auto;}
     .urgency-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;text-align:left;max-width:440px;margin:0 auto 36px;}
     .urgency-bullets li{font-size:15px;color:var(--text2);line-height:1.55;padding-left:24px;position:relative;}
@@ -254,19 +257,20 @@
 
     /* FAQ */
     .faq{background:var(--bg3)}
-    .faq__hd{text-align:center;margin-bottom:40px}
+    .faq__hd{text-align:center;margin-bottom:44px}
     .faq__hd h2{font-size:clamp(28px,3.4vw,44px)}
     .faq-list{max-width:720px;margin:0 auto}
-    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-item{border-bottom:1px solid var(--line);transition:border-color .2s}
     .faq-item:first-child{border-top:1px solid var(--line)}
-    .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 0;background:none;border:none;cursor:pointer;text-align:left;color:var(--text);}
-    .faq-q__t{font-size:15.5px;font-weight:600;line-height:1.45}
+    .faq-item.open{border-color:rgba(201,150,44,.18)}
+    .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;color:var(--text);}
+    .faq-q__t{font-size:15.5px;font-weight:600;line-height:1.45;transition:color .2s}
     .faq-icon{width:18px;height:18px;flex-shrink:0;color:var(--gold);transition:transform .3s}
     .faq-item.open .faq-icon{transform:rotate(45deg)}
     .faq-item.open .faq-q__t{color:var(--gold)}
-    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
     .faq-item.open .faq-a{max-height:400px}
-    .faq-a__in{padding:0 0 20px;font-size:14.5px;color:var(--text2);line-height:1.9}
+    .faq-a__in{padding:0 0 24px;font-size:14.5px;color:var(--text2);line-height:1.92;max-width:640px;}
 
     /* FINAL CTA + FORM */
     .cta-sec{background:var(--bg)}
@@ -281,17 +285,17 @@
     .cta-sec__bullets strong{color:var(--text);font-weight:600}
     .phone-block a{display:block;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold);letter-spacing:.02em;margin-bottom:4px;}
     .phone-block__lbl{font-size:11.5px;color:var(--text3)}
-    .lead-form{background:var(--bg3);border:1px solid rgba(201,150,44,.14);border-radius:10px;padding:38px 32px;}
-    .lead-form__title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:5px;}
-    .lead-form__sub{font-size:12.5px;color:var(--text3);margin-bottom:26px}
-    .fgrp{margin-bottom:13px}
-    .fgrp label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);margin-bottom:7px;}
-    .fgrp input,.fgrp select,.fgrp textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:12px 14px;font-size:14.5px;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;}
-    .fgrp select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235E5650' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer;}
+    .lead-form{background:var(--bg3);border:1px solid rgba(201,150,44,.18);border-radius:10px;padding:40px 36px;box-shadow:0 0 0 1px rgba(201,150,44,.06) inset;}
+    .lead-form__title{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;color:var(--text);margin-bottom:6px;}
+    .lead-form__sub{font-size:12.5px;color:var(--text3);margin-bottom:28px;line-height:1.55}
+    .fgrp{margin-bottom:14px}
+    .fgrp label{display:block;font-size:10px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:rgba(184,175,164,.55);margin-bottom:8px;}
+    .fgrp input,.fgrp select,.fgrp textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(244,239,230,.11);border-radius:5px;padding:13px 16px;font-size:14.5px;color:var(--text);font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,background .2s,box-shadow .2s;appearance:none;-webkit-appearance:none;}
+    .fgrp select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A7E76' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer;}
     .fgrp select option{background:var(--bg3);color:var(--text)}
-    .fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{border-color:rgba(201,150,44,.5);box-shadow:0 0 0 3px rgba(201,150,44,.08)}
-    .fgrp input::placeholder,.fgrp textarea::placeholder{color:var(--text3)}
-    .fgrp textarea{resize:vertical;min-height:80px}
+    .fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{border-color:rgba(201,150,44,.55);box-shadow:0 0 0 3px rgba(201,150,44,.10);background:rgba(255,255,255,.06);}
+    .fgrp input::placeholder,.fgrp textarea::placeholder{color:rgba(106,96,88,.8)}
+    .fgrp textarea{resize:vertical;min-height:82px}
     .fgrp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .form-sub{width:100%;background:var(--gold);color:#0A0A0A;font-weight:700;font-size:15.5px;letter-spacing:.04em;padding:18px;border:none;border-radius:4px;cursor:pointer;margin-top:12px;transition:background .2s,opacity .2s;display:flex;align-items:center;justify-content:center;gap:10px;position:relative;}
     .form-sub:hover{background:var(--gold-h)}
@@ -430,10 +434,10 @@
                 A premium RV delivered and fully set up at Texas Motor Speedway — before you arrive. No hotel. No commute. No setup. Just show up and enjoy race weekend.
             </p>
             <ul class="hero__benefits fi d2">
-                <li>Delivered and fully set up before you arrive</li>
+                <li>Delivered and set up before you arrive — ready on Friday</li>
                 <li>Full kitchen, real beds, private bath, AC</li>
-                <li>On-site at Texas Motor Speedway</li>
-                <li>Sleeps 6–10 — split the cost</li>
+                <li>Steps from the track — zero commute</li>
+                <li>Sleeps 6–10 — split the cost, beat the hotel price</li>
             </ul>
             <div class="hero__btns fi d3">
                 <a href="#quote-form" class="btn btn-gold">
@@ -661,7 +665,7 @@
         <div class="included__hd">
             <span class="included__overline fi">What You Get</span>
             <h2 class="fi d1">Everything Handled.<br><em>Nothing Left to You.</em></h2>
-            <p class="included__sub fi d2">This isn't a traditional RV rental. Every detail — delivery, setup, supplies, support, and pickup — is handled before, during, and after the weekend.</p>
+            <p class="included__sub fi d2">Every detail handled — delivery, setup, supplies, support, and pickup. Before you arrive, throughout the weekend, and after it ends.</p>
         </div>
         <div class="inc-grid">
             <div class="inc-card fi">
@@ -670,7 +674,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 </div>
                 <h4>Pre-Arrival Delivery</h4>
-                <p>Your RV is parked and positioned at TMS before you arrive. Pull up Friday — it's already waiting.</p>
+                <p>Parked and positioned at TMS before you arrive. Show up to everything ready — no coordination needed.</p>
             </div>
             <div class="inc-card fi d1">
                 <span class="inc-card__num">02</span>
@@ -678,7 +682,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                 </div>
                 <h4>Complete Hookup & Setup</h4>
-                <p>Power connected. Water hooked up. Leveled. We don't leave until everything is verified and working.</p>
+                <p>Power connected. Water hooked up. Leveled and verified before we leave — everything works when you walk in.</p>
             </div>
             <div class="inc-card fi d2">
                 <span class="inc-card__num">03</span>
@@ -686,7 +690,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 </div>
                 <h4>Hotel-Quality Supplies</h4>
-                <p>Fresh linens, pillows, towels, and full cookware included. Hotel comfort, on-site at the track.</p>
+                <p>Fresh linens, towels, and full cookware included. Hotel-quality comfort, on-site at the track.</p>
             </div>
             <div class="inc-card fi">
                 <span class="inc-card__num">04</span>
@@ -694,7 +698,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <h4>Arrival Walk-Through</h4>
-                <p>A crew member walks you through everything — AC, kitchen, water. Nothing to figure out when you arrive.</p>
+                <p>We walk you through AC, kitchen, and water. Nothing to figure out — just arrive and enjoy.</p>
             </div>
             <div class="inc-card fi d1">
                 <span class="inc-card__num">05</span>
@@ -702,7 +706,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.2A2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.15 6.15l1.08-.92a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
                 </div>
                 <h4>24/7 Weekend Support</h4>
-                <p>One call, a real person. If anything needs attention during the weekend, we come to you on-site.</p>
+                <p>One call, a real person answers. If anything needs attention during the weekend, we come to you.</p>
             </div>
             <div class="inc-card fi d2">
                 <span class="inc-card__num">06</span>
@@ -710,7 +714,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                 </div>
                 <h4>Post-Weekend Pickup</h4>
-                <p>We return Sunday night or Monday. You drive straight home — nothing to haul, nothing to return.</p>
+                <p>We return Sunday night or Monday morning. You drive straight home — nothing to haul or return.</p>
             </div>
         </div>
         <div class="included__cta">
@@ -737,19 +741,19 @@
         </p>
         <div class="fleet-grid fi">
             <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_6081972934c541bf9b8aaa703b74f585~mv2.webp')">
-                <div class="fleet-ph__label">Space for Your Group to Relax</div>
+                <div class="fleet-ph__label">Your Trackside Home Base</div>
             </div>
             <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_e82ba4137dbb44ecb018eda98ab166b9~mv2.webp')">
                 <div class="fleet-ph__label">Full Kitchen On-Site</div>
             </div>
             <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_466f946f8bb54bb8ad05778235bae078~mv2.webp')">
-                <div class="fleet-ph__label">Premium Interior</div>
+                <div class="fleet-ph__label">Designed for Comfort</div>
             </div>
             <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_72984415dae543f5a93113defc3976a4~mv2.webp')">
                 <div class="fleet-ph__label">Real Bed. Real Recovery.</div>
             </div>
             <div class="fleet-ph" style="background-image:url('https://static.wixstatic.com/media/62f926_69694ee7940c4fe4985b984e4067343e~mv2.webp')">
-                <div class="fleet-ph__label">Your Private Space</div>
+                <div class="fleet-ph__label">Private. Away from the Crowd.</div>
             </div>
         </div>
         <div class="amenity-grid">
@@ -796,7 +800,7 @@
                 <span class="step__n">01</span>
                 <div class="step__bar"></div>
                 <h3>Book Your Unit</h3>
-                <p>Call or submit the form. We confirm your RV, your dates, and handle all TMS camping logistics on your behalf.</p>
+                <p>Call or fill the form. We confirm your unit, lock in your dates, and handle all TMS camping logistics.</p>
             </div>
             <div class="step-connector" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -805,7 +809,7 @@
                 <span class="step__n">02</span>
                 <div class="step__bar"></div>
                 <h3>We Deliver &amp; Set Up</h3>
-                <p>Your RV arrives at TMS with power and water connected. Full walk-through before we leave — everything works, everything's ready.</p>
+                <p>Your RV arrives fully connected — power, water, leveled. Walk-through complete before we leave. You arrive to a ready setup.</p>
             </div>
             <div class="step-connector" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -814,7 +818,7 @@
                 <span class="step__n">03</span>
                 <div class="step__bar"></div>
                 <h3>Enjoy Race Weekend</h3>
-                <p>Three days of NASCAR from your own private base. 24/7 support included. We handle pickup when it's over.</p>
+                <p>Three days of racing from your private on-site base. 24/7 support included. We pick up when it's over — you just drive home.</p>
             </div>
         </div>
         <p class="how__note fi">
@@ -861,7 +865,8 @@
                 </tbody>
             </table>
         </div>
-        <p class="compare-note fi">Hotel estimates based on typical race weekend rates in the Fort Worth area.</p>
+        <p class="compare-note fi">Hotel rate estimates based on typical Fort Worth area pricing for race weekends.</p>
+        <p class="compare-close fi d1">For a group of 6 or more, this is usually the <strong>smarter financial choice</strong> — and by every other measure, it's not even close.</p>
     </div>
 </section>
 
@@ -873,7 +878,7 @@
     <div class="wrap">
         <div class="reviews__hd">
             <h2 class="fi">193 Reviews. 4.7 Stars.</h2>
-            <p class="reviews__sub fi d1">From families, groups, and race-goers across Texas.</p>
+            <p class="reviews__sub fi d1">From families, groups, and first-timers — all verified, all from race weekend.</p>
         </div>
 
         <div class="reviews__featured fi">
@@ -943,12 +948,12 @@
         <div class="urgency__inner">
             <div class="urgency-badge fi">Limited Availability</div>
             <h2 class="fi d1">14 Units.<br>3 Race Days.<br>One Shot.</h2>
-            <p class="urgency__sub fi d2">This is the highest-demand weekend at TMS. We sell out every year — and the best setups go well before race week.</p>
+            <p class="urgency__sub fi d2">The highest-demand weekend at TMS. We sell out every year — and the best spots go weeks before race day.</p>
             <ul class="urgency-bullets fi d2">
                 <li><strong>14 units total</strong> — not 140. Fourteen.</li>
-                <li>Premium spots and the best locations <strong>book first — and don't come back</strong></li>
-                <li>Last year, we were <strong>sold out 3 weeks before race weekend</strong></li>
-                <li>Every year, groups wait too long and <strong>miss it entirely</strong></li>
+                <li>Premium spots and the best locations <strong>book first — and they don't come back</strong></li>
+                <li>Last year, we were <strong>fully sold out 3 weeks before race weekend</strong></li>
+                <li>Every year, groups wait too long — and <strong>miss it completely</strong></li>
             </ul>
             <a href="#quote-form" class="btn btn-gold fi d3">
                 Check Availability Now
