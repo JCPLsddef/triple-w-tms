@@ -236,6 +236,19 @@
     .reviews__featured-attr{font-size:13.5px;color:var(--text2);font-weight:500;margin-bottom:4px;position:relative;z-index:1;}
     .reviews__featured-src{font-size:11.5px;color:var(--text3);letter-spacing:.08em;position:relative;z-index:1;}
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    /* REVIEWS SLIDER */
+    .rev-slider{position:relative}
+    .rev-slider__viewport{overflow:hidden}
+    .rev-slider__track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform}
+    .rev-slide{flex:0 0 100%;min-width:0}
+    .rev-slide .reviews-grid{margin:0}
+    .rev-slider__controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:32px}
+    .rev-slider__btn{width:46px;height:46px;border-radius:50%;border:1px solid rgba(244,239,230,.20);background:transparent;color:var(--text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s,background .2s;padding:0}
+    .rev-slider__btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,150,44,.06)}
+    .rev-slider__dots{display:flex;gap:9px;align-items:center}
+    .rev-slider__dot{width:9px;height:9px;border-radius:50%;background:rgba(244,239,230,.22);border:none;cursor:pointer;padding:0;transition:background .25s,width .25s,border-radius .25s}
+    .rev-slider__dot:hover{background:rgba(244,239,230,.4)}
+    .rev-slider__dot.is-active{background:var(--gold);width:28px;border-radius:5px}
     .rcard{background:var(--bg4);border:1px solid var(--line);border-radius:8px;padding:30px 26px;}
     .rcard__stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
     .rcard__text{font-size:15px;color:var(--text2);font-style:italic;line-height:1.8;margin-bottom:20px}
@@ -900,44 +913,133 @@
 
         <div class="reviews__featured fi">
             <div class="reviews__featured-stars">★★★★★</div>
-            <div class="reviews__featured-quote">"This is the only way to do race weekend. We're never going back to a hotel."</div>
-            <div class="reviews__featured-attr">— Marcus T., Group of 8, TMS Race Weekend 2024</div>
-            <div class="reviews__featured-src">Confirmed via Google Reviews</div>
+            <div class="reviews__featured-quote">"Best RV rental ever! They rented to us at a moment's notice on the 4th of July. Delivered same day, setup, and provided an overview. Amazing! Top notch! Above and beyond!"</div>
+            <div class="reviews__featured-attr">— Luci Wade-Cantu</div>
+            <div class="reviews__featured-src">Verified Google Review</div>
         </div>
 
-        <div class="reviews-grid">
-            <div class="rcard fi">
-                <div class="rcard__stars">★★★★★</div>
-                <p class="rcard__text">"Pulled up Friday and it was already parked, set up, ready to go. Beds made, kitchen stocked, power connected. Three days of racing without a single logistics headache."</p>
-                <div class="rcard__author">Chris B.</div>
-                <div class="rcard__ctx">Group of 6 · Full Race Weekend</div>
-                <div class="rcard__verified">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    Verified Review
+        <div class="rev-slider fi">
+            <div class="rev-slider__viewport">
+                <div class="rev-slider__track">
+                    <!-- SLIDE 1 -->
+                    <div class="rev-slide">
+                        <div class="reviews-grid">
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"When my reservation with another company was canceled last minute, I called Triple W and they came through. Corbin went above and beyond. His attention to detail and professionalism were greatly appreciated."</p>
+                                <div class="rcard__author">Wyman Jones</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"I have rented from Triple W multiple times. The communication is always outstanding. Corbin arrived on site in minutes and checked in daily. Exceeded my expectations."</p>
+                                <div class="rcard__author">JT Seargeant</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"Best RV rental ever! They rented to us at a moment's notice on the 4th of July. Delivered same day, setup, and provided an overview. Amazing! Top notch! Above and beyond!"</p>
+                                <div class="rcard__author">Luci Wade-Cantu</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 2 -->
+                    <div class="rev-slide">
+                        <div class="reviews-grid">
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"The customer service was outstanding. Shane went above and beyond. The camper was delivered and set up before I even arrived, completely stocked. All I had to do was bring my family and food."</p>
+                                <div class="rcard__author">Amy Walker</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"Triple W was great to work with. As a RV novice Wayne was very polite, patient and accommodating. The RV was in great condition and fully loaded with strong A/C. Will definitely use them again."</p>
+                                <div class="rcard__author">Sandy McKinney</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"Great experience! The booking process was smooth, the staff was friendly and helpful, and the Momentum RV was in excellent condition. Everything went exactly as planned."</p>
+                                <div class="rcard__author">Jaden Richardson</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SLIDE 3 -->
+                    <div class="rev-slide">
+                        <div class="reviews-grid">
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"The RV was setup and delivered for us. Clean and roomy. Westin and his company were a pleasure to do business with. Couldn't ask for a better experience!"</p>
+                                <div class="rcard__author">Grant Walker</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"Triple W Rentals has amazing RVs and great employees. The delivery driver is the best I've seen and should always be recommended. Great job guys."</p>
+                                <div class="rcard__author">Marsha Swann</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                            <div class="rcard">
+                                <div class="rcard__stars">★★★★★</div>
+                                <p class="rcard__text">"Highly recommend! Their customer service was outstanding — so personable, responsive, and accommodating. They delivered our luxury golf cart right to our stalls. Super clean and comfortable."</p>
+                                <div class="rcard__author">Giovanna Iriel</div>
+                                <div class="rcard__verified">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    Verified Review
+                                </div>
+                                <div class="rcard__source">via Google Reviews</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="rcard__source">via Google Reviews</div>
             </div>
-            <div class="rcard fi d1">
-                <div class="rcard__stars">★★★★★</div>
-                <p class="rcard__text">"Family of 5 and this was the perfect solution. No hotel, no commuting. The kids loved having their own space. The 24/7 line actually answered at 11pm."</p>
-                <div class="rcard__author">Jennifer R.</div>
-                <div class="rcard__ctx">Family of 5 · Weekend Rental</div>
-                <div class="rcard__verified">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    Verified Review
+            <div class="rev-slider__controls">
+                <button class="rev-slider__btn rev-slider__btn--prev" aria-label="Previous reviews">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="rev-slider__dots">
+                    <button class="rev-slider__dot is-active" data-slide="0" aria-label="Slide 1"></button>
+                    <button class="rev-slider__dot" data-slide="1" aria-label="Slide 2"></button>
+                    <button class="rev-slider__dot" data-slide="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="rcard__source">via Facebook</div>
-            </div>
-            <div class="rcard fi d2">
-                <div class="rcard__stars">★★★★★</div>
-                <p class="rcard__text">"Split it 6 ways and it came out cheaper than a hotel room each. Setup was immaculate. This is how I'm doing events from now on."</p>
-                <div class="rcard__author">Derek M.</div>
-                <div class="rcard__ctx">Group of 6 · Event Weekend</div>
-                <div class="rcard__verified">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    Verified Review
-                </div>
-                <div class="rcard__source">via Google Reviews</div>
+                <button class="rev-slider__btn rev-slider__btn--next" aria-label="Next reviews">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
         </div>
     </div>
@@ -1387,6 +1489,27 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
     });
 });
 
+})();
+
+/* Reviews slider */
+(function(){
+    const track=document.querySelector('.rev-slider__track');
+    if(!track)return;
+    const slides=track.querySelectorAll('.rev-slide');
+    const dots=document.querySelectorAll('.rev-slider__dot');
+    const prev=document.querySelector('.rev-slider__btn--prev');
+    const next=document.querySelector('.rev-slider__btn--next');
+    let i=0,timer;
+    const go=n=>{
+        i=(n+slides.length)%slides.length;
+        track.style.transform='translateX(-'+(i*100)+'%)';
+        dots.forEach((d,k)=>d.classList.toggle('is-active',k===i));
+    };
+    const restart=()=>{clearInterval(timer);timer=setInterval(()=>go(i+1),7000);};
+    prev.addEventListener('click',()=>{go(i-1);restart();});
+    next.addEventListener('click',()=>{go(i+1);restart();});
+    dots.forEach((d,k)=>d.addEventListener('click',()=>{go(k);restart();}));
+    restart();
 })();
 </script>
 </body>
