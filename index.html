@@ -21,7 +21,7 @@
         --bg:#000000;--bg2:#0D0D0D;--bg3:#121110;--bg4:#1C1916;
         --gold:#C9962C;--gold-h:#D4A843;--gold-dim:rgba(201,150,44,.11);
         --text:#F4EFE6;--text2:#B8AFA4;--text3:#6A6058;
-        --line:#272320;--r:#C8102E;--w:#EAE4D8;--b:#084891;--nav-h:70px;--banner-h:36px;
+        --line:#272320;--r:#C8102E;--w:#EAE4D8;--b:#084891;--nav-h:70px;--banner-h:0px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -401,7 +401,7 @@
         .strip-clip{mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);}
     }
     @media(max-width:600px){
-        :root{--nav-h:62px;--banner-h:32px}
+        :root{--nav-h:62px;--banner-h:0px}
         .nav__logo{font-size:14.5px}
         .nav__cta{padding:8px 14px;font-size:12.5px}
         .hero__content{padding:60px 0}
@@ -437,12 +437,6 @@
     </style>
 </head>
 <body>
-
-<!-- URGENCY BANNER -->
-<div class="urgency-bar">
-    <span class="ub-desktop">🏁&nbsp;&nbsp;NASCAR WEEKEND MAY 1–3 · LIMITED UNITS · TEXAS MOTOR SPEEDWAY&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#quote-form">Check Availability →</a></span>
-    <span class="ub-mobile">🏁 NASCAR MAY 1–3 · LIMITED UNITS&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#quote-form">Check Availability →</a></span>
-</div>
 
 <!-- NAV -->
 <nav class="nav" id="mainNav">
