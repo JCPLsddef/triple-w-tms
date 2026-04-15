@@ -74,7 +74,7 @@
     .hero__benefits{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin-bottom:34px;}
     .hero__benefits li{font-size:13.5px;color:rgba(244,239,230,.72);font-weight:500;display:flex;align-items:center;gap:7px;}
     .hero__benefits li::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
-    .hero__emo{font-family:'Inter',sans-serif;font-style:italic;font-size:14.5px;line-height:1.6;color:rgba(244,239,230,.78);max-width:540px;margin:0 0 28px;letter-spacing:.005em;}
+    .hero__emo{font-family:'Inter',sans-serif;font-style:italic;font-size:15px;line-height:1.65;color:rgba(244,239,230,.80);max-width:540px;margin:16px 0 30px;letter-spacing:.005em;}
     .hero__btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:30px}
     .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14.5px;padding:15px 32px;border-radius:4px;letter-spacing:.03em;border:none;cursor:pointer;white-space:nowrap;transition:background .2s,transform .1s,border-color .2s;}
     .btn:active{transform:translateY(0)!important}
@@ -161,10 +161,9 @@
     .strip-clip{overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);}
     .strip-track{display:flex;gap:24px;width:max-content;animation:strip-scroll 35s linear infinite;will-change:transform;}
     .strip-clip:hover .strip-track{animation-play-state:paused;}
-    .strip-card{flex:0 0 auto;width:140px;height:90px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;}
-    .strip-card img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+    .strip-card{flex:0 0 auto;width:140px;height:80px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;}
+    .strip-card img{max-width:110px;max-height:56px;object-fit:contain;display:block;}
     @keyframes strip-scroll{from{transform:translate3d(0,0,0);}to{transform:translate3d(-50%,0,0);}}
-    @media(prefers-reduced-motion:reduce){.strip-track{animation:none;}.strip-track > [data-dup]{display:none;}}
 
     /* WHAT'S INCLUDED */
     .included{background:var(--bg)}
@@ -259,12 +258,12 @@
     .tcol-3 .tcol__track{animation:tcol-scroll 17s linear infinite;}
     .tgrid:hover .tcol__track{animation-play-state:paused;}
     @keyframes tcol-scroll{from{transform:translate3d(0,0,0);}to{transform:translate3d(0,-50%,0);}}
+    /* prefers-reduced-motion intentionally NOT honored — owner wants marquees to always animate */
     .tcard{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;color:#e9e4d8;}
     .tcard__stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px;}
     .tcard__text{font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.6;color:#e9e4d8;}
     .tcard__name{color:#fff;font-weight:600;margin-top:14px;font-size:13.5px;}
     .tcard__src{color:var(--gold);opacity:.7;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;}
-    @media(prefers-reduced-motion:reduce){.tcol__track{animation:none;}.tcol__track > [data-dup]{display:none;}}
 
     /* PROOF BAR */
     .proof-bar{background:var(--bg3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -1165,7 +1164,7 @@
         </div>
         <div class="footer__trust">
             <b>⭐ 4.7 Stars</b> &nbsp;·&nbsp; 193 Verified Reviews
-            &nbsp;·&nbsp; <b>50+</b> Rentals Delivered &nbsp;·&nbsp; Serving Texas Statewide
+            &nbsp;·&nbsp; <b>50+</b> Events Served &nbsp;·&nbsp; Serving Texas Statewide
         </div>
     </div>
 </footer>
@@ -1178,7 +1177,7 @@
     </button>
     <div class="slide-panel__accent"></div>
     <h4>Units Filling Up for TMS Events</h4>
-    <p>Limited availability. Best setups and locations go first.</p>
+    <p>Limited availability. Best setups go first.</p>
     <a href="#quote-form" class="btn btn-gold">Get a Quick Quote</a>
 </div>
 
