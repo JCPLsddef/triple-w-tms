@@ -74,6 +74,7 @@
     .hero__benefits{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin-bottom:34px;}
     .hero__benefits li{font-size:13.5px;color:rgba(244,239,230,.72);font-weight:500;display:flex;align-items:center;gap:7px;}
     .hero__benefits li::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+    .hero__emo{font-family:'Inter',sans-serif;font-style:italic;font-size:14.5px;line-height:1.6;color:rgba(244,239,230,.78);max-width:540px;margin:0 0 28px;letter-spacing:.005em;}
     .hero__btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:30px}
     .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14.5px;padding:15px 32px;border-radius:4px;letter-spacing:.03em;border:none;cursor:pointer;white-space:nowrap;transition:background .2s,transform .1s,border-color .2s;}
     .btn:active{transform:translateY(0)!important}
@@ -156,6 +157,15 @@
     .ev-cd-box__n{font-family:'Inter',sans-serif;font-size:21px;font-weight:700;color:var(--gold);line-height:1;display:block;font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
     .ev-cd-box__l{font-size:7.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px;display:block;}
 
+    /* EVENT LOGO MARQUEE */
+    .strip-clip{overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);}
+    .strip-track{display:flex;gap:24px;width:max-content;animation:strip-scroll 35s linear infinite;will-change:transform;}
+    .strip-clip:hover .strip-track{animation-play-state:paused;}
+    .strip-card{flex:0 0 auto;width:140px;height:90px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;}
+    .strip-card img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+    @keyframes strip-scroll{from{transform:translate3d(0,0,0);}to{transform:translate3d(-50%,0,0);}}
+    @media(prefers-reduced-motion:reduce){.strip-track{animation:none;}.strip-track > [data-dup]{display:none;}}
+
     /* WHAT'S INCLUDED */
     .included{background:var(--bg)}
     .included__hd{text-align:center;margin-bottom:60px}
@@ -234,34 +244,27 @@
     .reviews{background:var(--bg2)}
     .reviews__hd{text-align:center;margin-bottom:42px}
     .reviews__hd h2{font-size:clamp(28px,3vw,44px);margin-bottom:5px}
-    .reviews__sub{font-size:13.5px;color:var(--text3)}
-    .reviews__featured{text-align:center;margin-bottom:52px;padding:64px 56px;border:1px solid rgba(201,150,44,.22);border-radius:10px;background:linear-gradient(150deg,rgba(201,150,44,.07),var(--bg4) 60%);max-width:780px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
-    .reviews__featured::before{content:'\201C';font-family:'Playfair Display',serif;font-size:200px;color:rgba(201,150,44,.08);position:absolute;top:4px;left:28px;line-height:.7;pointer-events:none;font-weight:800;}
-    .reviews__featured-stars{font-size:30px;color:var(--gold);letter-spacing:7px;margin-bottom:22px;position:relative;z-index:1;}
-    .reviews__featured-quote{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,40px);font-weight:700;color:var(--text);line-height:1.28;font-style:italic;margin-bottom:22px;position:relative;z-index:1;max-width:660px;margin-left:auto;margin-right:auto;}
-    .reviews__featured-attr{font-size:13.5px;color:var(--text2);font-weight:500;margin-bottom:4px;position:relative;z-index:1;}
-    .reviews__featured-src{font-size:11.5px;color:var(--text3);letter-spacing:.08em;position:relative;z-index:1;}
-    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    /* REVIEWS SLIDER */
-    .rev-slider{position:relative}
-    .rev-slider__viewport{overflow:hidden}
-    .rev-slider__track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform}
-    .rev-slide{flex:0 0 100%;min-width:0}
-    .rev-slide .reviews-grid{margin:0}
-    .rev-slider__controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:32px}
-    .rev-slider__btn{width:46px;height:46px;border-radius:50%;border:1px solid rgba(244,239,230,.20);background:transparent;color:var(--text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s,background .2s;padding:0}
-    .rev-slider__btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,150,44,.06)}
-    .rev-slider__dots{display:flex;gap:9px;align-items:center}
-    .rev-slider__dot{width:9px;height:9px;border-radius:50%;background:rgba(244,239,230,.22);border:none;cursor:pointer;padding:0;transition:background .25s,width .25s,border-radius .25s}
-    .rev-slider__dot:hover{background:rgba(244,239,230,.4)}
-    .rev-slider__dot.is-active{background:var(--gold);width:28px;border-radius:5px}
-    .rcard{background:var(--bg4);border:1px solid var(--line);border-radius:8px;padding:30px 26px;}
-    .rcard__stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
-    .rcard__text{font-size:15px;color:var(--text2);font-style:italic;line-height:1.8;margin-bottom:20px}
-    .rcard__author{font-size:14px;font-weight:700;color:var(--text)}
-    .rcard__ctx{font-size:12px;color:var(--text2);margin-top:3px}
-    .rcard__verified{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--gold);font-weight:600;letter-spacing:.06em;margin-top:8px;}
-    .rcard__source{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--text3);font-weight:500;letter-spacing:.04em;margin-top:5px;}
+    .reviews__sub{font-size:13.5px;color:var(--text3);margin-bottom:42px;}
+    /* TESTIMONIALS — 3-column vertical auto-scroll */
+    .tgrid{display:grid;grid-template-columns:1fr;gap:24px;max-height:740px;overflow:hidden;mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 75%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 75%,transparent);}
+    @media(min-width:768px){.tgrid{grid-template-columns:1fr 1fr;}}
+    @media(min-width:1024px){.tgrid{grid-template-columns:1fr 1fr 1fr;}}
+    .tcol{overflow:hidden;}
+    .tcol-2,.tcol-3{display:none;}
+    @media(min-width:768px){.tcol-2{display:block;}}
+    @media(min-width:1024px){.tcol-3{display:block;}}
+    .tcol__track{display:flex;flex-direction:column;gap:24px;will-change:transform;}
+    .tcol-1 .tcol__track{animation:tcol-scroll 15s linear infinite;}
+    .tcol-2 .tcol__track{animation:tcol-scroll 19s linear infinite;}
+    .tcol-3 .tcol__track{animation:tcol-scroll 17s linear infinite;}
+    .tgrid:hover .tcol__track{animation-play-state:paused;}
+    @keyframes tcol-scroll{from{transform:translate3d(0,0,0);}to{transform:translate3d(0,-50%,0);}}
+    .tcard{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;color:#e9e4d8;}
+    .tcard__stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px;}
+    .tcard__text{font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.6;color:#e9e4d8;}
+    .tcard__name{color:#fff;font-weight:600;margin-top:14px;font-size:13.5px;}
+    .tcard__src{color:var(--gold);opacity:.7;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;}
+    @media(prefers-reduced-motion:reduce){.tcol__track{animation:none;}.tcol__track > [data-dup]{display:none;}}
 
     /* PROOF BAR */
     .proof-bar{background:var(--bg3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -382,7 +385,6 @@
         .step-connector{display:none}
         .fleet-grid{grid-template-columns:1fr 1fr;grid-template-rows:200px 160px 160px}
         .fleet-ph:nth-child(1){grid-row:span 1;grid-column:span 2}
-        .reviews-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
         .cta-sec__grid{grid-template-columns:1fr;gap:46px}
     }
     @media(max-width:768px){
@@ -428,8 +430,8 @@
         .ev-countdown{gap:5px}
         .ev-cd-box{min-width:46px;padding:7px 0}
         .ev-cd-box__n{font-size:17px}
-        .reviews__featured{padding:36px 22px}
-        .reviews__featured-quote{font-size:clamp(20px,5.5vw,28px)}
+        .tcard{padding:22px;}
+        .hero__emo{font-size:13.5px;margin-bottom:22px;}
     }
     </style>
 </head>
@@ -473,7 +475,7 @@
         <div class="hero__content">
             <div class="event-pill fi">Texas Motor Speedway · RV Delivery &amp; Setup</div>
             <h1 class="fi d1">
-                Your RV Is Ready.<br>Delivered. Set Up.<br><em>Waiting at TMS.</em>
+                Your RV Is Ready.<br>Delivered. Set Up.<br><em>Waiting at the Speedway.</em>
             </h1>
             <p class="hero__sub fi d2">
                 A premium RV delivered and fully set up at Texas Motor Speedway — before you arrive. No hotel. No commute. No setup. Just show up and enjoy the event.
@@ -484,6 +486,7 @@
                 <li>Steps from the track — zero commute</li>
                 <li>Sleeps 6–10 — split the cost, beat the hotel price</li>
             </ul>
+            <p class="hero__emo fi d2">Show up to a fully set-up RV, your crew already there, the event buzzing around you. That's how it starts.</p>
             <div class="hero__btns fi d3">
                 <a href="#quote-form" class="btn btn-gold">
                     Reserve Your Spot
@@ -637,14 +640,41 @@
 ══════════════════════════════════════ -->
 <section class="ev-strip sec-tight" id="races">
     <div class="wrap">
-        <div class="ev-strip__hd" style="margin-bottom:24px">
-            <h2 class="fi">Upcoming at Texas Motor Speedway</h2>
-            <p class="ev-strip__sub fi d1">Events all year long. Check the full schedule.</p>
+        <div class="ev-strip__hd">
+            <h2 class="fi">We Deliver for Every TMS Event</h2>
+            <p class="ev-strip__sub fi d1">NASCAR, food festivals, car shows, dirt track racing, concerts, and more.</p>
         </div>
-        <div style="text-align:center" class="fi d2">
-            <a href="https://www.texasmotorspeedway.com/events/" target="_blank" rel="noopener" class="btn btn-gold">
-                See Full TMS Event Calendar →
-            </a>
+        <div class="strip-clip fi d2">
+            <div class="strip-track">
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_49f35f4f6b534a109d4f983cc6229530~mv2.webp" alt="NASCAR Weekend" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_0b2b32f142f349d6afca49987b7dbe9b~mv2.webp" alt="FoodieLand" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_cbae179f7c0342b68a6893b5ec377496~mv2.webp" alt="LS Fest" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_35ea916cf31240688dfa279d806c9650~mv2.webp" alt="Sick New World" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_e3257f8c5e3c438e948ce60f2a9ca09c~mv2.webp" alt="Goodguys" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_2878234b7b6644cfac18393757682377~mv2.webp" alt="Blues Hog BBQ" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_197e1748ba3c4201bbda46fb5f7f769e~mv2.webp" alt="High Limit Racing" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_cd42136a20ab45d8968533e365676460~mv2.webp" alt="C10 Nationals" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_805726c952cc49868960bd3ab1619477~mv2.webp" alt="Urban Racing" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_06f303cbe083461babc5396ae1fbd79c~mv2.webp" alt="Bandas Y Trocas" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_63ac335a6e644164b2fefc0e44f4af4d~mv2.webp" alt="POWRi Racing" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_6582095574924719ba42d071db94e677~mv2.webp" alt="Team Texas" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_23283698fa554e3bbcaa162ae3ebf9dc~mv2.webp" alt="SCC Laps for Charity" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card"><img src="https://static.wixstatic.com/media/62f926_516af1c2c7d24fbdbead0fe55c27410f~mv2.webp" alt="TMS Dirt Track Championship" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_49f35f4f6b534a109d4f983cc6229530~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_0b2b32f142f349d6afca49987b7dbe9b~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_cbae179f7c0342b68a6893b5ec377496~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_35ea916cf31240688dfa279d806c9650~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_e3257f8c5e3c438e948ce60f2a9ca09c~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_2878234b7b6644cfac18393757682377~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_197e1748ba3c4201bbda46fb5f7f769e~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_cd42136a20ab45d8968533e365676460~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_805726c952cc49868960bd3ab1619477~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_06f303cbe083461babc5396ae1fbd79c~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_63ac335a6e644164b2fefc0e44f4af4d~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_6582095574924719ba42d071db94e677~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_23283698fa554e3bbcaa162ae3ebf9dc~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+                <div class="strip-card" data-dup aria-hidden="true"><img src="https://static.wixstatic.com/media/62f926_516af1c2c7d24fbdbead0fe55c27410f~mv2.webp" alt="" width="140" height="90" loading="eager" decoding="async"></div>
+            </div>
         </div>
     </div>
 </section>
@@ -698,7 +728,7 @@
         </div>
         <div class="included__cta">
             <a href="#quote-form" class="btn btn-gold fi">
-                Reserve Your RV
+                See Options for Your Event
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <span class="included__note fi d1">10 units available · Spots are going fast</span>
@@ -860,137 +890,45 @@
             <p class="reviews__sub fi d1">From families, groups, and first-timers — all verified.</p>
         </div>
 
-        <div class="reviews__featured fi">
-            <div class="reviews__featured-stars">★★★★★</div>
-            <div class="reviews__featured-quote">"Best RV rental ever! They rented to us at a moment's notice on the 4th of July. Delivered same day, setup, and provided an overview. Amazing! Top notch! Above and beyond!"</div>
-            <div class="reviews__featured-attr">— Luci Wade-Cantu</div>
-            <div class="reviews__featured-src">Verified Google Review</div>
+        <div class="tgrid fi d2">
+            <div class="tcol tcol-1">
+                <div class="tcol__track">
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Have rented from this company many times. They have excellent customer service and the RV has always been in Great shape. What stands out about this company is the convenience. They will delivery a Golf Cart and RV to wherever you're at and you don't have to touch a thing."</p><div class="tcard__name">Daniel Henson</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"This was the easiest rental I have ever done. These guys were quick to answer any questions, very professional, and so convenient for our weekend at the ATV park. The unit was super clean and perfect size for the family. Definitely recommend!!"</p><div class="tcard__name">Jennifer Crumley</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Triple W Rentals provided professional and excellent quality of service. From booking the RV rental, to the unit provided itself, the experience was great. They even without request, provided an upgraded unit to insure the stay was the best it could be."</p><div class="tcard__name">Dennis Kruse</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"If youre looking for an RV rental option, Triple W Rentals should be your only phone call! Phenomenal customer service, and a great selection of clean and nice rvs."</p><div class="tcard__name">Brandon</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Have rented from this company many times. They have excellent customer service and the RV has always been in Great shape. What stands out about this company is the convenience. They will delivery a Golf Cart and RV to wherever you're at and you don't have to touch a thing."</p><div class="tcard__name">Daniel Henson</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"This was the easiest rental I have ever done. These guys were quick to answer any questions, very professional, and so convenient for our weekend at the ATV park. The unit was super clean and perfect size for the family. Definitely recommend!!"</p><div class="tcard__name">Jennifer Crumley</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Triple W Rentals provided professional and excellent quality of service. From booking the RV rental, to the unit provided itself, the experience was great. They even without request, provided an upgraded unit to insure the stay was the best it could be."</p><div class="tcard__name">Dennis Kruse</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"If youre looking for an RV rental option, Triple W Rentals should be your only phone call! Phenomenal customer service, and a great selection of clean and nice rvs."</p><div class="tcard__name">Brandon</div><div class="tcard__src">Verified Google Review</div></div>
+                </div>
+            </div>
+            <div class="tcol tcol-2">
+                <div class="tcol__track">
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"We rented the Impression RV for a mini vacation with our grand kids. They were thrilled with the bunk beds, and we felt the RV was spacious and easy to handle. Westin and his brother were super helpful and informative throughout our experience. Very friendly and laid-back guys! We would definitely use Triple-W again!"</p><div class="tcard__name">Dan Laura Savage</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"We've used Triple W Rentals twice now. And we can't be more pleased! Their trailers are exceptionally clean and exactly as they are described on their website. Triple W goes out of their way to give you the best experience. We will definitely be using them again and recommending them to all our family and friends!"</p><div class="tcard__name">Mylissa Messer</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Such a wonderful experience!!! Triple W was super responsive, and super easy to work with. The camper we rented was more than I had expected! Very nice and clean! As repeat customers we will most definitely continue to us Triple W!"</p><div class="tcard__name">Ashlie W</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Best RV rental ever! They rented to us at a moment's notice on the 4th of July. Delivered same day, setup, and provided an overview. Amazing! Top notch! Above and beyond!"</p><div class="tcard__name">Luci Wade-Cantu</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"We rented the Impression RV for a mini vacation with our grand kids. They were thrilled with the bunk beds, and we felt the RV was spacious and easy to handle. Westin and his brother were super helpful and informative throughout our experience. Very friendly and laid-back guys! We would definitely use Triple-W again!"</p><div class="tcard__name">Dan Laura Savage</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"We've used Triple W Rentals twice now. And we can't be more pleased! Their trailers are exceptionally clean and exactly as they are described on their website. Triple W goes out of their way to give you the best experience. We will definitely be using them again and recommending them to all our family and friends!"</p><div class="tcard__name">Mylissa Messer</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Such a wonderful experience!!! Triple W was super responsive, and super easy to work with. The camper we rented was more than I had expected! Very nice and clean! As repeat customers we will most definitely continue to us Triple W!"</p><div class="tcard__name">Ashlie W</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Best RV rental ever! They rented to us at a moment's notice on the 4th of July. Delivered same day, setup, and provided an overview. Amazing! Top notch! Above and beyond!"</p><div class="tcard__name">Luci Wade-Cantu</div><div class="tcard__src">Verified Google Review</div></div>
+                </div>
+            </div>
+            <div class="tcol tcol-3">
+                <div class="tcol__track">
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"The customer service was outstanding. Shane went above and beyond. The camper was delivered and set up before I even arrived, completely stocked. All I had to do was bring my family and food."</p><div class="tcard__name">Amy Walker</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Triple W was great to work with. As a RV novice Wayne was very polite, patient and accommodating. The RV was in great condition and fully loaded with strong A/C. Will definitely use them again."</p><div class="tcard__name">Sandy McKinney</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Great experience! The booking process was smooth, the staff was friendly and helpful, and the Momentum RV was in excellent condition. Everything went exactly as planned."</p><div class="tcard__name">Jaden Richardson</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"The RV was setup and delivered for us. Clean and roomy. Westin and his company were a pleasure to do business with. Couldn't ask for a better experience!"</p><div class="tcard__name">Grant Walker</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"The customer service was outstanding. Shane went above and beyond. The camper was delivered and set up before I even arrived, completely stocked. All I had to do was bring my family and food."</p><div class="tcard__name">Amy Walker</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Triple W was great to work with. As a RV novice Wayne was very polite, patient and accommodating. The RV was in great condition and fully loaded with strong A/C. Will definitely use them again."</p><div class="tcard__name">Sandy McKinney</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"Great experience! The booking process was smooth, the staff was friendly and helpful, and the Momentum RV was in excellent condition. Everything went exactly as planned."</p><div class="tcard__name">Jaden Richardson</div><div class="tcard__src">Verified Google Review</div></div>
+                    <div class="tcard" data-dup aria-hidden="true"><div class="tcard__stars">★★★★★</div><p class="tcard__text">"The RV was setup and delivered for us. Clean and roomy. Westin and his company were a pleasure to do business with. Couldn't ask for a better experience!"</p><div class="tcard__name">Grant Walker</div><div class="tcard__src">Verified Google Review</div></div>
+                </div>
+            </div>
         </div>
 
-        <div class="rev-slider fi">
-            <div class="rev-slider__viewport">
-                <div class="rev-slider__track">
-                    <!-- SLIDE 1 -->
-                    <div class="rev-slide">
-                        <div class="reviews-grid">
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"When my reservation with another company was canceled last minute, I called Triple W and they came through. Corbin went above and beyond. His attention to detail and professionalism were greatly appreciated."</p>
-                                <div class="rcard__author">Wyman Jones</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"I have rented from Triple W multiple times. The communication is always outstanding. Corbin arrived on site in minutes and checked in daily. Exceeded my expectations."</p>
-                                <div class="rcard__author">JT Seargeant</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"Best RV rental ever! They rented to us at a moment's notice on the 4th of July. Delivered same day, setup, and provided an overview. Amazing! Top notch! Above and beyond!"</p>
-                                <div class="rcard__author">Luci Wade-Cantu</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- SLIDE 2 -->
-                    <div class="rev-slide">
-                        <div class="reviews-grid">
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"The customer service was outstanding. Shane went above and beyond. The camper was delivered and set up before I even arrived, completely stocked. All I had to do was bring my family and food."</p>
-                                <div class="rcard__author">Amy Walker</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"Triple W was great to work with. As a RV novice Wayne was very polite, patient and accommodating. The RV was in great condition and fully loaded with strong A/C. Will definitely use them again."</p>
-                                <div class="rcard__author">Sandy McKinney</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"Great experience! The booking process was smooth, the staff was friendly and helpful, and the Momentum RV was in excellent condition. Everything went exactly as planned."</p>
-                                <div class="rcard__author">Jaden Richardson</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- SLIDE 3 -->
-                    <div class="rev-slide">
-                        <div class="reviews-grid">
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"The RV was setup and delivered for us. Clean and roomy. Westin and his company were a pleasure to do business with. Couldn't ask for a better experience!"</p>
-                                <div class="rcard__author">Grant Walker</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"Triple W Rentals has amazing RVs and great employees. The delivery driver is the best I've seen and should always be recommended. Great job guys."</p>
-                                <div class="rcard__author">Marsha Swann</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                            <div class="rcard">
-                                <div class="rcard__stars">★★★★★</div>
-                                <p class="rcard__text">"Highly recommend! Their customer service was outstanding — so personable, responsive, and accommodating. They delivered our luxury golf cart right to our stalls. Super clean and comfortable."</p>
-                                <div class="rcard__author">Giovanna Iriel</div>
-                                <div class="rcard__verified">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                                    Verified Review
-                                </div>
-                                <div class="rcard__source">via Google Reviews</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rev-slider__controls">
-                <button class="rev-slider__btn rev-slider__btn--prev" aria-label="Previous reviews">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                <div class="rev-slider__dots">
-                    <button class="rev-slider__dot is-active" data-slide="0" aria-label="Slide 1"></button>
-                    <button class="rev-slider__dot" data-slide="1" aria-label="Slide 2"></button>
-                    <button class="rev-slider__dot" data-slide="2" aria-label="Slide 3"></button>
-                </div>
-                <button class="rev-slider__btn rev-slider__btn--next" aria-label="Next reviews">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -1023,7 +961,7 @@
                 <li>We sell out regularly. <strong>If you're planning ahead, now is the time.</strong></li>
             </ul>
             <a href="#quote-form" class="btn btn-gold fi d3">
-                Check Availability Now
+                Lock In Your Spot
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
@@ -1160,15 +1098,25 @@
                         </div>
                         <div class="fgrp">
                             <label for="f-dates">Select Your Event</label>
+                            <!--
+                                UPCOMING_EVENTS — edit this list monthly.
+                                Each <option> value is what gets submitted to the form handler; label (inside the tag) is what users see.
+                                Keep "Other / Custom Dates" last as the catch-all.
+                            -->
                             <select id="f-dates" name="dates">
                                 <option value="" disabled selected>Select event</option>
                                 <option value="NASCAR Weekend (May 1-3)">NASCAR Weekend (May 1–3)</option>
+                                <option value="C10 Nationals (May 8-9)">C10 Nationals (May 8–9)</option>
                                 <option value="LS Fest (May 15-16)">LS Fest (May 15–16)</option>
                                 <option value="Bandas Y Trocas (May 23)">Bandas Y Trocas (May 23)</option>
                                 <option value="Urban Racing (May 30)">Urban Racing (May 30)</option>
                                 <option value="FoodieLand (June 5-7)">FoodieLand (June 5–7)</option>
+                                <option value="NASCAR Racing Experience (July 11)">NASCAR Racing Experience (July 11)</option>
                                 <option value="Goodguys Nationals (Oct 2-3)">Goodguys Nationals (Oct 2–3)</option>
+                                <option value="High Limit Racing Championship (Oct 16-17)">High Limit Racing Championship (Oct 16–17)</option>
                                 <option value="Sick New World Festival (Oct 24)">Sick New World Festival (Oct 24)</option>
+                                <option value="POWRi Racing (Oct 29-31)">POWRi Racing (Oct 29–31)</option>
+                                <option value="POWRi Racing (Nov 5-7)">POWRi Racing (Nov 5–7)</option>
                                 <option value="Other / Custom Dates">Other / Custom Dates</option>
                             </select>
                         </div>
@@ -1231,7 +1179,7 @@
     <div class="slide-panel__accent"></div>
     <h4>Units Filling Up for TMS Events</h4>
     <p>Limited availability. Best setups and locations go first.</p>
-    <a href="#quote-form" class="btn btn-gold">Check Availability</a>
+    <a href="#quote-form" class="btn btn-gold">Get a Quick Quote</a>
 </div>
 
 <!-- MOBILE STICKY CTA -->
@@ -1419,26 +1367,7 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
 
 })();
 
-/* Reviews slider */
-(function(){
-    const track=document.querySelector('.rev-slider__track');
-    if(!track)return;
-    const slides=track.querySelectorAll('.rev-slide');
-    const dots=document.querySelectorAll('.rev-slider__dot');
-    const prev=document.querySelector('.rev-slider__btn--prev');
-    const next=document.querySelector('.rev-slider__btn--next');
-    let i=0,timer;
-    const go=n=>{
-        i=(n+slides.length)%slides.length;
-        track.style.transform='translateX(-'+(i*100)+'%)';
-        dots.forEach((d,k)=>d.classList.toggle('is-active',k===i));
-    };
-    const restart=()=>{clearInterval(timer);timer=setInterval(()=>go(i+1),7000);};
-    prev.addEventListener('click',()=>{go(i-1);restart();});
-    next.addEventListener('click',()=>{go(i+1);restart();});
-    dots.forEach((d,k)=>d.addEventListener('click',()=>{go(k);restart();}));
-    restart();
-})();
+
 </script>
 </body>
 </html>
